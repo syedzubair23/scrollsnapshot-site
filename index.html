@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ScrollSnapshot — Privacy Policy</title>
+<title>ScrollSnapshot Privacy Policy</title>
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
 <link rel="apple-touch-icon" sizes="128x128" href="icon-128.png" />
 <style>
@@ -86,52 +86,52 @@
 </head>
 <body>
 <main>
-  <h1>ScrollSnapshot — Privacy Policy</h1>
+  <h1>ScrollSnapshot Privacy Policy</h1>
   <p class="updated">Last updated: 17 September 2026</p>
 
   <div class="tldr">
     <p><strong>In short:</strong> ScrollSnapshot captures screenshots of the page you tell it
-    to, entirely on your own device. Nothing you capture — and no browsing data — is ever sent
-    to us, to any server, or to any third party. There is no account, no sign-in, and no
+    to, entirely on your own device. Nothing you capture, and no browsing data, is ever sent
+    to us, to any server, or to any third party. There's no account, no sign-in, and no
     tracking or analytics of any kind.</p>
   </div>
 
   <h2>What ScrollSnapshot does</h2>
   <p>
-    ScrollSnapshot is a Chrome extension that captures the tab you are viewing: the visible
+    ScrollSnapshot is a Chrome extension that captures the tab you're viewing: the visible
     area, the whole scrollable page, the page split into numbered image slices, or a region you
     draw or specify. It can also extract the text and colours shown in what you capture, and let
     you crop, redact or annotate the result before you save it.
   </p>
   <p>
-    Every one of these actions happens only when you explicitly trigger it — by clicking the
-    extension's icon, using a keyboard shortcut, or clicking a button inside the extension's own
-    popup or result page. ScrollSnapshot never captures, reads or acts on a page in the
-    background or without that action from you.
+    You have to trigger every one of these actions yourself, by clicking the extension's icon,
+    using a keyboard shortcut, or clicking a button inside its popup or result page.
+    ScrollSnapshot never captures, reads or acts on a page in the background, or without that
+    action from you.
   </p>
 
   <h2>What data ScrollSnapshot accesses, and why</h2>
-  <p>Chrome requires an extension to declare the permissions it uses. Here is what each one is
-  for and nothing more:</p>
+  <p>Chrome requires an extension to declare the permissions it uses. Here's what each one is
+  for, and nothing more:</p>
   <table>
     <tr><th>Permission</th><th>What it's used for</th></tr>
     <tr>
       <td><code>activeTab</code></td>
       <td>Lets the extension act on the tab you're currently looking at, only after you click
-      its icon or a shortcut — the standard, narrowest way Chrome lets an extension read a page
-      on request.</td>
+      its icon or a shortcut. It's the standard, narrowest way Chrome lets an extension read a
+      page on request.</td>
     </tr>
     <tr>
       <td><code>scripting</code></td>
       <td>Injects the small script that measures the page, scrolls it during a full-page
-      capture, and reads the pixels, text or line positions you asked to capture — running only
-      in the tab you triggered a capture in.</td>
+      capture, and reads the pixels, text or line positions you asked to capture. It runs only in
+      the tab where you triggered a capture.</td>
     </tr>
     <tr>
       <td><code>storage</code></td>
-      <td>Saves your settings (default format, capture engine, etc.) and, if you enable capture
-      history, your past captures — all inside your browser's own local storage. See "Where your
-      data is stored" below.</td>
+      <td>Saves your settings (default format, capture engine, and so on) and, if you enable
+      capture history, your past captures, all inside your browser's own local storage. See
+      "Where your data is stored" below.</td>
     </tr>
     <tr>
       <td><code>downloads</code></td>
@@ -146,14 +146,14 @@
       <td>Used only if you turn on the optional "Turbo" capture engine, which uses Chrome's own
       DevTools protocol to capture a page more precisely. Chrome shows a banner across your
       browser windows for as long as this engine is attached, and dismissing that banner cancels
-      the capture in progress — that is a restriction Chrome itself imposes on any extension
-      using this permission, not something ScrollSnapshot adds.</td>
+      the capture in progress. That's a restriction Chrome itself imposes on any extension using
+      this permission, not something ScrollSnapshot adds.</td>
     </tr>
     <tr>
       <td><code>&lt;all_urls&gt;</code> (host access)</td>
-      <td>Needed so a capture triggered by a keyboard shortcut — where there is no click on the
-      extension's icon to grant one-off access — can still run on whatever page you're viewing.
-      ScrollSnapshot does not read, monitor or transmit anything from any page except at the
+      <td>Needed so a capture triggered by a keyboard shortcut, which has no click on the
+      extension's icon to grant one-off access, can still run on whatever page you're viewing.
+      ScrollSnapshot doesn't read, monitor or transmit anything from any page except at the
       moment you trigger a capture on it.</td>
     </tr>
   </table>
@@ -161,43 +161,42 @@
   <h2>Where your data is stored</h2>
   <p>
     Everything ScrollSnapshot produces or remembers is stored locally, inside your own browser
-    profile, using Chrome's built-in storage — the same mechanism any website uses to remember
-    your preferences. Specifically:
+    profile, using Chrome's built-in storage. It's the same mechanism any website uses to
+    remember your preferences. Specifically:
   </p>
   <ul>
     <li><strong>Captures</strong> (if you turn on capture history) are kept in your browser's
     IndexedDB, on your device only, up to a limit you choose in Settings. You can clear them, or
     delete individual captures, at any time from the History page.</li>
-    <li><strong>Settings</strong> (format, engine, quality, etc.) are kept in Chrome's
+    <li><strong>Settings</strong> (format, engine, quality, and so on) are kept in Chrome's
     <code>storage</code> API, which may sync across your own signed-in Chrome browsers the same
-    way Chrome syncs bookmarks — that sync is Chrome's, not ScrollSnapshot's, and no ScrollSnapshot
-    server is ever involved.</li>
+    way Chrome syncs bookmarks. That sync is Chrome's, not ScrollSnapshot's, and no
+    ScrollSnapshot server is ever involved.</li>
   </ul>
   <p>
     <strong>ScrollSnapshot has no server.</strong> It makes no network requests of its own, sends
-    nothing it captures anywhere, and has no way to see what you have captured, stored, or
-    deleted. There is nothing for us to collect, because nothing leaves your device.
+    nothing it captures anywhere, and has no way to see what you've captured, stored, or deleted.
+    There's nothing for us to collect, because nothing leaves your device.
   </p>
 
   <h2>Accounts, analytics and third parties</h2>
   <p>
     ScrollSnapshot has no account system, no sign-in, and collects no analytics, telemetry, or
-    usage statistics. It does not use any third-party service, SDK, or advertising network of any
+    usage statistics. It doesn't use any third-party service, SDK, or advertising network of any
     kind.
   </p>
 
   <h2>Children's privacy</h2>
   <p>
-    ScrollSnapshot is a general-purpose developer and productivity tool, not directed at
-    children, and knowingly collects no data from anyone — children included, since it collects
-    no data from anyone at all.
+    ScrollSnapshot is a general-purpose developer and productivity tool. It isn't directed at
+    children, and since it collects no data from anyone at all, that includes children too.
   </p>
 
   <h2>Changes to this policy</h2>
   <p>
     If ScrollSnapshot's data practices ever change, this page will be updated and the "Last
     updated" date above will change with it. Since the extension has no way to contact you
-    directly, please check back here if you want to confirm nothing has changed.
+    directly, check back here if you want to confirm nothing has changed.
   </p>
 
   <h2>Contact &amp; support</h2>

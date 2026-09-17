@@ -1,4 +1,4 @@
-# ScrollSnapshot — Support & Legal
+# ScrollSnapshot Support & Legal
 
 Public home for [ScrollSnapshot](https://chrome.google.com/webstore)'s privacy policy and
 support requests. The extension's source lives in a separate, private repository.
