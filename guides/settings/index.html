@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f5f1">
+  <meta name="description" content="A complete tour of Capture, Batch, Features, Output, Slices, and Shortcuts.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Settings, explained">
+  <meta property="og:description" content="A complete tour of Capture, Batch, Features, Output, Slices, and Shortcuts.">
+  <meta property="og:url" content="https://syedzubair23.github.io/scrollsnapshot-site/guides/settings/">
+  <meta property="og:image" content="https://syedzubair23.github.io/scrollsnapshot-site/assets/settings.webp">
+  <link rel="canonical" href="https://syedzubair23.github.io/scrollsnapshot-site/guides/settings/">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32.png">
+  <link rel="apple-touch-icon" sizes="128x128" href="../../icon-128.png">
+  <link rel="stylesheet" href="../../site.css">
+  <link rel="stylesheet" href="../../guides/guide.css">
+  <script src="../../guides/guide.js" defer></script>
+  <title>Settings, explained — ScrollSnapshot</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <header class="site-header" id="top">
+    <div class="shell header-inner">
+      <a class="brand" href="../../" aria-label="ScrollSnapshot homepage">
+        <img src="../../icon-128.png" alt="" width="34" height="34">
+        <span>ScrollSnapshot</span>
+      </a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="../../#modes">Capture modes</a>
+        <a href="../../guides/" aria-current="page">Guides</a>
+        <a href="../../privacy/">Privacy</a>
+        <a href="../../support/">Support</a>
+      </nav>
+      <a class="header-cta" href="https://chromewebstore.google.com/detail/scrollsnapshot/hhahcllpchhmkgmioaekblbnblodbiic" target="_blank" rel="noopener noreferrer" aria-label="View ScrollSnapshot in the Chrome Web Store, available after launch">Chrome Web Store <span aria-hidden="true">↗</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav"><span>Menu</span><span class="menu-lines" aria-hidden="true"><i></i><i></i></span></button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
+      <a href="../../#modes">Capture modes</a>
+      <a href="../../guides/" aria-current="page">Guides</a>
+      <a href="../../privacy/">Privacy</a>
+      <a href="../../support/">Support</a>
+      <a href="https://chromewebstore.google.com/detail/scrollsnapshot/hhahcllpchhmkgmioaekblbnblodbiic" target="_blank" rel="noopener noreferrer">Chrome Web Store ↗</a>
+    </nav>
+  </header>
+  <main id="main">
+    <article>
+      <header class="guide-article-hero shell">
+        <nav class="guide-breadcrumb" aria-label="Breadcrumb"><a href="../../">Home</a><span>/</span><a href="../">Guides</a><span>/</span><span aria-current="page">Settings, explained</span></nav>
+        <div class="guide-eyebrow reveal"><span>25 / 25</span><span class="kicker-rule"></span><span>SETTINGS · DEEP GUIDE</span></div>
+        <h1 class="reveal">Settings, explained</h1>
+        <p class="guide-article-lead reveal">Settings is where you choose how ScrollSnapshot behaves between captures. Start with the defaults you use every day, then adjust a single capture from the popup when a page calls for something different.</p>
+      </header>
+      <div class="shell"><figure class="guide-article-visual"><a href="../../assets/settings.webp" target="_blank" rel="noopener" aria-label="Open full-size image: ScrollSnapshot Settings on the Capture tab, showing engine and page handling controls"><img src="../../assets/settings.webp" alt="ScrollSnapshot Settings on the Capture tab, showing engine and page handling controls" width="1880" height="1175" loading="lazy"></a><figcaption><span>FIG. 25 / The Capture tab sets the behaviour used for future captures.</span><a href="../../assets/settings.webp" target="_blank" rel="noopener">OPEN FULL SIZE ↗</a></figcaption></figure></div>
+      <div class="guide-article-grid shell">
+        <aside class="guide-article-aside" aria-label="On this page"><span>IN THIS GUIDE</span><a href="#section-1">Start with a default</a><a href="#section-2">Capture: choose how the page is read</a><a href="#section-3">Batch: work through a queue</a><a href="#section-4">Features: keep your workspace focused</a><a href="#section-5">Output: name, format, and keep results</a><a href="#section-6">Slices: choose the shape of each piece</a><a href="#section-7">Shortcuts: see and change keys</a><a href="#section-8">A sensible first pass</a><a class="guide-aside-all" href="../">All guides ↗</a></aside>
+        <div class="guide-article-body">
+          <section class="guide-prose-section" id="section-1"><span class="guide-section-index">01</span><div><h2>Start with a default</h2><p>Open Settings from the extension popup. The choices here apply across captures; the popup can override capture mode and image format for one capture. The System, Light, and Dark switch at the top changes the extension&#39;s appearance, with System following your device preference.</p></div></section>
+<section class="guide-prose-section" id="section-2"><span class="guide-section-index">02</span><div><h2>Capture: choose how the page is read</h2><p>Standard builds a full-page image by scrolling and stitching. Turbo asks Chromium for the whole page at once, avoids scrolling seams, and shows a browser debugging banner while it runs. Choose Standard when you need the scrolling controls below; use Turbo when its direct capture suits the page.</p>
+<p>Scroll once before capturing wakes images that load only when viewed. Hide pinned headers and footers prevents a sticky bar from repeating through a stitched image. Settle delay after each scroll gives dynamic content 0–600 ms to finish moving before a tile is taken.</p>
+<p>Shrink pages too tall for one image lets an oversized result fit within the browser&#39;s image limit. Turn it off if you prefer that capture to fail, then use Slices to retain the page in separate full-resolution pieces.</p></div></section>
+<section class="guide-prose-section" id="section-3"><span class="guide-section-index">03</span><div><h2>Batch: work through a queue</h2><p>Capture from Open tabs processes ordinary web tabs in the current window and skips browser or extension pages. URL list accepts one address per line, up to 50; addresses without a scheme use HTTPS. Each job uses the current Capture and Output defaults and captures a full page.</p>
+<p>Capture history must be on before a batch can run, so finished pages stay available. The page shows progress, reports individual failures, and lets you cancel a running batch.</p></div></section>
+<section class="guide-prose-section" id="section-4"><span class="guide-section-index">04</span><div><h2>Features: keep your workspace focused</h2><p>The Features tab lists controls under Capture, Editor, Output, and Tools. Turn a feature off to hide its controls from the extension; the feature is still available to turn on again here. Turning off Capture history changes what is retained, so check the Output tab before disabling it.</p></div></section>
+<section class="guide-prose-section" id="section-5"><span class="guide-section-index">05</span><div><h2>Output: name, format, and keep results</h2><p>Choose PNG, JPEG, or WebP as the default image format. The Quality slider appears for JPEG and WebP, from 40% to 100%. You can still choose another format in the popup for a particular capture.</p>
+<p>Filename template accepts {site}, {date}, {time}, {mode}, {index}, {width}, and {height}. The example filename beneath the field updates as you edit, so check it before settling on a naming pattern. Automatic clipboard copy applies to PNG captures only.</p>
+<p>When Capture history is on, Keep captures sets the newest-result limit and Delete after removes captures older than the chosen age, even if the count limit has not been reached. Open capture history takes you to the saved results. With history off, only the newest result remains until the next capture replaces it.</p></div></section>
+<section class="guide-prose-section" id="section-6"><span class="guide-section-index">06</span><div><h2>Slices: choose the shape of each piece</h2><p>Slice by Screenful follows the visible viewport, Height uses a pixel height you enter, and Count divides the page into the number of pieces you choose. Overlap between slices adds 0–200 pixels of shared content at each boundary so adjacent images are easier to follow. These controls set the default for Slices captures.</p></div></section>
+<section class="guide-prose-section" id="section-7"><span class="guide-section-index">07</span><div><h2>Shortcuts: see and change keys</h2><p>The Shortcuts tab shows the current key for each extension command, or “unset” where none is assigned. Choose Change shortcuts to open Chrome&#39;s extension shortcut page, where browser-managed bindings can be edited.</p></div></section>
+<section class="guide-prose-section" id="section-8"><span class="guide-section-index">08</span><div><h2>A sensible first pass</h2><ol class="guide-steps"><li>Choose Standard or Turbo under Capture and decide whether lazy images need a pre-scroll.</li><li>Set an Output format and filename that match how you share captures.</li><li>Decide whether to keep Capture history, and set its count and age limits if you do.</li><li>Choose a Slices strategy for pages too tall for one image, then review Features and Shortcuts as needed.</li></ol></div></section>
+          <aside class="guide-note"><span>KEEP IN MIND</span><p>Capture defaults can affect the next capture. Inspect its result before sharing, especially after changing engine, format, or retention settings.</p></aside>
+        </div>
+      </div>
+    </article>
+    <nav class="guide-prev-next shell" aria-label="Adjacent guides"><a href="../colour-palette/"><span>← PREVIOUS GUIDE</span><strong>See the colours that dominate</strong></a><span></span></nav>
+    <section class="guide-related shell" aria-labelledby="related-heading"><div class="section-label"><span>KEEP READING</span><span class="label-line"></span></div><h2 id="related-heading">Nearby ideas.</h2><div class="guide-related-grid"><a href="../full-page/"><span>CAPTURE ↗</span><strong>One page, top to bottom</strong><small>Turn a long document into one continuous image.</small></a><a href="../numbered-slices/"><span>CAPTURE ↗</span><strong>Keep a long page at full resolution</strong><small>A numbered ZIP for pages that outgrow one image.</small></a><a href="../capture-history/"><span>OUTPUT ↗</span><strong>Find the capture you already made</strong><small>A searchable, local record of recent captures.</small></a></div></section>
+  </main>
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div><a class="brand" href="../../"><img src="../../icon-128.png" alt="" width="30" height="30"><span>ScrollSnapshot</span></a><p>Capture the page. Keep the detail.</p></div>
+      <div class="footer-links"><a href="../../">Homepage</a><a href="../../guides/">Guides</a><a href="../../privacy/">Privacy policy</a><a href="../../support/">Support</a></div>
+      <div class="footer-bottom"><span>© <span id="year">2026</span> ScrollSnapshot</span><span>Made for the page in front of you.</span></div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -195,6 +195,7 @@ h1, h2, h3 { font-weight: 700; letter-spacing: -.065em; }
 .settings-intro { display: grid; grid-template-columns: 1.25fr .75fr; align-items: end; gap: clamp(45px, 7vw, 110px); padding-block: 44px 62px; }
 .settings-intro h2 { font-size: clamp(49px, 5.8vw, 92px); line-height: 1.02; }
 .settings-intro p { max-width: 470px; padding-bottom: 7px; color: #535e5f; font-size: clamp(17px, 1.45vw, 20px); line-height: 1.55; }
+.settings-intro .text-link { display: inline-flex; margin-top: 22px; }
 .settings-visual { overflow: hidden; background: var(--night); border: 1px solid #222829; border-radius: 6px; box-shadow: 0 22px 55px rgba(20, 24, 26, .13); }
 .settings-visual .visual-topline { color: #aab3b4; }
 .settings-visual > a { display: block; cursor: zoom-in; }

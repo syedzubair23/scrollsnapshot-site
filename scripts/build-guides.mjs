@@ -6,7 +6,7 @@ import { articles } from "../guides/content.mjs";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const site = "https://syedzubair23.github.io/scrollsnapshot-site/";
 const store = "https://chromewebstore.google.com/detail/scrollsnapshot/hhahcllpchhmkgmioaekblbnblodbiic";
-const categories = ["Capture", "Edit", "Output", "Tools"];
+const categories = ["Capture", "Edit", "Output", "Tools", "Settings"];
 const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (character) => ({
   "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
 })[character]);
@@ -20,6 +20,11 @@ for (const article of articles) {
     throw new Error(`Incomplete guide: ${article.slug}`);
   }
   slugs.add(article.slug);
+}
+for (const article of articles) {
+  if (article.relatedSlugs?.some((slug) => !slugs.has(slug) || slug === article.slug)) {
+    throw new Error(`Invalid related guide: ${article.slug}`);
+  }
 }
 
 function head({ title, description, url, prefix, type = "website", image }) {
@@ -143,8 +148,14 @@ function articlePage(article, index) {
   const articleCount = String(articles.length).padStart(2, "0");
   const previous = articles[index - 1];
   const next = articles[index + 1];
-  const nearby = articles.filter((candidate) => candidate.category === article.category && candidate.slug !== article.slug).slice(0, 3);
-  const image = article.image ? `<figure class="guide-article-visual"><a href="../../assets/${article.image}" target="_blank" rel="noopener" aria-label="Open full-size image: ${escapeHtml(article.imageAlt)}"><img src="../../assets/${article.image}" alt="${escapeHtml(article.imageAlt)}" width="1280" height="800" loading="lazy"></a><figcaption><span>FIG. ${number(index)} / ${escapeHtml(article.imageCaption)}</span><a href="../../assets/${article.image}" target="_blank" rel="noopener">OPEN FULL SIZE ↗</a></figcaption></figure>` : "";
+  const nearby = article.relatedSlugs
+    ? article.relatedSlugs.map((slug) => articles.find((candidate) => candidate.slug === slug))
+    : articles.filter((candidate) => candidate.category === article.category && candidate.slug !== article.slug).slice(0, 3);
+  // Most visuals are 16:10; an article that ships a differently shaped asset
+  // declares its own size so the browser reserves the right box before load.
+  const imageWidth = article.imageWidth ?? 1280;
+  const imageHeight = article.imageHeight ?? 800;
+  const image = article.image ? `<figure class="guide-article-visual"><a href="../../assets/${article.image}" target="_blank" rel="noopener" aria-label="Open full-size image: ${escapeHtml(article.imageAlt)}"><img src="../../assets/${article.image}" alt="${escapeHtml(article.imageAlt)}" width="${imageWidth}" height="${imageHeight}" loading="lazy"></a><figcaption><span>FIG. ${number(index)} / ${escapeHtml(article.imageCaption)}</span><a href="../../assets/${article.image}" target="_blank" rel="noopener">OPEN FULL SIZE ↗</a></figcaption></figure>` : "";
   const toc = article.sections.map((section, sectionIndex) => `<a href="#section-${sectionIndex + 1}">${escapeHtml(section.title)}</a>`).join("");
   return `${head({ title: article.title, description: article.summary, url: `${site}guides/${article.slug}/`, prefix: "../../", type: "article", image: article.image })}
 <body>

@@ -284,7 +284,9 @@ export const articles = [
     summary: "A searchable, local record of recent captures.",
     lead: "Capture history keeps recent results on your device so a useful image does not vanish when its result tab closes. Browse thumbnails, search by page title, filter by mode, or mark a favorite.",
     image: "private.png",
-    imageAlt: "ScrollSnapshot's local capture history interface",
+    imageWidth: 1600,
+    imageHeight: 1260,
+    imageAlt: "ScrollSnapshot's Capture history page, listing recent captures stored on the device",
     imageCaption: "Captures stay on the device where they were made.",
     sections: [
       { title: "Retention is a choice", paragraphs: ["Settings controls how many captures to keep and whether older ones expire. Turning Capture history off prunes the store to the current result; the next capture replaces it. Batch requires history on so every successful page survives its queue."] },
@@ -344,5 +346,54 @@ export const articles = [
       { title: "Use it as a starting point", steps: ["Finish a capture and open its result page.", "Read the palette beneath the image.", "Click a swatch to copy its hex, then check a specific pixel with the picker if precision matters."] },
     ],
     note: "A dominant palette summarizes an image; it does not replace the colour picker for an exact point.",
+  },
+  {
+    slug: "settings",
+    title: "Settings, explained",
+    category: "Settings",
+    depth: "Deep guide",
+    summary: "A complete tour of Capture, Batch, Features, Output, Slices, and Shortcuts.",
+    lead: "Settings is where you choose how ScrollSnapshot behaves between captures. Start with the defaults you use every day, then adjust a single capture from the popup when a page calls for something different.",
+    image: "settings.webp",
+    imageWidth: 1880,
+    imageHeight: 1175,
+    imageAlt: "ScrollSnapshot Settings on the Capture tab, showing engine and page handling controls",
+    imageCaption: "The Capture tab sets the behaviour used for future captures.",
+    relatedSlugs: ["full-page", "numbered-slices", "capture-history"],
+    sections: [
+      {
+        title: "Start with a default",
+        paragraphs: ["Open Settings from the extension popup. The choices here apply across captures; the popup can override capture mode and image format for one capture. The System, Light, and Dark switch at the top changes the extension's appearance, with System following your device preference."],
+      },
+      {
+        title: "Capture: choose how the page is read",
+        paragraphs: ["Standard builds a full-page image by scrolling and stitching. Turbo asks Chromium for the whole page at once, avoids scrolling seams, and shows a browser debugging banner while it runs. Choose Standard when you need the scrolling controls below; use Turbo when its direct capture suits the page.", "Scroll once before capturing wakes images that load only when viewed. Hide pinned headers and footers prevents a sticky bar from repeating through a stitched image. Settle delay after each scroll gives dynamic content 0–600 ms to finish moving before a tile is taken.", "Shrink pages too tall for one image lets an oversized result fit within the browser's image limit. Turn it off if you prefer that capture to fail, then use Slices to retain the page in separate full-resolution pieces."],
+      },
+      {
+        title: "Batch: work through a queue",
+        paragraphs: ["Capture from Open tabs processes ordinary web tabs in the current window and skips browser or extension pages. URL list accepts one address per line, up to 50; addresses without a scheme use HTTPS. Each job uses the current Capture and Output defaults and captures a full page.", "Capture history must be on before a batch can run, so finished pages stay available. The page shows progress, reports individual failures, and lets you cancel a running batch."],
+      },
+      {
+        title: "Features: keep your workspace focused",
+        paragraphs: ["The Features tab lists controls under Capture, Editor, Output, and Tools. Turn a feature off to hide its controls from the extension; the feature is still available to turn on again here. Turning off Capture history changes what is retained, so check the Output tab before disabling it."],
+      },
+      {
+        title: "Output: name, format, and keep results",
+        paragraphs: ["Choose PNG, JPEG, or WebP as the default image format. The Quality slider appears for JPEG and WebP, from 40% to 100%. You can still choose another format in the popup for a particular capture.", "Filename template accepts {site}, {date}, {time}, {mode}, {index}, {width}, and {height}. The example filename beneath the field updates as you edit, so check it before settling on a naming pattern. Automatic clipboard copy applies to PNG captures only.", "When Capture history is on, Keep captures sets the newest-result limit and Delete after removes captures older than the chosen age, even if the count limit has not been reached. Open capture history takes you to the saved results. With history off, only the newest result remains until the next capture replaces it."],
+      },
+      {
+        title: "Slices: choose the shape of each piece",
+        paragraphs: ["Slice by Screenful follows the visible viewport, Height uses a pixel height you enter, and Count divides the page into the number of pieces you choose. Overlap between slices adds 0–200 pixels of shared content at each boundary so adjacent images are easier to follow. These controls set the default for Slices captures."],
+      },
+      {
+        title: "Shortcuts: see and change keys",
+        paragraphs: ["The Shortcuts tab shows the current key for each extension command, or “unset” where none is assigned. Choose Change shortcuts to open Chrome's extension shortcut page, where browser-managed bindings can be edited."],
+      },
+      {
+        title: "A sensible first pass",
+        steps: ["Choose Standard or Turbo under Capture and decide whether lazy images need a pre-scroll.", "Set an Output format and filename that match how you share captures.", "Decide whether to keep Capture history, and set its count and age limits if you do.", "Choose a Slices strategy for pages too tall for one image, then review Features and Shortcuts as needed."],
+      },
+    ],
+    note: "Capture defaults can affect the next capture. Inspect its result before sharing, especially after changing engine, format, or retention settings.",
   },
 ];
