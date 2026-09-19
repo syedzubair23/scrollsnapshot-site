@@ -55,7 +55,7 @@
   <main id="main">
     <section class="hero shell" aria-labelledby="hero-heading">
       <div class="hero-kicker reveal">
-        <span class="index">01 / 06</span>
+        <span class="index">01 / 07</span>
         <span class="kicker-rule"></span>
         <span>SCREENSHOTS, WITH INTENT</span>
       </div>
@@ -82,7 +82,8 @@
           <button type="button" data-target="#slices" data-search="slices zip long page overlap numbered images"><span>03</span> Numbered slices <b aria-hidden="true">↗</b></button>
           <button type="button" data-target="#batch" data-search="batch tabs urls multiple pages 50"><span>04</span> Batch capture <b aria-hidden="true">↗</b></button>
           <button type="button" data-target="#editor" data-search="edit annotate redact blur arrow text crop"><span>05</span> Edit &amp; export <b aria-hidden="true">↗</b></button>
-          <button type="button" data-target="#privacy" data-search="privacy local history no account on device"><span>06</span> Local history <b aria-hidden="true">↗</b></button>
+          <button type="button" data-target="#settings" data-search="settings defaults engine turbo features output history slices shortcuts"><span>06</span> Settings <b aria-hidden="true">↗</b></button>
+          <button type="button" data-target="#privacy" data-search="privacy local history no account on device"><span>07</span> Local history <b aria-hidden="true">↗</b></button>
           <p class="finder-empty" hidden>No matching workflow. Try “region” or “batch”.</p>
         </div>
       </div>
@@ -202,8 +203,28 @@
       </div>
     </section>
 
+    <section class="settings-section shell" id="settings" aria-labelledby="settings-heading">
+      <div class="section-label reveal"><span>04 / MAKE IT YOURS</span><span class="label-line"></span></div>
+      <div class="settings-intro reveal">
+        <h2 id="settings-heading">Set it once.<br>Adjust when it matters.</h2>
+        <p>Settings holds the choices you do not want to repeat: how a page is captured, what happens to the file, and which controls appear in the popup.</p>
+      </div>
+      <figure class="settings-visual reveal">
+        <div class="visual-topline"><span>SCROLLSNAPSHOT / SETTINGS</span><span>CAPTURE DEFAULTS</span></div>
+        <a href="assets/settings.webp" target="_blank" rel="noopener" aria-label="Open a full-size screenshot of ScrollSnapshot settings">
+          <img src="assets/settings.webp" alt="ScrollSnapshot Settings showing Standard and Turbo engines, lazy loading, pinned header, downscaling, and scroll delay controls" width="1880" height="1175" loading="lazy" decoding="async">
+        </a>
+        <figcaption><span>Actual extension settings.</span><a href="assets/settings.webp" target="_blank" rel="noopener">Open full size ↗</a></figcaption>
+      </figure>
+      <div class="settings-details">
+        <article class="reveal"><span>01 / CAPTURE</span><h3>Choose how pages behave.</h3><p>Pick Standard or Turbo. Let lazy content load, prevent repeated pinned headers, and tune the pause between scrolls.</p></article>
+        <article class="reveal"><span>02 / OUTPUT</span><h3>Decide what you keep.</h3><p>Set a default format, choose automatic PNG copy, and control how many captures remain in local history.</p></article>
+        <article class="reveal"><span>03 / TOOLS</span><h3>Keep the controls you use.</h3><p>Show or hide individual features, set slice size and overlap, and find the keyboard shortcuts in one place.</p></article>
+      </div>
+    </section>
+
     <section class="landing-guides-section shell" aria-labelledby="landing-guides-heading">
-      <div class="section-label reveal"><span>04 / THE FIELD GUIDE</span><span class="label-line"></span></div>
+      <div class="section-label reveal"><span>05 / THE FIELD GUIDE</span><span class="label-line"></span></div>
       <div class="landing-guides-intro reveal">
         <h2 id="landing-guides-heading">Know what the<br>control is for.</h2>
         <div><p>Short notes for the small decisions. Deeper guides for the modes with tradeoffs. Every shipped feature has its own page.</p><a class="text-link" href="guides/">Explore all 24 guides <span aria-hidden="true">↗</span></a></div>
@@ -218,7 +239,7 @@
     <section class="privacy-section" id="privacy" aria-labelledby="privacy-heading">
       <div class="shell privacy-grid">
         <div class="privacy-copy reveal">
-          <div class="section-label"><span>05 / PRIVATE BY DEFAULT</span><span class="label-line"></span></div>
+          <div class="section-label"><span>06 / PRIVATE BY DEFAULT</span><span class="label-line"></span></div>
           <h2 id="privacy-heading">The screenshot<br>stays yours.</h2>
           <p>Captures are processed and kept on your device. There is no ScrollSnapshot account, server, or analytics. Turn history off and only the current result remains until the next capture.</p>
           <a class="text-link text-link-light" href="privacy/">Read the privacy policy <span aria-hidden="true">↗</span></a>
@@ -231,7 +252,7 @@
     </section>
 
     <section class="final-section shell" aria-labelledby="final-heading">
-      <div class="section-label reveal"><span>06 / TAKE THE SHOT</span><span class="label-line"></span></div>
+      <div class="section-label reveal"><span>07 / TAKE THE SHOT</span><span class="label-line"></span></div>
       <div class="final-grid reveal">
         <h2 id="final-heading">Keep more of<br>what matters.</h2>
         <div>
@@ -248,7 +269,7 @@
   <footer class="site-footer">
     <div class="shell footer-grid">
       <div><a class="brand" href="#top"><img src="icon-128.png" alt="" width="30" height="30"><span>ScrollSnapshot</span></a><p>Capture the page. Keep the detail.</p></div>
-      <div class="footer-links"><a href="#modes">Capture modes</a><a href="guides/">Guides</a><a href="privacy/">Privacy policy</a><a href="support/">Support</a></div>
+      <div class="footer-links"><a href="#modes">Capture modes</a><a href="#settings">Settings</a><a href="guides/">Guides</a><a href="privacy/">Privacy policy</a><a href="support/">Support</a></div>
       <div class="footer-bottom"><span>© <span id="year">2026</span> ScrollSnapshot</span><span>Made for the page in front of you.</span></div>
     </div>
   </footer>
