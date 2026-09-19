@@ -144,7 +144,7 @@ function articlePage(article, index) {
   const previous = articles[index - 1];
   const next = articles[index + 1];
   const nearby = articles.filter((candidate) => candidate.category === article.category && candidate.slug !== article.slug).slice(0, 3);
-  const image = article.image ? `<figure class="guide-article-visual"><img src="../../assets/${article.image}" alt="${escapeHtml(article.imageAlt)}" width="1280" height="800"><figcaption>FIG. ${number(index)} / ${escapeHtml(article.imageCaption)}</figcaption></figure>` : "";
+  const image = article.image ? `<figure class="guide-article-visual"><a href="../../assets/${article.image}" target="_blank" rel="noopener" aria-label="Open full-size image: ${escapeHtml(article.imageAlt)}"><img src="../../assets/${article.image}" alt="${escapeHtml(article.imageAlt)}" width="1280" height="800" loading="lazy"></a><figcaption><span>FIG. ${number(index)} / ${escapeHtml(article.imageCaption)}</span><a href="../../assets/${article.image}" target="_blank" rel="noopener">OPEN FULL SIZE ↗</a></figcaption></figure>` : "";
   const toc = article.sections.map((section, sectionIndex) => `<a href="#section-${sectionIndex + 1}">${escapeHtml(section.title)}</a>`).join("");
   return `${head({ title: article.title, description: article.summary, url: `${site}guides/${article.slug}/`, prefix: "../../", type: "article", image: article.image })}
 <body>

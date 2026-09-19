@@ -38,6 +38,9 @@ export const articles = [
     depth: "Deep guide",
     summary: "A numbered ZIP for pages that outgrow one image.",
     lead: "Slices is the deliberate answer to a page too tall for a single bitmap. Instead of silently shrinking it, ScrollSnapshot saves full-resolution pieces in a ZIP and records where each piece belongs.",
+    image: "guide-slices.webp",
+    imageAlt: "ScrollSnapshot Slices settings with the Count strategy and overlap control",
+    imageCaption: "Choose how a long page is divided before capture.",
     sections: [
       { title: "Choose the cut", paragraphs: ["You can take one piece per screen height, specify a pixel height, or ask for an exact number of parts. Optional overlap repeats a little content at each boundary, useful when a line of text would otherwise sit on a seam."] },
       { title: "What is in the archive", paragraphs: ["The images are numbered in page order and padded so they sort correctly in a file manager. A manifest records their page coordinates. The archive remains useful even after it leaves the extension because the positions are explicit."] },
@@ -69,6 +72,9 @@ export const articles = [
     depth: "Deep guide",
     summary: "Current-window tabs or up to 50 pasted addresses.",
     lead: "Batch belongs in Settings because it is a queue, not a single click on the current tab. It can capture the ordinary web tabs in the current window or a list of up to 50 addresses you paste.",
+    image: "guide-batch.webp",
+    imageAlt: "ScrollSnapshot Batch settings showing three example web addresses",
+    imageCaption: "One address per line; each becomes its own full-page capture.",
     sections: [
       { title: "One page at a time", paragraphs: ["The worker runs each full-page capture in order and keeps a result for every successful page. A failed address does not stop the rest. Temporary tabs opened from pasted addresses are closed afterward; tabs that were already open are left alone, and the starting tab is restored."] },
       { title: "Before you start", paragraphs: ["Capture history must be on, or each result would replace the previous one. Batch uses your capture defaults but skips interactive pickers and delays; a queue cannot pause for a separate choice on every page."] },
@@ -97,6 +103,9 @@ export const articles = [
     depth: "Focused guide",
     summary: "An optional one-shot capture engine with a visible Chrome banner.",
     lead: "Turbo uses Chrome's DevTools protocol to capture a full page in one shot. It can avoid some scrolling artifacts, but Chrome displays a debugging banner while the extension is attached.",
+    image: "guide-turbo.webp",
+    imageAlt: "ScrollSnapshot Capture settings with the Standard and Turbo engine choices",
+    imageCaption: "Turbo is an explicit engine choice in Capture settings.",
     sections: [
       { title: "Why it is optional", paragraphs: ["The standard engine is the default because it works without attaching a debugger. Turbo is a deliberate choice for a difficult page or a time-sensitive full-page capture. Chrome's banner is browser UI; ScrollSnapshot does not hide it."] },
       { title: "Use it deliberately", steps: ["Choose Full page in the popup and switch the engine to Turbo.", "Capture the page and leave Chrome's banner in place until it finishes.", "Review the result and any fallback notice before exporting."] },

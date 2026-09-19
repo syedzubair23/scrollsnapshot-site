@@ -16,3 +16,6 @@ Chrome Web Store's privacy-policy field and the extension's Privacy Policy link 
 
 The guide articles are edited in `guides/content.mjs`. Run `node scripts/build-guides.mjs`
 to regenerate their static pages, directory, and sitemap before committing content changes.
+
+Guide screenshots are public assets. Use example addresses, strip image metadata, and keep raw
+captures or browser profiles out of this repository.
