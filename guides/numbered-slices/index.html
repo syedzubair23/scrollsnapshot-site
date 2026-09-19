@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f5f1">
+  <meta name="description" content="A numbered ZIP for pages that outgrow one image.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Keep a long page at full resolution">
+  <meta property="og:description" content="A numbered ZIP for pages that outgrow one image.">
+  <meta property="og:url" content="https://syedzubair23.github.io/scrollsnapshot-site/guides/numbered-slices/">
+  <meta property="og:image" content="https://syedzubair23.github.io/scrollsnapshot-site/assets/modes.png">
+  <link rel="canonical" href="https://syedzubair23.github.io/scrollsnapshot-site/guides/numbered-slices/">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32.png">
+  <link rel="apple-touch-icon" sizes="128x128" href="../../icon-128.png">
+  <link rel="stylesheet" href="../../site.css">
+  <link rel="stylesheet" href="../../guides/guide.css">
+  <script src="../../guides/guide.js" defer></script>
+  <title>Keep a long page at full resolution — ScrollSnapshot</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <header class="site-header" id="top">
+    <div class="shell header-inner">
+      <a class="brand" href="../../" aria-label="ScrollSnapshot homepage">
+        <img src="../../icon-128.png" alt="" width="34" height="34">
+        <span>ScrollSnapshot</span>
+      </a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="../../#modes">Capture modes</a>
+        <a href="../../guides/" aria-current="page">Guides</a>
+        <a href="../../privacy/">Privacy</a>
+        <a href="../../support/">Support</a>
+      </nav>
+      <a class="header-cta" href="https://chromewebstore.google.com/detail/scrollsnapshot/hhahcllpchhmkgmioaekblbnblodbiic" target="_blank" rel="noopener noreferrer" aria-label="View ScrollSnapshot in the Chrome Web Store, available after launch">Chrome Web Store <span aria-hidden="true">↗</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav"><span>Menu</span><span class="menu-lines" aria-hidden="true"><i></i><i></i></span></button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
+      <a href="../../#modes">Capture modes</a>
+      <a href="../../guides/" aria-current="page">Guides</a>
+      <a href="../../privacy/">Privacy</a>
+      <a href="../../support/">Support</a>
+      <a href="https://chromewebstore.google.com/detail/scrollsnapshot/hhahcllpchhmkgmioaekblbnblodbiic" target="_blank" rel="noopener noreferrer">Chrome Web Store ↗</a>
+    </nav>
+  </header>
+  <main id="main">
+    <article>
+      <header class="guide-article-hero shell">
+        <nav class="guide-breadcrumb" aria-label="Breadcrumb"><a href="../../">Home</a><span>/</span><a href="../">Guides</a><span>/</span><span aria-current="page">Keep a long page at full resolution</span></nav>
+        <div class="guide-eyebrow reveal"><span>03 / 24</span><span class="kicker-rule"></span><span>CAPTURE · DEEP GUIDE</span></div>
+        <h1 class="reveal">Keep a long page at full resolution</h1>
+        <p class="guide-article-lead reveal">Slices is the deliberate answer to a page too tall for a single bitmap. Instead of silently shrinking it, ScrollSnapshot saves full-resolution pieces in a ZIP and records where each piece belongs.</p>
+      </header>
+      <div class="shell"></div>
+      <div class="guide-article-grid shell">
+        <aside class="guide-article-aside" aria-label="On this page"><span>IN THIS GUIDE</span><a href="#section-1">Choose the cut</a><a href="#section-2">What is in the archive</a><a href="#section-3">Work with the result</a><a class="guide-aside-all" href="../">All guides ↗</a></aside>
+        <div class="guide-article-body">
+          <section class="guide-prose-section" id="section-1"><span class="guide-section-index">01</span><div><h2>Choose the cut</h2><p>You can take one piece per screen height, specify a pixel height, or ask for an exact number of parts. Optional overlap repeats a little content at each boundary, useful when a line of text would otherwise sit on a seam.</p></div></section>
+<section class="guide-prose-section" id="section-2"><span class="guide-section-index">02</span><div><h2>What is in the archive</h2><p>The images are numbered in page order and padded so they sort correctly in a file manager. A manifest records their page coordinates. The archive remains useful even after it leaves the extension because the positions are explicit.</p></div></section>
+<section class="guide-prose-section" id="section-3"><span class="guide-section-index">03</span><div><h2>Work with the result</h2><ol class="guide-steps"><li>Choose Slices, set the height or count, and add overlap if the page has dense text.</li><li>Capture and inspect the slice previews in the result page.</li><li>Download the ZIP, or use Reassemble to make a separate single-image capture for editing.</li></ol></div></section>
+          <aside class="guide-note"><span>KEEP IN MIND</span><p>Reassembling an extremely tall archive into one image can still require downscaling. The original ZIP keeps the full-resolution pieces.</p></aside>
+        </div>
+      </div>
+    </article>
+    <nav class="guide-prev-next shell" aria-label="Adjacent guides"><a href="../full-page/"><span>← PREVIOUS GUIDE</span><strong>One page, top to bottom</strong></a><a href="../region/"><span>NEXT GUIDE →</span><strong>Capture only what you mean</strong></a></nav>
+    <section class="guide-related shell" aria-labelledby="related-heading"><div class="section-label"><span>KEEP READING</span><span class="label-line"></span></div><h2 id="related-heading">Nearby ideas.</h2><div class="guide-related-grid"><a href="../visible-capture/"><span>CAPTURE ↗</span><strong>Capture this screen</strong><small>Keep the viewport exactly as it appears now.</small></a><a href="../full-page/"><span>CAPTURE ↗</span><strong>One page, top to bottom</strong><small>Turn a long document into one continuous image.</small></a><a href="../region/"><span>CAPTURE ↗</span><strong>Capture only what you mean</strong><small>Draw, move, resize, or type a precise region.</small></a></div></section>
+  </main>
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div><a class="brand" href="../../"><img src="../../icon-128.png" alt="" width="30" height="30"><span>ScrollSnapshot</span></a><p>Capture the page. Keep the detail.</p></div>
+      <div class="footer-links"><a href="../../">Homepage</a><a href="../../guides/">Guides</a><a href="../../privacy/">Privacy policy</a><a href="../../support/">Support</a></div>
+      <div class="footer-bottom"><span>© <span id="year">2026</span> ScrollSnapshot</span><span>Made for the page in front of you.</span></div>
+    </div>
+  </footer>
+</body>
+</html>

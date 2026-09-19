@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f5f1">
+  <meta name="description" content="A practical guide to every ScrollSnapshot capture mode, editor control, output, and page tool.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="The field guide">
+  <meta property="og:description" content="A practical guide to every ScrollSnapshot capture mode, editor control, output, and page tool.">
+  <meta property="og:url" content="https://syedzubair23.github.io/scrollsnapshot-site/guides/">
+  <meta property="og:image" content="https://syedzubair23.github.io/scrollsnapshot-site/assets/modes.png">
+  <link rel="canonical" href="https://syedzubair23.github.io/scrollsnapshot-site/guides/">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+  <link rel="apple-touch-icon" sizes="128x128" href="../icon-128.png">
+  <link rel="stylesheet" href="../site.css">
+  <link rel="stylesheet" href="../guides/guide.css">
+  <script src="../guides/guide.js" defer></script>
+  <title>The field guide — ScrollSnapshot</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <header class="site-header" id="top">
+    <div class="shell header-inner">
+      <a class="brand" href="../" aria-label="ScrollSnapshot homepage">
+        <img src="../icon-128.png" alt="" width="34" height="34">
+        <span>ScrollSnapshot</span>
+      </a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="../#modes">Capture modes</a>
+        <a href="../guides/" aria-current="page">Guides</a>
+        <a href="../privacy/">Privacy</a>
+        <a href="../support/">Support</a>
+      </nav>
+      <a class="header-cta" href="https://chromewebstore.google.com/detail/scrollsnapshot/hhahcllpchhmkgmioaekblbnblodbiic" target="_blank" rel="noopener noreferrer" aria-label="View ScrollSnapshot in the Chrome Web Store, available after launch">Chrome Web Store <span aria-hidden="true">↗</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav"><span>Menu</span><span class="menu-lines" aria-hidden="true"><i></i><i></i></span></button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
+      <a href="../#modes">Capture modes</a>
+      <a href="../guides/" aria-current="page">Guides</a>
+      <a href="../privacy/">Privacy</a>
+      <a href="../support/">Support</a>
+      <a href="https://chromewebstore.google.com/detail/scrollsnapshot/hhahcllpchhmkgmioaekblbnblodbiic" target="_blank" rel="noopener noreferrer">Chrome Web Store ↗</a>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="guide-index-hero shell">
+      <div class="guide-eyebrow reveal"><span>THE FIELD GUIDE</span><span class="kicker-rule"></span><span>24 NOTES</span></div>
+      <h1 class="reveal">A closer look at<br><em>every control.</em></h1>
+      <div class="guide-index-intro reveal"><p>There is a different tool for a visible moment, a long page, a precise element, and a finished file. These notes explain where each one fits, how it behaves, and the limit to keep in mind.</p><span>SCROLL TO EXPLORE ↓</span></div>
+    </section>
+    <section class="guide-featured shell" aria-labelledby="start-heading">
+      <div class="section-label reveal"><span>START HERE</span><span class="label-line"></span></div>
+      <h2 id="start-heading" class="guide-featured-heading reveal">Three good places to begin.</h2>
+      <div class="guide-featured-grid"><a class="guide-feature-card reveal" href="./full-page/">
+    <span class="guide-card-top"><span>02 / CAPTURE</span><span aria-hidden="true">↗</span></span>
+    <span class="guide-card-title">One page, top to bottom</span>
+    <span class="guide-card-desc">Turn a long document into one continuous image.</span>
+  </a>
+<a class="guide-feature-card reveal" href="./region/">
+    <span class="guide-card-top"><span>04 / CAPTURE</span><span aria-hidden="true">↗</span></span>
+    <span class="guide-card-title">Capture only what you mean</span>
+    <span class="guide-card-desc">Draw, move, resize, or type a precise region.</span>
+  </a>
+<a class="guide-feature-card reveal" href="./numbered-slices/">
+    <span class="guide-card-top"><span>03 / CAPTURE</span><span aria-hidden="true">↗</span></span>
+    <span class="guide-card-title">Keep a long page at full resolution</span>
+    <span class="guide-card-desc">A numbered ZIP for pages that outgrow one image.</span>
+  </a></div>
+    </section>
+    <section class="guide-directory shell" id="all-guides" aria-labelledby="directory-heading">
+      <div class="section-label reveal"><span>THE DIRECTORY</span><span class="label-line"></span></div>
+      <div class="guide-directory-heading reveal"><h2 id="directory-heading">Find the right note.</h2><p>Search a task or narrow by area.</p></div>
+      <div class="guide-controls reveal">
+        <label class="guide-search" for="guide-search"><span class="search-mark" aria-hidden="true"></span><span class="visually-hidden">Search guides</span><input id="guide-search" type="search" placeholder="Search features, tasks, or formats…" autocomplete="off"><kbd>/</kbd></label>
+        <div class="guide-filters" role="group" aria-label="Filter guides by area"><button type="button" data-filter="all" aria-pressed="true">All</button><button type="button" data-filter="capture" aria-pressed="false">Capture</button><button type="button" data-filter="edit" aria-pressed="false">Edit</button><button type="button" data-filter="output" aria-pressed="false">Output</button><button type="button" data-filter="tools" aria-pressed="false">Tools</button></div>
+      </div>
+      <div class="guide-results-meta"><span id="guide-count" role="status" aria-live="polite">24 guides</span><span>FEATURE / PURPOSE / AREA</span></div>
+      <div class="guide-list" id="guide-list"><a class="guide-row" href="./visible-capture/" data-category="capture" data-search="capture this screen keep the viewport exactly as it appears now. capture">
+    <span class="guide-row-number">01</span>
+    <span class="guide-row-main"><strong>Capture this screen</strong><small>Keep the viewport exactly as it appears now.</small></span>
+    <span class="guide-row-category">Capture</span>
+    <span class="guide-row-arrow" aria-hidden="true">↗</span>
+  </a>
+<a class="guide-row" href="./full-page/" data-category="capture" data-search="one page, top to bottom turn a long document into one continuous image. capture">
+    <span class="guide-row-number">02</span>
+    <span class="guide-row-main"><strong>One page, top to bottom</strong><small>Turn a long document into one continuous image.</small></span>
+    <span class="guide-row-category">Capture</span>
+    <span class="guide-row-arrow" aria-hidden="true">↗</span>
+  </a>
+<a class="guide-row" href="./numbered-slices/" data-category="capture" data-search="keep a long page at full resolution a numbered zip for pages that outgrow one image. capture">
+    <span class="guide-row-number">03</span>
+    <span class="guide-row-main"><strong>Keep a long page at full resolution</strong><small>A numbered ZIP for pages that outgrow one image.</small></span>
+    <span class="guide-row-category">Capture</span>
+    <span class="guide-row-arrow" aria-hidden="true">↗</span>
+  </a>
+<a class="guide-row" href="./region/" data-category="capture" data-search="capture only what you mean draw, move, resize, or type a precise region. capture">
+    <span class="guide-row-number">04</span>
+    <span class="guide-row-main"><strong>Capture only what you mean</strong><small>Draw, move, resize, or type a precise region.</small></span>
+    <span class="guide-row-category">Capture</span>
+    <span class="guide-row-arrow" aria-hidden="true">↗</span>
+  </a>
+<a class="guide-row" href="./batch-capture/" data-category="capture" data-search="capture a queue of pages current-window tabs or up to 50 pasted addresses. capture">
+    <span class="guide-row-number">05</span>
+    <span class="guide-row-main"><strong>Capture a queue of pages</strong><small>Current-window tabs or up to 50 pasted addresses.</small></span>
+    <span class="guide-row-category">Capture</span>
+    <span class="guide-row-arrow" aria-hidden="true">↗</span>
+  </a>
+<a class="guide-row" href="./scrolling-areas/" data-category="capture" data-search="the page is not always what scrolls capture a chat, mail list, or panel with its own scroll. capture">
+    <span class="guide-row-number">06</span>
+    <span class="guide-row-main"><strong>The page is not always what scrolls</strong><small>Capture a chat, mail list, or panel with its own scroll.</small></span>
+    <span class="guide-row-category">Capture</span>
+    <span class="guide-row-arrow" aria-hidden="true">↗</span>
+  </a>
+<a class="guide-row" href="./turbo-engine/" data-category="capture" data-search="a faster route through a full page an optional one-shot capture engine with a visible chrome banner. capture">
+    <span class="guide-row-number">07</span>
+    <span class="guide-row-main"><strong>A faster route through a full page</strong><small>An optional one-shot capture engine with a visible Chrome banner.</small></span>
+    <span class="guide-row-category">Capture</span>
+    <span class="guide-row-arrow" aria-hidden="true">↗</span>
+  </a>
+<a class="guide-row" href="./chosen-viewport-width/" data-category="capture" data-search="check a page at another width a responsive full-page capture without resizing your window. capture">
+    <span class="guide-row-number">08</span>
+    <span class="guide-row-main"><strong>Check a page at another width</strong><small>A responsive full-page capture without resizing your window.</small></span>
+    <span class="guide-row-category">Capture</span>
+    <span class="guide-row-arrow" aria-hidden="true">↗</span>
+  </a>
+<a class="guide-row" href="./start-from-scroll/" data-category="capture" data-search="start from where you are begin a full-page capture below the top of a document. capture">
+    <span class="guide-row-number">09</span>
+    <span class="guide-row-main"><strong>Start from where you are</strong><small>Begin a full-page capture below the top of a document.</small></span>
+    <span class="guide-row-category">Capture</span>
+    <span class="guide-row-arrow" aria-hidden="true">↗</span>
+  </a>
+<a class="guide-row" href="./delay-before-capture/" data-category="capture" data-search="give the page a few seconds open a menu or hover state after pressing capture. capture">
+    <span class="guide-row-number">10</span>
+    <span class="guide-row-main"><strong>Give the page a few seconds</strong><small>Open a menu or hover state after pressing Capture.</small></span>
+    <span class="guide-row-category">Capture</span>
+    <span class="guide-row-arrow" aria-hidden="true">↗</span>
+  </a>
+<a class="guide-row" href="./leave-out-elements/" data-category="capture" data-search="leave the obstruction out temporarily omit a banner, bubble, or other page element. capture">
+    <span class="guide-row-number">11</span>
+    <span class="guide-row-main"><strong>Leave the obstruction out</strong><small>Temporarily omit a banner, bubble, or other page element.</small></span>
+    <span class="guide-row-category">Capture</span>
+    <span class="guide-row-arrow" aria-hidden="true">↗</span>
+  </a>
+<a class="guide-row" href="./capture-by-selector/" data-category="capture" data-search="name the element, capture its box use a css selector, xpath, or a direct element pick. capture">
+    <span class="guide-row-number">12</span>
+    <span class="guide-row-main"><strong>Name the element, capture its box</strong><small>Use a CSS selector, XPath, or a direct element pick.</small></span>
+    <span class="guide-row-category">Capture</span>
+    <span class="guide-row-arrow" aria-hidden="true">↗</span>
+  </a>
+<a class="guide-row" href="./crop/" data-category="edit" data-search="decide what the file keeps trim a finished capture before copying or downloading. edit">
+    <span class="guide-row-number">13</span>
+    <span class="guide-row-main"><strong>Decide what the file keeps</strong><small>Trim a finished capture before copying or downloading.</small></span>
+    <span class="guide-row-category">Edit</span>
+    <span class="guide-row-arrow" aria-hidden="true">↗</span>
+  </a>
+<a class="guide-row" href="./redact/" data-category="edit" data-search="cover what should not travel black out or pixelate details in the saved image. edit">
+    <span class="guide-row-number">14</span>
+    <span class="guide-row-main"><strong>Cover what should not travel</strong><small>Black out or pixelate details in the saved image.</small></span>
+    <span class="guide-row-category">Edit</span>
+    <span class="guide-row-arrow" aria-hidden="true">↗</span>
+  </a>
+<a class="guide-row" href="./annotate/" data-category="edit" data-search="make the important part obvious boxes, arrows, highlights, text, and pen marks. edit">
+    <span class="guide-row-number">15</span>
+    <span class="guide-row-main"><strong>Make the important part obvious</strong><small>Boxes, arrows, highlights, text, and pen marks.</small></span>
+    <span class="guide-row-category">Edit</span>
+    <span class="guide-row-arrow" aria-hidden="true">↗</span>
+  </a>
+<a class="guide-row" href="./step-numbers/" data-category="edit" data-search="put the steps on the page numbered markers for a sequence in one screenshot. edit">
+    <span class="guide-row-number">16</span>
+    <span class="guide-row-main"><strong>Put the steps on the page</strong><small>Numbered markers for a sequence in one screenshot.</small></span>
+    <span class="guide-row-category">Edit</span>
+    <span class="guide-row-arrow" aria-hidden="true">↗</span>
+  </a>
+<a class="guide-row" href="./style-presets/" data-category="edit" data-search="keep your annotation style close save a colour, stroke, and text size for reuse. edit">
+    <span class="guide-row-number">17</span>
+    <span class="guide-row-main"><strong>Keep your annotation style close</strong><small>Save a colour, stroke, and text size for reuse.</small></span>
+    <span class="guide-row-category">Edit</span>
+    <span class="guide-row-arrow" aria-hidden="true">↗</span>
+  </a>
+<a class="guide-row" href="./image-formats/" data-category="output" data-search="choose the file after seeing the image png, jpeg, webp, copy, download, and output scale. output">
+    <span class="guide-row-number">18</span>
+    <span class="guide-row-main"><strong>Choose the file after seeing the image</strong><small>PNG, JPEG, WebP, copy, download, and output scale.</small></span>
+    <span class="guide-row-category">Output</span>
+    <span class="guide-row-arrow" aria-hidden="true">↗</span>
+  </a>
+<a class="guide-row" href="./pdf-export/" data-category="output" data-search="a screenshot that fits the document one tall pdf page or paginated a4 and letter output. output">
+    <span class="guide-row-number">19</span>
+    <span class="guide-row-main"><strong>A screenshot that fits the document</strong><small>One tall PDF page or paginated A4 and Letter output.</small></span>
+    <span class="guide-row-category">Output</span>
+    <span class="guide-row-arrow" aria-hidden="true">↗</span>
+  </a>
+<a class="guide-row" href="./capture-history/" data-category="output" data-search="find the capture you already made a searchable, local record of recent captures. output">
+    <span class="guide-row-number">20</span>
+    <span class="guide-row-main"><strong>Find the capture you already made</strong><small>A searchable, local record of recent captures.</small></span>
+    <span class="guide-row-category">Output</span>
+    <span class="guide-row-arrow" aria-hidden="true">↗</span>
+  </a>
+<a class="guide-row" href="./reassemble-slices/" data-category="output" data-search="bring the pieces back together make a single editable image from a scrollsnapshot zip. output">
+    <span class="guide-row-number">21</span>
+    <span class="guide-row-main"><strong>Bring the pieces back together</strong><small>Make a single editable image from a ScrollSnapshot ZIP.</small></span>
+    <span class="guide-row-category">Output</span>
+    <span class="guide-row-arrow" aria-hidden="true">↗</span>
+  </a>
+<a class="guide-row" href="./colour-picker/" data-category="tools" data-search="take the colour from the page a pixel loupe that copies the hex value you choose. tools">
+    <span class="guide-row-number">22</span>
+    <span class="guide-row-main"><strong>Take the colour from the page</strong><small>A pixel loupe that copies the hex value you choose.</small></span>
+    <span class="guide-row-category">Tools</span>
+    <span class="guide-row-arrow" aria-hidden="true">↗</span>
+  </a>
+<a class="guide-row" href="./text-reader/" data-category="tools" data-search="read the words under a region copy page text without guessing at it with ocr. tools">
+    <span class="guide-row-number">23</span>
+    <span class="guide-row-main"><strong>Read the words under a region</strong><small>Copy page text without guessing at it with OCR.</small></span>
+    <span class="guide-row-category">Tools</span>
+    <span class="guide-row-arrow" aria-hidden="true">↗</span>
+  </a>
+<a class="guide-row" href="./colour-palette/" data-category="tools" data-search="see the colours that dominate a ranked palette drawn from the finished capture. tools">
+    <span class="guide-row-number">24</span>
+    <span class="guide-row-main"><strong>See the colours that dominate</strong><small>A ranked palette drawn from the finished capture.</small></span>
+    <span class="guide-row-category">Tools</span>
+    <span class="guide-row-arrow" aria-hidden="true">↗</span>
+  </a></div>
+      <p class="guide-no-results" id="guide-no-results" hidden>No guide matches that search. Try a mode, format, or task.</p>
+    </section>
+    <section class="guide-bottom shell"><p>Need help with the extension itself?</p><a class="text-link" href="../support/">Go to support <span aria-hidden="true">↗</span></a></section>
+  </main>
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div><a class="brand" href="../"><img src="../icon-128.png" alt="" width="30" height="30"><span>ScrollSnapshot</span></a><p>Capture the page. Keep the detail.</p></div>
+      <div class="footer-links"><a href="../">Homepage</a><a href="../guides/">Guides</a><a href="../privacy/">Privacy policy</a><a href="../support/">Support</a></div>
+      <div class="footer-bottom"><span>© <span id="year">2026</span> ScrollSnapshot</span><span>Made for the page in front of you.</span></div>
+    </div>
+  </footer>
+</body>
+</html>

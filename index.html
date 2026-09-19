@@ -31,6 +31,7 @@
       <nav class="desktop-nav" aria-label="Main navigation">
         <a href="#workflow">Workflow</a>
         <a href="#modes">Capture modes</a>
+        <a href="guides/">Guides</a>
         <a href="privacy/">Privacy</a>
         <a href="support/">Support</a>
       </nav>
@@ -44,6 +45,7 @@
     <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
       <a href="#workflow">Workflow</a>
       <a href="#modes">Capture modes</a>
+      <a href="guides/">Guides</a>
       <a href="privacy/">Privacy</a>
       <a href="support/">Support</a>
       <a href="https://chromewebstore.google.com/detail/scrollsnapshot/hhahcllpchhmkgmioaekblbnblodbiic" target="_blank" rel="noopener noreferrer">Chrome Web Store ↗</a>
@@ -53,7 +55,7 @@
   <main id="main">
     <section class="hero shell" aria-labelledby="hero-heading">
       <div class="hero-kicker reveal">
-        <span class="index">01 / 05</span>
+        <span class="index">01 / 06</span>
         <span class="kicker-rule"></span>
         <span>SCREENSHOTS, WITH INTENT</span>
       </div>
@@ -168,38 +170,55 @@
             <span class="mode-symbol" aria-hidden="true"><i></i></span>
             <h3>This screen</h3>
             <p>A clean capture of the viewport in front of you.</p>
+            <a href="guides/visible-capture/" aria-label="Read the This screen guide">Read guide <span aria-hidden="true">↗</span></a>
           </article>
           <article class="mode-card reveal">
             <span class="mode-number">02 / COMPLETE</span>
             <span class="mode-symbol mode-symbol-full" aria-hidden="true"><i></i></span>
             <h3>Full page</h3>
             <p>Top to bottom, stitched into one image.</p>
+            <a href="guides/full-page/" aria-label="Read the Full page guide">Read guide <span aria-hidden="true">↗</span></a>
           </article>
           <article class="mode-card reveal" id="slices">
             <span class="mode-number">03 / LONG FORM</span>
             <span class="mode-symbol mode-symbol-slices" aria-hidden="true"><i></i></span>
             <h3>Numbered slices</h3>
             <p>A ZIP of full-resolution pieces with page coordinates and overlap.</p>
+            <a href="guides/numbered-slices/" aria-label="Read the Numbered slices guide">Read guide <span aria-hidden="true">↗</span></a>
           </article>
           <article class="mode-card reveal">
             <span class="mode-number">04 / PRECISE</span>
             <span class="mode-symbol mode-symbol-region" aria-hidden="true"><i></i></span>
             <h3>Region</h3>
             <p>Draw it, type it, or choose an element. Then refine the selection.</p>
+            <a href="guides/region/" aria-label="Read the Region guide">Read guide <span aria-hidden="true">↗</span></a>
           </article>
         </div>
         <div class="batch-panel reveal" id="batch">
           <div><span>AND WHEN ONE PAGE ISN’T ENOUGH</span><h3>Run a batch.</h3></div>
-          <p>Capture every ordinary web tab in the current window, or paste up to 50 addresses. One page failing does not stop the rest.</p>
+          <div><p>Capture every ordinary web tab in the current window, or paste up to 50 addresses. One page failing does not stop the rest.</p><a href="guides/batch-capture/">Read the batch guide <span aria-hidden="true">↗</span></a></div>
           <span class="batch-arrow" aria-hidden="true">↗</span>
         </div>
+      </div>
+    </section>
+
+    <section class="landing-guides-section shell" aria-labelledby="landing-guides-heading">
+      <div class="section-label reveal"><span>04 / THE FIELD GUIDE</span><span class="label-line"></span></div>
+      <div class="landing-guides-intro reveal">
+        <h2 id="landing-guides-heading">Know what the<br>control is for.</h2>
+        <div><p>Short notes for the small decisions. Deeper guides for the modes with tradeoffs. Every shipped feature has its own page.</p><a class="text-link" href="guides/">Explore all 24 guides <span aria-hidden="true">↗</span></a></div>
+      </div>
+      <div class="landing-guides-grid">
+        <a class="landing-guide reveal" href="guides/full-page/"><span>01 / CAPTURE</span><strong>One page, top to bottom</strong><small>What a full-page image keeps, and when Slices is the better call.</small><b aria-hidden="true">↗</b></a>
+        <a class="landing-guide reveal" href="guides/region/"><span>02 / SELECT</span><strong>Capture only what you mean</strong><small>Editable bounds, exact coordinates, and freeform selection.</small><b aria-hidden="true">↗</b></a>
+        <a class="landing-guide reveal" href="guides/redact/"><span>03 / FINISH</span><strong>Cover what should not travel</strong><small>A closer look at black out, pixelate, and the exported file.</small><b aria-hidden="true">↗</b></a>
       </div>
     </section>
 
     <section class="privacy-section" id="privacy" aria-labelledby="privacy-heading">
       <div class="shell privacy-grid">
         <div class="privacy-copy reveal">
-          <div class="section-label"><span>04 / PRIVATE BY DEFAULT</span><span class="label-line"></span></div>
+          <div class="section-label"><span>05 / PRIVATE BY DEFAULT</span><span class="label-line"></span></div>
           <h2 id="privacy-heading">The screenshot<br>stays yours.</h2>
           <p>Captures are processed and kept on your device. There is no ScrollSnapshot account, server, or analytics. Turn history off and only the current result remains until the next capture.</p>
           <a class="text-link text-link-light" href="privacy/">Read the privacy policy <span aria-hidden="true">↗</span></a>
@@ -212,7 +231,7 @@
     </section>
 
     <section class="final-section shell" aria-labelledby="final-heading">
-      <div class="section-label reveal"><span>05 / TAKE THE SHOT</span><span class="label-line"></span></div>
+      <div class="section-label reveal"><span>06 / TAKE THE SHOT</span><span class="label-line"></span></div>
       <div class="final-grid reveal">
         <h2 id="final-heading">Keep more of<br>what matters.</h2>
         <div>
@@ -229,7 +248,7 @@
   <footer class="site-footer">
     <div class="shell footer-grid">
       <div><a class="brand" href="#top"><img src="icon-128.png" alt="" width="30" height="30"><span>ScrollSnapshot</span></a><p>Capture the page. Keep the detail.</p></div>
-      <div class="footer-links"><a href="#workflow">Workflow</a><a href="#modes">Capture modes</a><a href="privacy/">Privacy policy</a><a href="support/">Support</a></div>
+      <div class="footer-links"><a href="#modes">Capture modes</a><a href="guides/">Guides</a><a href="privacy/">Privacy policy</a><a href="support/">Support</a></div>
       <div class="footer-bottom"><span>© <span id="year">2026</span> ScrollSnapshot</span><span>Made for the page in front of you.</span></div>
     </div>
   </footer>

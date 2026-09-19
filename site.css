@@ -181,11 +181,28 @@ h1, h2, h3 { font-weight: 700; letter-spacing: -.065em; }
 .mode-symbol-region i { width: 25px; height: 25px; border-style: dashed; }
 .mode-card h3 { font-size: 24px; line-height: 1.1; }
 .mode-card p { max-width: 210px; margin-top: 11px; color: #626d6d; font-size: 13px; line-height: 1.55; }
+.mode-card a { display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; margin-top: 22px; padding-bottom: 3px; border-bottom: 1px solid #aeb9d7; color: var(--blue); font-size: 12px; font-weight: 700; }
+.mode-card a:hover { border-color: var(--blue); }
 .batch-panel { display: grid; grid-template-columns: 1fr 1fr auto; align-items: end; gap: 40px; margin-top: 14px; padding: clamp(27px, 3.3vw, 47px); background: var(--blue); color: var(--white); }
 .batch-panel > div > span { color: #b9c7fc; }
 .batch-panel h3 { margin-top: 9px; font-size: clamp(35px, 4.4vw, 63px); line-height: .95; }
 .batch-panel p { max-width: 400px; color: #e1e7ff; font-size: 15px; line-height: 1.6; }
+.batch-panel a { display: inline-flex; align-items: center; gap: 11px; margin-top: 19px; padding-bottom: 3px; border-bottom: 1px solid #a8bbff; color: #fff; font-size: 12px; font-weight: 700; }
+.batch-panel a:hover { border-color: #fff; }
 .batch-arrow { font-size: 48px; font-weight: 300; line-height: .7; }
+
+.landing-guides-section { padding-block: clamp(110px, 12vw, 190px); }
+.landing-guides-intro { display: grid; grid-template-columns: 1.3fr .7fr; align-items: end; gap: clamp(40px, 7vw, 110px); padding-block: 46px 70px; }
+.landing-guides-intro h2 { font-size: clamp(49px, 5.8vw, 92px); line-height: 1.02; }
+.landing-guides-intro > div { padding-bottom: 7px; }
+.landing-guides-intro p { max-width: 420px; margin-bottom: 30px; color: #535e5f; font-size: clamp(17px, 1.45vw, 20px); line-height: 1.55; }
+.landing-guides-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.landing-guide { display: flex; flex-direction: column; position: relative; min-height: 315px; padding: clamp(25px, 2.8vw, 38px); background: #fff; border: 1px solid var(--line); border-radius: 4px; transition: border-color .25s ease, transform .35s var(--ease); }
+.landing-guide:hover { border-color: #9db0e8; transform: translateY(-4px); }
+.landing-guide > span { color: var(--blue); font-size: 11px; font-weight: 750; letter-spacing: .17em; }
+.landing-guide strong { max-width: 350px; margin-top: auto; font-size: clamp(26px, 2.6vw, 40px); line-height: 1.04; letter-spacing: -.055em; }
+.landing-guide small { max-width: 290px; margin-top: 16px; color: #6a7576; font-size: 13px; line-height: 1.5; }
+.landing-guide b { position: absolute; top: 30px; right: 30px; color: var(--blue); font-size: 19px; font-weight: 400; }
 
 .privacy-section { padding-block: clamp(110px, 12vw, 190px); background: var(--night); color: var(--white); overflow: hidden; }
 .privacy-grid { display: grid; grid-template-columns: .7fr 1.3fr; gap: clamp(45px, 8vw, 130px); align-items: center; }
@@ -244,6 +261,9 @@ h1, h2, h3 { font-weight: 700; letter-spacing: -.065em; }
   .feature-note { margin-top: 34px; }
   .mode-grid { grid-template-columns: repeat(2, 1fr); }
   .privacy-image { max-width: 760px; }
+  .landing-guides-intro { grid-template-columns: 1fr; gap: 32px; }
+  .landing-guides-grid { grid-template-columns: 1fr 1fr; }
+  .landing-guide:last-child { grid-column: 1 / -1; min-height: 240px; }
 }
 @media (max-width: 620px) {
   html { scroll-padding-top: 78px; }
@@ -283,6 +303,11 @@ h1, h2, h3 { font-weight: 700; letter-spacing: -.065em; }
   .batch-panel { display: block; padding: 27px; }
   .batch-panel p { margin-top: 20px; font-size: 14px; }
   .batch-arrow { display: none; }
+  .landing-guides-section { padding-block: 110px; }
+  .landing-guides-intro { padding-block: 36px 48px; }
+  .landing-guides-intro h2 { font-size: 49px; }
+  .landing-guides-grid { grid-template-columns: 1fr; }
+  .landing-guide, .landing-guide:last-child { grid-column: auto; min-height: 250px; }
   .privacy-section { padding-block: 100px; }
   .privacy-copy p { font-size: 16px; }
   .privacy-image img { width: 100%; }

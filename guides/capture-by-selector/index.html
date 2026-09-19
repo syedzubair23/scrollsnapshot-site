@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f5f1">
+  <meta name="description" content="Use a CSS selector, XPath, or a direct element pick.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Name the element, capture its box">
+  <meta property="og:description" content="Use a CSS selector, XPath, or a direct element pick.">
+  <meta property="og:url" content="https://syedzubair23.github.io/scrollsnapshot-site/guides/capture-by-selector/">
+  <meta property="og:image" content="https://syedzubair23.github.io/scrollsnapshot-site/assets/modes.png">
+  <link rel="canonical" href="https://syedzubair23.github.io/scrollsnapshot-site/guides/capture-by-selector/">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32.png">
+  <link rel="apple-touch-icon" sizes="128x128" href="../../icon-128.png">
+  <link rel="stylesheet" href="../../site.css">
+  <link rel="stylesheet" href="../../guides/guide.css">
+  <script src="../../guides/guide.js" defer></script>
+  <title>Name the element, capture its box — ScrollSnapshot</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <header class="site-header" id="top">
+    <div class="shell header-inner">
+      <a class="brand" href="../../" aria-label="ScrollSnapshot homepage">
+        <img src="../../icon-128.png" alt="" width="34" height="34">
+        <span>ScrollSnapshot</span>
+      </a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="../../#modes">Capture modes</a>
+        <a href="../../guides/" aria-current="page">Guides</a>
+        <a href="../../privacy/">Privacy</a>
+        <a href="../../support/">Support</a>
+      </nav>
+      <a class="header-cta" href="https://chromewebstore.google.com/detail/scrollsnapshot/hhahcllpchhmkgmioaekblbnblodbiic" target="_blank" rel="noopener noreferrer" aria-label="View ScrollSnapshot in the Chrome Web Store, available after launch">Chrome Web Store <span aria-hidden="true">↗</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav"><span>Menu</span><span class="menu-lines" aria-hidden="true"><i></i><i></i></span></button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
+      <a href="../../#modes">Capture modes</a>
+      <a href="../../guides/" aria-current="page">Guides</a>
+      <a href="../../privacy/">Privacy</a>
+      <a href="../../support/">Support</a>
+      <a href="https://chromewebstore.google.com/detail/scrollsnapshot/hhahcllpchhmkgmioaekblbnblodbiic" target="_blank" rel="noopener noreferrer">Chrome Web Store ↗</a>
+    </nav>
+  </header>
+  <main id="main">
+    <article>
+      <header class="guide-article-hero shell">
+        <nav class="guide-breadcrumb" aria-label="Breadcrumb"><a href="../../">Home</a><span>/</span><a href="../">Guides</a><span>/</span><span aria-current="page">Name the element, capture its box</span></nav>
+        <div class="guide-eyebrow reveal"><span>12 / 24</span><span class="kicker-rule"></span><span>CAPTURE · FOCUSED GUIDE</span></div>
+        <h1 class="reveal">Name the element, capture its box</h1>
+        <p class="guide-article-lead reveal">When the target is a specific component, naming it can be steadier than measuring pixels. Region&#39;s Selector choice resolves a CSS selector or XPath expression and captures the first matching element&#39;s box.</p>
+      </header>
+      <div class="shell"></div>
+      <div class="guide-article-grid shell">
+        <aside class="guide-article-aside" aria-label="On this page"><span>IN THIS GUIDE</span><a href="#section-1">Two ways to choose</a><a href="#section-2">Keep the target unambiguous</a><a class="guide-aside-all" href="../">All guides ↗</a></aside>
+        <div class="guide-article-body">
+          <section class="guide-prose-section" id="section-1"><span class="guide-section-index">01</span><div><h2>Two ways to choose</h2><p>Type a selector in the popup, or use the target control to click the element on the page. The click picker highlights the target; the up and down arrows move between it and its parent. A clicked element confirms the capture in one step.</p></div></section>
+<section class="guide-prose-section" id="section-2"><span class="guide-section-index">02</span><div><h2>Keep the target unambiguous</h2><ol class="guide-steps"><li>Choose Region, then Selector.</li><li>Enter a specific CSS selector or XPath expression, or pick the element directly.</li><li>Inspect the result to confirm the first match was the one you intended.</li></ol></div></section>
+          <aside class="guide-note"><span>KEEP IN MIND</span><p>Invalid selectors, missing matches, and zero-size elements are refused with an explanation. If the page reflows, an element target is often more reliable than typed coordinates.</p></aside>
+        </div>
+      </div>
+    </article>
+    <nav class="guide-prev-next shell" aria-label="Adjacent guides"><a href="../leave-out-elements/"><span>← PREVIOUS GUIDE</span><strong>Leave the obstruction out</strong></a><a href="../crop/"><span>NEXT GUIDE →</span><strong>Decide what the file keeps</strong></a></nav>
+    <section class="guide-related shell" aria-labelledby="related-heading"><div class="section-label"><span>KEEP READING</span><span class="label-line"></span></div><h2 id="related-heading">Nearby ideas.</h2><div class="guide-related-grid"><a href="../visible-capture/"><span>CAPTURE ↗</span><strong>Capture this screen</strong><small>Keep the viewport exactly as it appears now.</small></a><a href="../full-page/"><span>CAPTURE ↗</span><strong>One page, top to bottom</strong><small>Turn a long document into one continuous image.</small></a><a href="../numbered-slices/"><span>CAPTURE ↗</span><strong>Keep a long page at full resolution</strong><small>A numbered ZIP for pages that outgrow one image.</small></a></div></section>
+  </main>
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div><a class="brand" href="../../"><img src="../../icon-128.png" alt="" width="30" height="30"><span>ScrollSnapshot</span></a><p>Capture the page. Keep the detail.</p></div>
+      <div class="footer-links"><a href="../../">Homepage</a><a href="../../guides/">Guides</a><a href="../../privacy/">Privacy policy</a><a href="../../support/">Support</a></div>
+      <div class="footer-bottom"><span>© <span id="year">2026</span> ScrollSnapshot</span><span>Made for the page in front of you.</span></div>
+    </div>
+  </footer>
+</body>
+</html>
