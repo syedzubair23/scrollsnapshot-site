@@ -22,6 +22,8 @@ export const articles = [
     summary: "Turn a long document into one continuous image.",
     lead: "Full page is for the layout as a whole: a landing page, a report, or a bug that only appears far below the fold. ScrollSnapshot moves through the page, captures the visible pieces, and stitches them together.",
     image: "full-page.png",
+    imageWidth: 1600,
+    imageHeight: 705,
     imageAlt: "A full-page website capture in the ScrollSnapshot result viewer",
     imageCaption: "A full-page result, ready to inspect and export.",
     sections: [
@@ -56,6 +58,8 @@ export const articles = [
     summary: "Draw, move, resize, or type a precise region.",
     lead: "A region capture starts with a boundary you control. Draw a rectangle on the page, trace a freeform shape, or enter exact page coordinates when the target is below the fold.",
     image: "region.png",
+    imageWidth: 1600,
+    imageHeight: 780,
     imageAlt: "An editable region selection over a web page",
     imageCaption: "The selection remains editable before the capture.",
     sections: [
@@ -198,6 +202,8 @@ export const articles = [
     summary: "Black out or pixelate details in the saved image.",
     lead: "Redaction changes the image itself. Use it for a name, token, address, or other detail that should not appear in the exported capture.",
     image: "editor.png",
+    imageWidth: 1600,
+    imageHeight: 770,
     imageAlt: "ScrollSnapshot editor with redaction and annotation controls",
     imageCaption: "Marks are applied to the image before export.",
     sections: [
@@ -215,6 +221,8 @@ export const articles = [
     summary: "Boxes, arrows, highlights, text, and pen marks.",
     lead: "Annotation turns a capture into an explanation. Draw a box around a faulty control, point an arrow at the exact state, or put a brief label where a reader will look first.",
     image: "editor.png",
+    imageWidth: 1600,
+    imageHeight: 770,
     imageAlt: "ScrollSnapshot editor showing marks over a captured page",
     imageCaption: "The marks preview over the capture before they are applied.",
     sections: [
