@@ -30,6 +30,7 @@
       <nav class="desktop-nav" aria-label="Main navigation">
         <a href="../../#modes">Capture modes</a>
         <a href="../../guides/" aria-current="page">Guides</a>
+        <a href="../../changelog/">Changelog</a>
         <a href="../../privacy/">Privacy</a>
         <a href="../../support/">Support</a>
       </nav>
@@ -39,6 +40,7 @@
     <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
       <a href="../../#modes">Capture modes</a>
       <a href="../../guides/" aria-current="page">Guides</a>
+      <a href="../../changelog/">Changelog</a>
       <a href="../../privacy/">Privacy</a>
       <a href="../../support/">Support</a>
       <a href="https://chromewebstore.google.com/detail/scrollsnapshot/hhahcllpchhmkgmioaekblbnblodbiic" target="_blank" rel="noopener noreferrer">Chrome Web Store ↗</a>
@@ -48,17 +50,18 @@
     <article>
       <header class="guide-article-hero shell">
         <nav class="guide-breadcrumb" aria-label="Breadcrumb"><a href="../../">Home</a><span>/</span><a href="../">Guides</a><span>/</span><span aria-current="page">Check a page at another width</span></nav>
-        <div class="guide-eyebrow reveal"><span>08 / 25</span><span class="kicker-rule"></span><span>CAPTURE · FOCUSED GUIDE</span></div>
+        <div class="guide-eyebrow reveal"><span>08 / 34</span><span class="kicker-rule"></span><span>CAPTURE · FOCUSED GUIDE</span></div>
         <h1 class="reveal">Check a page at another width</h1>
-        <p class="guide-article-lead reveal">Chosen viewport width is a Turbo option for responsive QA. It asks the page to reflow at a mobile, tablet, laptop, or custom CSS width before the full-page capture is measured.</p>
+        <p class="guide-article-lead reveal">Chosen viewport width is a Turbo option for responsive QA. It asks the page to reflow at a mobile, tablet, laptop, or custom CSS width before a Full page or Slices capture is measured.</p>
       </header>
       <div class="shell"></div>
       <div class="guide-article-grid shell">
-        <aside class="guide-article-aside" aria-label="On this page"><span>IN THIS GUIDE</span><a href="#section-1">Width changes the layout</a><a href="#section-2">Where to find it</a><a class="guide-aside-all" href="../">All guides ↗</a></aside>
+        <aside class="guide-article-aside" aria-label="On this page"><span>IN THIS GUIDE</span><a href="#section-1">Width changes the layout</a><a href="#section-2">Where to find it</a><a href="#section-3">Zoomed tabs come out the right size</a><a class="guide-aside-all" href="../">All guides ↗</a></aside>
         <div class="guide-article-body">
           <section class="guide-prose-section" id="section-1"><span class="guide-section-index">01</span><div><h2>Width changes the layout</h2><p>A different width can move navigation, stack cards, and change the page&#39;s total height. ScrollSnapshot measures after the reflow, keeps the display&#39;s real pixel density, and clears the temporary override when the capture ends.</p></div></section>
-<section class="guide-prose-section" id="section-2"><span class="guide-section-index">02</span><div><h2>Where to find it</h2><ol class="guide-steps"><li>Enable Chosen viewport width on the Features page if it is hidden.</li><li>Choose Full page and Turbo, then select a preset or type a custom width.</li><li>Capture and check the result for a warning if Turbo could not apply the width.</li></ol></div></section>
-          <aside class="guide-note"><span>KEEP IN MIND</span><p>This applies only to Turbo full-page captures. This screen, Region, Slices, and the standard engine use the actual window width.</p></aside>
+<section class="guide-prose-section" id="section-2"><span class="guide-section-index">02</span><div><h2>Where to find it</h2><p>Turn Turbo on in the popup and a Viewport width dropdown appears beneath it, with Full width, mobile and tablet presets, and a Custom choice. It is available for Full page and Slices. Standard mode cannot offer it: that engine photographs the real browser window, so only Turbo&#39;s DevTools emulation can lay the page out at another width.</p><ol class="guide-steps"><li>Enable Chosen viewport width on the Features page if it is hidden.</li><li>Choose Full page or Slices, turn Turbo on, then select a preset or type a custom width.</li><li>Capture and check the result for a warning if Turbo could not apply the width.</li></ol></div></section>
+<section class="guide-prose-section" id="section-3"><span class="guide-section-index">03</span><div><h2>Zoomed tabs come out the right size</h2><p>Turbo allows for the tab&#39;s browser zoom. A tab at 125% or 150% no longer produces a magnified, shorter capture, and a chosen width comes out as asked: 375 pixels is 375 pixels, not 300.</p></div></section>
+          <aside class="guide-note"><span>KEEP IN MIND</span><p>This applies only to Turbo captures of Full page and Slices. This screen, Region, and the standard engine use the actual window width.</p></aside>
         </div>
       </div>
     </article>
@@ -68,8 +71,9 @@
   <footer class="site-footer">
     <div class="shell footer-grid">
       <div><a class="brand" href="../../"><img src="../../icon-128.png" alt="" width="30" height="30"><span>ScrollSnapshot</span></a><p>Capture the page. Keep the detail.</p></div>
-      <div class="footer-links"><a href="../../">Homepage</a><a href="../../guides/">Guides</a><a href="../../privacy/">Privacy policy</a><a href="../../support/">Support</a></div>
+      <div class="footer-links"><a href="../../">Homepage</a><a href="../../guides/">Guides</a><a href="../../changelog/">Changelog</a><a href="../../privacy/">Privacy policy</a><a href="../../support/">Support</a></div>
       <div class="footer-bottom"><span>© <span id="year">2026</span> ScrollSnapshot</span><span>Made for the page in front of you.</span></div>
+      <p class="footer-credit">Developed by <a href="https://syedzubair.com/" target="_blank" rel="noopener noreferrer">syedzubair.com</a></p>
     </div>
   </footer>
 </body>

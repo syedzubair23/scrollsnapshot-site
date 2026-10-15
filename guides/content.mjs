@@ -1,6 +1,8 @@
 // Source copy for the static feature guide. Keep claims aligned with the extension's
 // shipped feature catalogue and the domain notes in its private source repository.
-export const articles = [
+import { releaseArticles } from "./content-release.mjs";
+
+const baseArticles = [
   {
     slug: "visible-capture",
     title: "Capture this screen",
@@ -104,17 +106,24 @@ export const articles = [
     slug: "turbo-engine",
     title: "A faster route through a full page",
     category: "Capture",
-    depth: "Focused guide",
-    summary: "An optional one-shot capture engine with a visible Chrome banner.",
-    lead: "Turbo uses Chrome's DevTools protocol to capture a full page in one shot. It can avoid some scrolling artifacts, but Chrome displays a debugging banner while the extension is attached.",
+    depth: "Deep guide",
+    summary: "An optional one-shot capture engine, with a width you can choose and a visible Chrome banner.",
+    lead: "Turbo uses Chrome's DevTools protocol to capture a full page in one shot, with no scrolling and no stitched seams. It is also the only engine that can lay a page out at a phone or tablet width. In exchange, Chrome shows a debugging banner while it works, which is why Turbo is a choice and not the default.",
     image: "guide-turbo.webp",
+    imageWidth: 1600,
+    imageHeight: 1000,
     imageAlt: "ScrollSnapshot Capture settings with the Standard and Turbo engine choices",
-    imageCaption: "Turbo is an explicit engine choice in Capture settings.",
+    imageCaption: "Turbo is an explicit engine choice in Settings, under Capture.",
     sections: [
-      { title: "Why it is optional", paragraphs: ["The standard engine is the default because it works without attaching a debugger. Turbo is a deliberate choice for a difficult page or a time-sensitive full-page capture. Chrome's banner is browser UI; ScrollSnapshot does not hide it."] },
-      { title: "Use it deliberately", steps: ["Choose Full page in the popup and switch the engine to Turbo.", "Capture the page and leave Chrome's banner in place until it finishes.", "Review the result and any fallback notice before exporting."] },
+      { title: "Standard or Turbo", paragraphs: ["The standard engine scrolls the page, captures each visible piece, and joins the pieces. It works on every page without attaching a debugger, but it is paced by a limit Chrome puts on screenshots, so a very long page takes longer, and a sticky element or a header that slides can leave a mark at a seam.", "Turbo asks Chromium for the whole page at once. There is no scrolling, no seams, and no two-per-second limit. The cost is that Chrome displays a debugging banner across the tab while ScrollSnapshot is attached. That banner is part of the browser, and ScrollSnapshot does not hide it."] },
+      { title: "Turn it on", paragraphs: ["Turbo mode is a switch with a lightning-bolt icon, just above the Capture button in the popup. You can also choose Standard or Turbo under Capture in Settings. When Turbo is on, a Viewport width dropdown appears beneath it.", "Turning Turbo off leaves every other capture mode available. It only changes how a page is photographed."], image: { file: "guide-turbo-popup.webp", width: 760, height: 1184, alt: "The ScrollSnapshot popup with Turbo mode switched on and a Viewport width dropdown set to Full width", caption: "Turbo on: the Viewport width dropdown appears under the switch." }, steps: ["Open ScrollSnapshot on the tab you want.", "Choose Full page or Slices, and switch Turbo mode on.", "Press Capture, and leave Chrome's banner in place until it finishes."] },
+      { title: "Capture at another width", paragraphs: ["The Viewport width dropdown offers Full width, mobile and tablet widths, and Custom. It is available for Full page and Slices. Turbo lays the page out at that width before measuring it, so responsive breakpoints fire and the page height you get belongs to the reflowed layout. The chosen width is cleared again before Turbo detaches.", "The standard engine cannot offer this. It photographs the real browser window, so only Turbo's DevTools emulation can lay the page out at another width. The guide to chosen viewport width covers the presets and what to check."] },
+      { title: "Headers that move, tabs that zoom", paragraphs: ["Many sites hide their navbar on a scroll down and slide it back on a scroll up. Turbo waits, for up to a moment and a half, for fixed and sticky elements to stop moving before it renders, so the bar is not caught part way. It also starts from the top of the page, so an earlier scroll position cannot shift a fixed header, and puts the original position back afterwards.", "Turbo allows for the tab's browser zoom, so a tab at 125 percent no longer produces a magnified, shorter capture."] },
+      { title: "Very tall pages", paragraphs: ["Chromium can render only so tall an image at once. Turbo renders a tall page in bands and joins them, so a page does not repeat itself part way down. A page too tall for one image is scaled to fit, with the same notice the standard engine gives. Choose Slices when full resolution matters more than having a single file."] },
+      { title: "When Turbo steps aside", paragraphs: ["Turbo never fails a capture it cannot attach to. It switches to the standard engine and tells you why:"], steps: ["DevTools is open on the tab. Chrome allows only one debugger at a time, so Turbo cannot attach. Close DevTools and capture again.", "You chose to capture a scrolling area. Turbo photographs the document, not a panel scrolling inside it, so the standard engine is used.", "Your organisation blocks it. A managed browser may refuse the debugger. Switch Turbo off and the standard engine captures the page normally."], image: { file: "guide-turbo-fallback.webp", width: 1600, height: 1000, alt: "The result page showing a notice that 375px was not applied because DevTools blocked Turbo", caption: "The notice when Turbo could not attach. Here a debugger was already attached to the tab, so the capture used the standard engine." }, tips: ["If you chose a width and see this notice, the capture was taken at the real window width, not the one you chose. Close DevTools and capture again.", "The notice stays with the saved capture and its result page, so you can still tell later how it was taken."] },
     ],
-    note: "If Chrome cannot attach the debugger, ScrollSnapshot falls back to the standard engine and explains the change.",
+    note: "Turbo needs the debugger permission, which is why Chrome's install prompt mentions it. It is used only while a Turbo capture runs, and only on the tab you are capturing.",
+    relatedSlugs: ["chosen-viewport-width", "full-page", "numbered-slices"],
   },
   {
     slug: "chosen-viewport-width",
@@ -122,12 +131,13 @@ export const articles = [
     category: "Capture",
     depth: "Focused guide",
     summary: "A responsive full-page capture without resizing your window.",
-    lead: "Chosen viewport width is a Turbo option for responsive QA. It asks the page to reflow at a mobile, tablet, laptop, or custom CSS width before the full-page capture is measured.",
+    lead: "Chosen viewport width is a Turbo option for responsive QA. It asks the page to reflow at a mobile, tablet, laptop, or custom CSS width before a Full page or Slices capture is measured.",
     sections: [
       { title: "Width changes the layout", paragraphs: ["A different width can move navigation, stack cards, and change the page's total height. ScrollSnapshot measures after the reflow, keeps the display's real pixel density, and clears the temporary override when the capture ends."] },
-      { title: "Where to find it", steps: ["Enable Chosen viewport width on the Features page if it is hidden.", "Choose Full page and Turbo, then select a preset or type a custom width.", "Capture and check the result for a warning if Turbo could not apply the width."] },
+      { title: "Where to find it", paragraphs: ["Turn Turbo on in the popup and a Viewport width dropdown appears beneath it, with Full width, mobile and tablet presets, and a Custom choice. It is available for Full page and Slices. Standard mode cannot offer it: that engine photographs the real browser window, so only Turbo's DevTools emulation can lay the page out at another width."], steps: ["Enable Chosen viewport width on the Features page if it is hidden.", "Choose Full page or Slices, turn Turbo on, then select a preset or type a custom width.", "Capture and check the result for a warning if Turbo could not apply the width."] },
+      { title: "Zoomed tabs come out the right size", paragraphs: ["Turbo allows for the tab's browser zoom. A tab at 125% or 150% no longer produces a magnified, shorter capture, and a chosen width comes out as asked: 375 pixels is 375 pixels, not 300."] },
     ],
-    note: "This applies only to Turbo full-page captures. This screen, Region, Slices, and the standard engine use the actual window width.",
+    note: "This applies only to Turbo captures of Full page and Slices. This screen, Region, and the standard engine use the actual window width.",
   },
   {
     slug: "start-from-scroll",
@@ -186,11 +196,12 @@ export const articles = [
     title: "Decide what the file keeps",
     category: "Edit",
     depth: "Quick note",
-    summary: "Trim a finished capture before copying or downloading.",
+    summary: "Trim, rotate, flip, or straighten a finished capture.",
     lead: "Crop removes pixels outside a boundary after you have seen the capture. It is useful when the page needed a broad capture but the file you share should show only one part.",
     sections: [
-      { title: "Work on the result", paragraphs: ["Draw the crop over the displayed image. ScrollSnapshot maps that selection back to the image's source pixels, even when a tall screenshot is scaled down to fit the screen. Format changes afterward still use the cropped image."] },
-      { title: "A clean finish", steps: ["Open the finished capture and choose Crop.", "Draw the boundary and apply it.", "Check the edges, then copy or download the result."] },
+      { title: "A crop box around the whole capture", paragraphs: ["Crop opens a box around the entire image. Drag an edge or corner to resize it, drag inside to move it, type an exact width and height, or hold a ratio. The arrow keys nudge it. ScrollSnapshot maps the box back to the image's source pixels, even when a tall screenshot is scaled down to fit the screen. Format changes afterward still use the cropped image.", "You can also rotate or flip the capture from the same bar, and zoom in to place an edge precisely."], image: { file: "guide-crop.webp", width: 1600, height: 900, alt: "The ScrollSnapshot crop box over a capture that has been tilted with Straighten, with the crop handles inside the tilted image", caption: "The crop box after straightening by 4 degrees: the box sits inside the tilted image." } },
+      { title: "Straighten a tilted capture", paragraphs: ["Straighten turns the image by any angle up to 45 degrees either way, with a live preview under a grid so you can line a horizon or a table edge up with it. The crop box starts inside the tilted image, so you do not keep an empty corner."] },
+      { title: "A clean finish", steps: ["Open the finished capture and choose Crop.", "Drag the box to the part you want, or type its size. Straighten first if the image is tilted.", "Apply it, check the edges, then copy or download the result."] },
     ],
     note: "Undo crop restores the previous image. Crop is for ordinary image captures, not a Slices ZIP.",
   },
@@ -199,7 +210,7 @@ export const articles = [
     title: "Cover what should not travel",
     category: "Edit",
     depth: "Deep guide",
-    summary: "Black out or pixelate details in the saved image.",
+    summary: "Black out, pixelate, or blur details in the saved image.",
     lead: "Redaction changes the image itself. Use it for a name, token, address, or other detail that should not appear in the exported capture.",
     image: "editor.png",
     imageWidth: 1600,
@@ -207,7 +218,8 @@ export const articles = [
     imageAlt: "ScrollSnapshot editor with redaction and annotation controls",
     imageCaption: "Marks are applied to the image before export.",
     sections: [
-      { title: "Two different marks", paragraphs: ["Black out fills the selected area with opaque black. Pixelate replaces it with coarse blocks. Both are applied to the source image, not merely painted over the browser preview."] },
+      { title: "Three different effects", paragraphs: ["Black out fills the selected area with opaque black. Pixelate replaces it with coarse blocks. Blur softens it, which can look gentler than pixelation on noisy images. All three are applied to the source image, not merely painted over the browser preview.", "Blur and Pixelate leave a trace of the shape underneath. When the content is sensitive and must be completely covered, choose Black out."] },
+      { title: "Rectangle, brush, and eraser", paragraphs: ["Redact's dropdown holds Rectangle, Brush and Eraser, the three effects, and a brush-size slider shared by the brush and the eraser. Paint around an edge a rectangle cannot follow, or erase part of any redaction you have not applied yet. Each stroke supports Undo and Redo."], image: { file: "guide-redact.webp", width: 1600, height: 770, alt: "The Redaction style menu open in the editor, showing Rectangle, Brush and Eraser above the Black out, Pixelate and Blur effects", caption: "Redact's menu: how to draw (Rectangle, Brush, Eraser) above which effect to use." }, tips: ["Use the brush for a signature, a curved logo, or text that runs at an angle.", "Switch to the eraser to give back a few pixels you covered by mistake. It only works on a redaction you have not applied yet."] },
       { title: "Check before you send", steps: ["Open the result and choose Edit, then Redact.", "Draw over each sensitive area, zooming in if the edge is close to text you want to keep.", "Apply the edit and inspect the exported image, not only the editing overlay."] },
       { title: "Text beside the image", paragraphs: ["A Region capture may include text read from the page. Once you apply a redaction, ScrollSnapshot withholds that extracted text so it cannot reveal words hidden in the image. Undo edits brings it back."] },
     ],
@@ -217,19 +229,26 @@ export const articles = [
     slug: "annotate",
     title: "Make the important part obvious",
     category: "Edit",
-    depth: "Focused guide",
-    summary: "Boxes, arrows, highlights, text, and pen marks.",
-    lead: "Annotation turns a capture into an explanation. Draw a box around a faulty control, point an arrow at the exact state, or put a brief label where a reader will look first.",
+    depth: "Deep guide",
+    summary: "The editor, tool by tool: shapes, lines, highlights, text, pen, steps, and when to use each.",
+    lead: "Annotation turns a capture into an explanation. Draw a shape around a faulty control, point an arrow at the exact state, number the steps, or put a short label where a reader will look first. This guide is a map of the whole editor; the guides it links to go deeper on each part.",
     image: "editor.png",
     imageWidth: 1600,
     imageHeight: 770,
-    imageAlt: "ScrollSnapshot editor showing marks over a captured page",
-    imageCaption: "The marks preview over the capture before they are applied.",
+    imageAlt: "The ScrollSnapshot editor with a shape and an arrow drawn over a captured table",
+    imageCaption: "The editor: the capture in the middle, the tool row along the bottom.",
     sections: [
-      { title: "Marks stay aligned with the image", paragraphs: ["ScrollSnapshot stores mark positions in the image's own pixels. A tall screenshot may be displayed small on screen, but a box or arrow is mapped back to the full image before export."] },
-      { title: "Build a readable note", steps: ["Open Edit and choose a tool: Box, Arrow, Highlight, Text, or Pen.", "Use one colour and a small number of marks to establish the reading order.", "Apply the marks, then review the final file at the size your recipient will see."] },
+      { title: "Open the editor", paragraphs: ["Capture something, then choose Edit on the result page. The editor opens over the same capture. Nothing you draw changes the file until you press Apply, so you can experiment freely and leave with Cancel."] },
+      { title: "The tool row", paragraphs: ["Along the bottom, from left to right: Select, Redact, Shape, Line, Highlight, Text, Pen, and Step numbers (turn it on in Settings, under Features, if it is hidden). After the tools come the colour and stroke buttons, then zoom, Undo and Redo, and finally Cancel and Apply.", "Shape, Line, and Redact each have a small menu beside them for their styles. Text, Highlight, and Pen open a panel of options from the button beside the colour."], image: { file: "guide-edit-marks.webp", width: 1600, height: 770, alt: "The editor's tool row along the bottom, with a rounded shape selected on the capture", caption: "The tool row, with a shape selected on the capture." } },
+      { title: "Which tool for what", steps: ["Shape: outline a control, a button, or a region. Five shapes, from one menu.", "Line: point at something with an arrow, show a link between two things with a double arrow, or underline with a plain line.", "Highlight: emphasise a line of text, as a block, an underline, or a strikethrough.", "Text: put a short label where a reader will see it first. Four fonts, three sizes, and a background chip or outline for legibility.", "Pen: sketch freehand, with solid, dashed, or dotted strokes and smoothing.", "Step numbers: number a sequence of actions in one image. The numbers follow the markers, so deleting one renumbers the rest.", "Redact: cover private details with Black out, Pixelate, or Blur. This one hides content; the others only point at it."] },
+      { title: "Marks stay aligned with the image", paragraphs: ["ScrollSnapshot stores mark positions in the image's own pixels. A tall screenshot may be displayed small on screen, but a box or arrow is mapped back to the full image before export, so zooming the view never moves a mark relative to what it points at."] },
+      { title: "Marks stay editable", paragraphs: ["A mark is not fixed the moment you draw it. Pick it up with the Select tool (V) to move, resize, rotate, restyle, duplicate, or delete it before you apply anything. The guide to editing marks covers the handles, the keyboard shortcuts, and the colour picker with its eyedropper."] },
+      { title: "Colour and stroke", paragraphs: ["The colour button opens twelve named colours and a full picker with an eyedropper (I) that takes a colour straight from the capture. The stroke button sets how thick lines and outlines are. With nothing selected they set the next mark; with a mark selected they change that mark. Style presets save a favourite combination so you can recall it with one click."] },
+      { title: "Apply, Cancel, and undo", paragraphs: ["Undo and Redo step through every change you make in the editor, including mark edits. Apply writes your marks into the image and closes the editor. Cancel leaves without changing anything. After Apply, the result page's own Undo edits restores the capture as it was."] },
+      { title: "A readable sequence", steps: ["Open Edit and decide what the reader should see first.", "Use one colour and a small number of marks to establish the reading order.", "Zoom in to place an edge precisely, and use Shift to keep shapes square and lines level.", "Apply the marks, then review the final file at the size your recipient will see."] },
     ],
     note: "Redactions are painted before other marks, so a later arrow cannot uncover information you covered.",
+    relatedSlugs: ["shapes-and-lines", "edit-marks", "text-highlight-pen"],
   },
   {
     slug: "step-numbers",
@@ -249,10 +268,10 @@ export const articles = [
     title: "Keep your annotation style close",
     category: "Edit",
     depth: "Quick note",
-    summary: "Save a colour, stroke, and text size for reuse.",
+    summary: "Save a colour, stroke, and text style for reuse.",
     lead: "Style presets remove repeated setup when you annotate many captures in the same way. Save the mark style you are using and recall it with one click on the next image.",
     sections: [
-      { title: "What a preset remembers", paragraphs: ["A preset stores colour, stroke weight, and text size. It does not store a tool or a redaction style. ScrollSnapshot keeps up to three presets, with the most recently used first."] },
+      { title: "What a preset remembers", paragraphs: ["A preset stores colour, stroke weight, and text size, along with the text, highlight and pen options you have chosen. It does not store a tool or a redaction style. ScrollSnapshot keeps up to three presets, with the most recently used first."] },
       { title: "Use a repeatable mark", steps: ["Enable Style presets on the Features page if it is hidden.", "Set a mark's colour, stroke, and text size in the editor.", "Save the style from the preset control and choose it on later captures."] },
     ],
     note: "Presets help consistency; they do not change the pixels until you apply a mark.",
@@ -280,6 +299,7 @@ export const articles = [
     lead: "PDF export is for a capture that needs to be filed, printed, or reviewed as a document. Choose one tall page, or let ScrollSnapshot divide the image across A4 or Letter pages.",
     sections: [
       { title: "Paper is a different boundary", paragraphs: ["Tall keeps the captured page as one PDF page. A4 and Letter add paper-sized pages with margins. For supported captures, ScrollSnapshot uses line positions from the page to place breaks between visible lines where it can, rather than cutting through a row of text."] },
+      { title: "Choose PDF before you capture", paragraphs: ["PDF is also in the popup's Format row, beside PNG, JPEG and WebP. Pick it and the capture opens on its result page already set to save as a PDF. It is taken as a lossless PNG for the PDF to be built from, and the image format you had chosen is kept, ready to go back to. PDF is not offered for Slices, which make a ZIP of images, or while PDF export is turned off in Features."] },
       { title: "Export from the finished image", steps: ["Capture and make any crop or edits first.", "Choose PDF in the result page, then Tall, A4, or Letter in the Page control.", "Download and review the page breaks before sharing or printing."] },
     ],
     note: "PDF is made from the captured pixels. It is an image document, not a reflowed copy of the web page's text.",
@@ -289,7 +309,7 @@ export const articles = [
     title: "Find the capture you already made",
     category: "Output",
     depth: "Focused guide",
-    summary: "A searchable, local record of recent captures.",
+    summary: "A searchable, local record of your captures, with folders.",
     lead: "Capture history keeps recent results on your device so a useful image does not vanish when its result tab closes. Browse thumbnails, search by page title, filter by mode, or mark a favorite.",
     image: "private.png",
     imageWidth: 1600,
@@ -299,6 +319,7 @@ export const articles = [
     sections: [
       { title: "Retention is a choice", paragraphs: ["Settings controls how many captures to keep and whether older ones expire. Turning Capture history off prunes the store to the current result; the next capture replaces it. Batch requires history on so every successful page survives its queue."] },
       { title: "Retrieve or remove", steps: ["Open History from the popup or Settings.", "Search for a title or filter by Visible, Full page, Slices, or Region.", "Open, download, favorite, or delete a capture. Clear history asks before removing everything."] },
+      { title: "Folders keep what matters", paragraphs: ["File captures into folders from the sidebar. Captures in a folder are never cleaned up automatically, and Clear history can leave them alone. The guide to history folders covers selecting, moving, and downloading a whole folder as one ZIP."], image: { file: "guide-folder-view.webp", width: 1600, height: 1260, alt: "The History page showing a folder named Client work holding two captures", caption: "A folder in the sidebar, showing only the captures filed in it." } },
     ],
     note: "Captures and their page details stay on this device. Some extension settings may use Chrome Sync between your own signed-in browsers; the images do not go to a ScrollSnapshot server.",
   },
@@ -322,10 +343,11 @@ export const articles = [
     category: "Tools",
     depth: "Quick note",
     summary: "A pixel loupe that copies the hex value you choose.",
-    lead: "The colour picker is for the one pixel you actually mean. Point at the page, inspect the enlarged area and hex value, then click to copy it.",
+    lead: "The colour picker is for the one pixel you actually mean. Point at the page, inspect the enlarged area and its value, then click to copy it.",
     sections: [
-      { title: "Why it lives on the page", paragraphs: ["The extension popup closes when focus moves to the page, so the picker itself handles the copy. It samples the device pixel under the pointer instead of inventing an average colour from a high-density display."] },
-      { title: "Choose a pixel", steps: ["Start Pick a colour from the popup.", "Move the loupe over the pixel you need and read the displayed hex.", "Click to copy it, or press Escape to leave without choosing."] },
+      { title: "Why it lives on the page", paragraphs: ["The extension popup closes when focus moves to the page, so the picker itself handles the copy. It samples the device pixel under the pointer, including on scaled displays and in pages with a scrollbar, instead of inventing an average colour."] },
+      { title: "A loupe you can steer", paragraphs: ["The loupe shows an 11 by 11 block of pixels around the pointer. The arrow keys move it one pixel at a time, and Tab switches the copied value between HEX, RGB and HSL. The view refreshes after the page scrolls. The popup's button for it is an eyedropper; the target icon means picking an element instead."] },
+      { title: "Choose a pixel", steps: ["Start Pick a colour from the popup.", "Move the loupe over the pixel you need and read the displayed value.", "Click to copy it, or press Escape to leave without choosing."] },
     ],
     note: "Use the colour palette on a finished capture when you want the dominant colours, rather than one exact pixel.",
   },
@@ -360,7 +382,7 @@ export const articles = [
     title: "Settings, explained",
     category: "Settings",
     depth: "Deep guide",
-    summary: "A complete tour of Capture, Batch, Features, Output, Slices, and Shortcuts.",
+    summary: "A complete tour of Capture, Batch, Features, Output, Watermark, Slices, and Shortcuts.",
     lead: "Settings is where you choose how ScrollSnapshot behaves between captures. Start with the defaults you use every day, then adjust a single capture from the popup when a page calls for something different.",
     image: "settings.webp",
     imageWidth: 1880,
@@ -390,12 +412,21 @@ export const articles = [
         paragraphs: ["Choose PNG, JPEG, or WebP as the default image format. The Quality slider appears for JPEG and WebP, from 40% to 100%. You can still choose another format in the popup for a particular capture.", "Filename template accepts {site}, {date}, {time}, {mode}, {index}, {width}, and {height}. The example filename beneath the field updates as you edit, so check it before settling on a naming pattern. Automatic clipboard copy applies to PNG captures only.", "When Capture history is on, Keep captures sets the newest-result limit and Delete after removes captures older than the chosen age, even if the count limit has not been reached. Open capture history takes you to the saved results. With history off, only the newest result remains until the next capture replaces it."],
       },
       {
+        title: "Watermark: sign what you save",
+        paragraphs: ["Watermark adds your own text, a logo, or both to what you save. It is off until you turn it on, and the logo stays on this device. The watermark guide covers the position, size, opacity, and the per-capture switch on the result toolbar."],
+        image: { file: "guide-watermark-settings.webp", width: 1000, height: 1250, alt: "The Watermark settings page", caption: "The Watermark tab, with a live preview above its controls." },
+      },
+      {
         title: "Slices: choose the shape of each piece",
         paragraphs: ["Slice by Screenful follows the visible viewport, Height uses a pixel height you enter, and Count divides the page into the number of pieces you choose. Overlap between slices adds 0–200 pixels of shared content at each boundary so adjacent images are easier to follow. These controls set the default for Slices captures."],
       },
       {
         title: "Shortcuts: see and change keys",
         paragraphs: ["The Shortcuts tab shows the current key for each extension command, or “unset” where none is assigned. Choose Change shortcuts to open Chrome's extension shortcut page, where browser-managed bindings can be edited."],
+      },
+      {
+        title: "Reset a page, or everything",
+        paragraphs: ["Each settings page has Reset this page, and there is a Reset all settings button for the whole extension. Both ask first, in a dialog that says what goes back and what is kept. Your consent, the hints you have already seen, saved style presets, and recent colours are kept."],
       },
       {
         title: "A sensible first pass",
@@ -405,3 +436,8 @@ export const articles = [
     note: "Capture defaults can affect the next capture. Inspect its result before sharing, especially after changing engine, format, or retention settings.",
   },
 ];
+
+// Release-era guides live in their own file. Listed by area, in the order of `categories`, so the
+// directory and the numbering stay grouped; the sort is stable within an area.
+const order = ["Capture", "Edit", "Output", "Tools", "Settings", "Release"];
+export const articles = [...baseArticles, ...releaseArticles].sort((a, b) => order.indexOf(a.category) - order.indexOf(b.category));

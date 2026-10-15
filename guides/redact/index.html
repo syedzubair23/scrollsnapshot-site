@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f5f5f1">
-  <meta name="description" content="Black out or pixelate details in the saved image.">
+  <meta name="description" content="Black out, pixelate, or blur details in the saved image.">
   <meta property="og:type" content="article">
   <meta property="og:title" content="Cover what should not travel">
-  <meta property="og:description" content="Black out or pixelate details in the saved image.">
+  <meta property="og:description" content="Black out, pixelate, or blur details in the saved image.">
   <meta property="og:url" content="https://syedzubair23.github.io/scrollsnapshot-site/guides/redact/">
   <meta property="og:image" content="https://syedzubair23.github.io/scrollsnapshot-site/assets/editor.png">
   <link rel="canonical" href="https://syedzubair23.github.io/scrollsnapshot-site/guides/redact/">
@@ -30,6 +30,7 @@
       <nav class="desktop-nav" aria-label="Main navigation">
         <a href="../../#modes">Capture modes</a>
         <a href="../../guides/" aria-current="page">Guides</a>
+        <a href="../../changelog/">Changelog</a>
         <a href="../../privacy/">Privacy</a>
         <a href="../../support/">Support</a>
       </nav>
@@ -39,6 +40,7 @@
     <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
       <a href="../../#modes">Capture modes</a>
       <a href="../../guides/" aria-current="page">Guides</a>
+      <a href="../../changelog/">Changelog</a>
       <a href="../../privacy/">Privacy</a>
       <a href="../../support/">Support</a>
       <a href="https://chromewebstore.google.com/detail/scrollsnapshot/hhahcllpchhmkgmioaekblbnblodbiic" target="_blank" rel="noopener noreferrer">Chrome Web Store ↗</a>
@@ -48,29 +50,32 @@
     <article>
       <header class="guide-article-hero shell">
         <nav class="guide-breadcrumb" aria-label="Breadcrumb"><a href="../../">Home</a><span>/</span><a href="../">Guides</a><span>/</span><span aria-current="page">Cover what should not travel</span></nav>
-        <div class="guide-eyebrow reveal"><span>14 / 25</span><span class="kicker-rule"></span><span>EDIT · DEEP GUIDE</span></div>
+        <div class="guide-eyebrow reveal"><span>14 / 34</span><span class="kicker-rule"></span><span>EDIT · DEEP GUIDE</span></div>
         <h1 class="reveal">Cover what should not travel</h1>
         <p class="guide-article-lead reveal">Redaction changes the image itself. Use it for a name, token, address, or other detail that should not appear in the exported capture.</p>
       </header>
       <div class="shell"><figure class="guide-article-visual"><a href="../../assets/editor.png" target="_blank" rel="noopener" aria-label="Open full-size image: ScrollSnapshot editor with redaction and annotation controls"><img src="../../assets/editor.png" alt="ScrollSnapshot editor with redaction and annotation controls" width="1600" height="770" loading="lazy"></a><figcaption><span>FIG. 14 / Marks are applied to the image before export.</span><a href="../../assets/editor.png" target="_blank" rel="noopener">OPEN FULL SIZE ↗</a></figcaption></figure></div>
       <div class="guide-article-grid shell">
-        <aside class="guide-article-aside" aria-label="On this page"><span>IN THIS GUIDE</span><a href="#section-1">Two different marks</a><a href="#section-2">Check before you send</a><a href="#section-3">Text beside the image</a><a class="guide-aside-all" href="../">All guides ↗</a></aside>
+        <aside class="guide-article-aside" aria-label="On this page"><span>IN THIS GUIDE</span><a href="#section-1">Three different effects</a><a href="#section-2">Rectangle, brush, and eraser</a><a href="#section-3">Check before you send</a><a href="#section-4">Text beside the image</a><a class="guide-aside-all" href="../">All guides ↗</a></aside>
         <div class="guide-article-body">
-          <section class="guide-prose-section" id="section-1"><span class="guide-section-index">01</span><div><h2>Two different marks</h2><p>Black out fills the selected area with opaque black. Pixelate replaces it with coarse blocks. Both are applied to the source image, not merely painted over the browser preview.</p></div></section>
-<section class="guide-prose-section" id="section-2"><span class="guide-section-index">02</span><div><h2>Check before you send</h2><ol class="guide-steps"><li>Open the result and choose Edit, then Redact.</li><li>Draw over each sensitive area, zooming in if the edge is close to text you want to keep.</li><li>Apply the edit and inspect the exported image, not only the editing overlay.</li></ol></div></section>
-<section class="guide-prose-section" id="section-3"><span class="guide-section-index">03</span><div><h2>Text beside the image</h2><p>A Region capture may include text read from the page. Once you apply a redaction, ScrollSnapshot withholds that extracted text so it cannot reveal words hidden in the image. Undo edits brings it back.</p></div></section>
+          <section class="guide-prose-section" id="section-1"><span class="guide-section-index">01</span><div><h2>Three different effects</h2><p>Black out fills the selected area with opaque black. Pixelate replaces it with coarse blocks. Blur softens it, which can look gentler than pixelation on noisy images. All three are applied to the source image, not merely painted over the browser preview.</p>
+<p>Blur and Pixelate leave a trace of the shape underneath. When the content is sensitive and must be completely covered, choose Black out.</p></div></section>
+<section class="guide-prose-section" id="section-2"><span class="guide-section-index">02</span><div><h2>Rectangle, brush, and eraser</h2><p>Redact&#39;s dropdown holds Rectangle, Brush and Eraser, the three effects, and a brush-size slider shared by the brush and the eraser. Paint around an edge a rectangle cannot follow, or erase part of any redaction you have not applied yet. Each stroke supports Undo and Redo.</p><figure class="guide-inline-figure"><a href="../../assets/guide-redact.webp" target="_blank" rel="noopener" aria-label="Open full-size image: The Redaction style menu open in the editor, showing Rectangle, Brush and Eraser above the Black out, Pixelate and Blur effects"><img src="../../assets/guide-redact.webp" alt="The Redaction style menu open in the editor, showing Rectangle, Brush and Eraser above the Black out, Pixelate and Blur effects" width="1600" height="770" loading="lazy"></a><figcaption>Redact&#39;s menu: how to draw (Rectangle, Brush, Eraser) above which effect to use.</figcaption></figure><ul class="guide-tips"><li>Use the brush for a signature, a curved logo, or text that runs at an angle.</li><li>Switch to the eraser to give back a few pixels you covered by mistake. It only works on a redaction you have not applied yet.</li></ul></div></section>
+<section class="guide-prose-section" id="section-3"><span class="guide-section-index">03</span><div><h2>Check before you send</h2><ol class="guide-steps"><li>Open the result and choose Edit, then Redact.</li><li>Draw over each sensitive area, zooming in if the edge is close to text you want to keep.</li><li>Apply the edit and inspect the exported image, not only the editing overlay.</li></ol></div></section>
+<section class="guide-prose-section" id="section-4"><span class="guide-section-index">04</span><div><h2>Text beside the image</h2><p>A Region capture may include text read from the page. Once you apply a redaction, ScrollSnapshot withholds that extracted text so it cannot reveal words hidden in the image. Undo edits brings it back.</p></div></section>
           <aside class="guide-note"><span>KEEP IN MIND</span><p>An arrow or highlight points at content; it does not hide it. Use Redact when the pixels themselves must be obscured.</p></aside>
         </div>
       </div>
     </article>
     <nav class="guide-prev-next shell" aria-label="Adjacent guides"><a href="../crop/"><span>← PREVIOUS GUIDE</span><strong>Decide what the file keeps</strong></a><a href="../annotate/"><span>NEXT GUIDE →</span><strong>Make the important part obvious</strong></a></nav>
-    <section class="guide-related shell" aria-labelledby="related-heading"><div class="section-label"><span>KEEP READING</span><span class="label-line"></span></div><h2 id="related-heading">Nearby ideas.</h2><div class="guide-related-grid"><a href="../crop/"><span>EDIT ↗</span><strong>Decide what the file keeps</strong><small>Trim a finished capture before copying or downloading.</small></a><a href="../annotate/"><span>EDIT ↗</span><strong>Make the important part obvious</strong><small>Boxes, arrows, highlights, text, and pen marks.</small></a><a href="../step-numbers/"><span>EDIT ↗</span><strong>Put the steps on the page</strong><small>Numbered markers for a sequence in one screenshot.</small></a></div></section>
+    <section class="guide-related shell" aria-labelledby="related-heading"><div class="section-label"><span>KEEP READING</span><span class="label-line"></span></div><h2 id="related-heading">Nearby ideas.</h2><div class="guide-related-grid"><a href="../crop/"><span>EDIT ↗</span><strong>Decide what the file keeps</strong><small>Trim, rotate, flip, or straighten a finished capture.</small></a><a href="../annotate/"><span>EDIT ↗</span><strong>Make the important part obvious</strong><small>The editor, tool by tool: shapes, lines, highlights, text, pen, steps, and when to use each.</small></a><a href="../step-numbers/"><span>EDIT ↗</span><strong>Put the steps on the page</strong><small>Numbered markers for a sequence in one screenshot.</small></a></div></section>
   </main>
   <footer class="site-footer">
     <div class="shell footer-grid">
       <div><a class="brand" href="../../"><img src="../../icon-128.png" alt="" width="30" height="30"><span>ScrollSnapshot</span></a><p>Capture the page. Keep the detail.</p></div>
-      <div class="footer-links"><a href="../../">Homepage</a><a href="../../guides/">Guides</a><a href="../../privacy/">Privacy policy</a><a href="../../support/">Support</a></div>
+      <div class="footer-links"><a href="../../">Homepage</a><a href="../../guides/">Guides</a><a href="../../changelog/">Changelog</a><a href="../../privacy/">Privacy policy</a><a href="../../support/">Support</a></div>
       <div class="footer-bottom"><span>© <span id="year">2026</span> ScrollSnapshot</span><span>Made for the page in front of you.</span></div>
+      <p class="footer-credit">Developed by <a href="https://syedzubair.com/" target="_blank" rel="noopener noreferrer">syedzubair.com</a></p>
     </div>
   </footer>
 </body>
