@@ -86,7 +86,7 @@ if (search) {
 
 const tocLinks = [...document.querySelectorAll(".guide-article-aside a[href^='#']")];
 if (tocLinks.length && "IntersectionObserver" in window) {
-  const sections = [...document.querySelectorAll(".guide-prose-section")];
+  const sections = [...document.querySelectorAll(".guide-prose-section, .release")];
   const observer = new IntersectionObserver((entries) => {
     const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
     if (!visible.length) return;

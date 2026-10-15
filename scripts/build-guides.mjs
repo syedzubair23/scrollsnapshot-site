@@ -2,11 +2,12 @@ import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { articles } from "../guides/content.mjs";
+import { releases } from "../changelog/content.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const site = "https://syedzubair23.github.io/scrollsnapshot-site/";
 const store = "https://chromewebstore.google.com/detail/scrollsnapshot/hhahcllpchhmkgmioaekblbnblodbiic";
-const categories = ["Capture", "Edit", "Output", "Tools", "Settings"];
+const categories = ["Capture", "Edit", "Output", "Tools", "Settings", "Release"];
 const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (character) => ({
   "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
 })[character]);
@@ -24,6 +25,24 @@ for (const article of articles) {
 for (const article of articles) {
   if (article.relatedSlugs?.some((slug) => !slugs.has(slug) || slug === article.slug)) {
     throw new Error(`Invalid related guide: ${article.slug}`);
+  }
+}
+
+const versions = new Set();
+for (const release of releases) {
+  if (!/^\d+\.\d+\.\d+$/.test(release.version) || versions.has(release.version) || Number.isNaN(Date.parse(release.date))) {
+    throw new Error(`Invalid or duplicate release: ${release.version}`);
+  }
+  versions.add(release.version);
+  if (release.highlights && !slugs.has(release.highlights)) {
+    throw new Error(`Unknown highlights guide for ${release.version}: ${release.highlights}`);
+  }
+  for (const group of release.groups) {
+    for (const item of group.items) {
+      if (item.guide && !slugs.has(item.guide)) {
+        throw new Error(`Unknown guide "${item.guide}" in release ${release.version}: ${item.title}`);
+      }
+    }
   }
 }
 
@@ -51,7 +70,8 @@ function head({ title, description, url, prefix, type = "website", image }) {
 </head>`;
 }
 
-function header(prefix) {
+function header(prefix, current = "guides") {
+  const here = (name) => (name === current ? ' aria-current="page"' : "");
   return `<a class="skip-link" href="#main">Skip to content</a>
   <div class="scroll-progress" aria-hidden="true"></div>
   <header class="site-header" id="top">
@@ -62,7 +82,8 @@ function header(prefix) {
       </a>
       <nav class="desktop-nav" aria-label="Main navigation">
         <a href="${prefix}#modes">Capture modes</a>
-        <a href="${prefix}guides/" aria-current="page">Guides</a>
+        <a href="${prefix}guides/"${here("guides")}>Guides</a>
+        <a href="${prefix}changelog/"${here("changelog")}>Changelog</a>
         <a href="${prefix}privacy/">Privacy</a>
         <a href="${prefix}support/">Support</a>
       </nav>
@@ -71,7 +92,8 @@ function header(prefix) {
     </div>
     <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
       <a href="${prefix}#modes">Capture modes</a>
-      <a href="${prefix}guides/" aria-current="page">Guides</a>
+      <a href="${prefix}guides/"${here("guides")}>Guides</a>
+      <a href="${prefix}changelog/"${here("changelog")}>Changelog</a>
       <a href="${prefix}privacy/">Privacy</a>
       <a href="${prefix}support/">Support</a>
       <a href="${store}" target="_blank" rel="noopener noreferrer">Chrome Web Store ↗</a>
@@ -83,7 +105,7 @@ function footer(prefix) {
   return `<footer class="site-footer">
     <div class="shell footer-grid">
       <div><a class="brand" href="${prefix}"><img src="${prefix}icon-128.png" alt="" width="30" height="30"><span>ScrollSnapshot</span></a><p>Capture the page. Keep the detail.</p></div>
-      <div class="footer-links"><a href="${prefix}">Homepage</a><a href="${prefix}guides/">Guides</a><a href="${prefix}privacy/">Privacy policy</a><a href="${prefix}support/">Support</a></div>
+      <div class="footer-links"><a href="${prefix}">Homepage</a><a href="${prefix}guides/">Guides</a><a href="${prefix}changelog/">Changelog</a><a href="${prefix}privacy/">Privacy policy</a><a href="${prefix}support/">Support</a></div>
       <div class="footer-bottom"><span>© <span id="year">2026</span> ScrollSnapshot</span><span>Made for the page in front of you.</span></div>
     </div>
   </footer>`;
@@ -185,12 +207,59 @@ function articlePage(article, index) {
 </html>`;
 }
 
+const formatDate = (iso) => new Date(iso).toLocaleDateString("en-US", { timeZone: "UTC", year: "numeric", month: "long", day: "numeric" });
+const versionId = (version) => `v${version.replaceAll(".", "-")}`;
+
+function releaseHtml(release, index) {
+  const groups = release.groups.map((group) => `<details class="release-group" data-group="${escapeHtml(group.name.toLowerCase())}" open>
+        <summary><span>${escapeHtml(group.name)}</span><small>${group.items.length}</small></summary>
+        <ul class="release-items">${group.items.map((item) => `<li><strong>${escapeHtml(item.title)}</strong><p>${escapeHtml(item.text)}</p>${item.guide ? `<a class="release-guide" href="../guides/${item.guide}/">Read the guide <span aria-hidden="true">↗</span></a>` : ""}</li>`).join("")}</ul>
+      </details>`).join("\n      ");
+  const highlights = release.highlights ? `<a class="release-highlights" href="../guides/${release.highlights}/">Read the highlights <span aria-hidden="true">↗</span></a>` : "";
+  return `<section class="release" id="${versionId(release.version)}" aria-labelledby="${versionId(release.version)}-title">
+      <header class="release-head">
+        <div class="release-meta"><span class="release-version">${escapeHtml(release.version)}</span>${index === 0 ? '<span class="release-badge">Latest</span>' : ""}<time datetime="${release.date}">${formatDate(release.date)}</time></div>
+        <h2 id="${versionId(release.version)}-title">${escapeHtml(release.title)}</h2>
+        <p>${escapeHtml(release.summary)}</p>
+        ${highlights}
+      </header>
+      ${groups}
+    </section>`;
+}
+
+function changelogPage() {
+  const latest = releases[0];
+  const nav = releases.map((release) => `<a href="#${versionId(release.version)}">${escapeHtml(release.version)}<small>${formatDate(release.date)}</small></a>`).join("");
+  return `${head({ title: "Changelog", description: `What changed in every ScrollSnapshot release. Version ${latest.version}: ${latest.title.toLowerCase()}.`, url: `${site}changelog/`, prefix: "../" })}
+<body>
+  ${header("../", "changelog")}
+  <main id="main">
+    <section class="guide-index-hero shell">
+      <div class="guide-eyebrow reveal"><span>CHANGELOG</span><span class="kicker-rule"></span><span>${releases.length} ${releases.length === 1 ? "RELEASE" : "RELEASES"}</span></div>
+      <h1 class="reveal">What changed,<br><em>release by release.</em></h1>
+      <div class="guide-index-intro reveal"><p>New features, changes to how things work, and fixes, newest first. Each new feature links to a guide that explains it. Chrome updates the extension for you; version ${escapeHtml(latest.version)} is the latest.</p><span>SCROLL FOR THE LATEST ↓</span></div>
+    </section>
+    <div class="guide-article-grid release-grid shell">
+      <aside class="guide-article-aside" aria-label="Releases"><span>RELEASES</span>${nav}<a class="guide-aside-all" href="../guides/">All guides ↗</a></aside>
+      <div class="guide-article-body release-list">
+        ${releases.map(releaseHtml).join("\n    ")}
+      </div>
+    </div>
+    <section class="guide-bottom shell"><p>Found something that does not work as described?</p><a class="text-link" href="../support/">Go to support <span aria-hidden="true">↗</span></a></section>
+  </main>
+  ${footer("../")}
+</body>
+</html>`;
+}
+
 await writeFile(join(root, "guides", "index.html"), indexPage(), "utf8");
+await mkdir(join(root, "changelog"), { recursive: true });
+await writeFile(join(root, "changelog", "index.html"), changelogPage(), "utf8");
 for (const [index, article] of articles.entries()) {
   const directory = join(root, "guides", article.slug);
   await mkdir(directory, { recursive: true });
   await writeFile(join(directory, "index.html"), articlePage(article, index), "utf8");
 }
-const urls = [site, `${site}guides/`, ...articles.map((article) => `${site}guides/${article.slug}/`), `${site}privacy/`, `${site}support/`];
+const urls = [site, `${site}guides/`, ...articles.map((article) => `${site}guides/${article.slug}/`), `${site}changelog/`, `${site}privacy/`, `${site}support/`];
 await writeFile(join(root, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((url) => `  <url><loc>${url}</loc></url>`).join("\n")}\n</urlset>\n`, "utf8");
-console.log(`Built ${articles.length} feature guides and sitemap.xml`);
+console.log(`Built ${articles.length} feature guides, the changelog (${releases.length} releases) and sitemap.xml`);
