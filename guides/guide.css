@@ -214,3 +214,14 @@
   .release-guide { grid-column: auto; }
   .release-head p { font-size: 17px; }
 }
+
+/* In-section figures and tips */
+.guide-inline-figure { max-width: 760px; margin: 28px 0 8px; overflow: hidden; border: 1px solid #1c2223; border-radius: 6px; background: var(--night); box-shadow: 0 16px 36px rgba(21, 28, 29, .09); }
+.guide-inline-figure a { display: block; cursor: zoom-in; }
+.guide-inline-figure img { display: block; width: 100%; height: auto; }
+.guide-inline-figure figcaption { padding: 13px 16px; border-top: 1px solid #303839; color: #a5afb0; font-size: 13px; line-height: 1.5; }
+.guide-prose-section .guide-steps + .guide-inline-figure, .guide-prose-section p + .guide-steps { margin-top: 16px; }
+.guide-tips { max-width: 700px; padding: 18px 22px 18px 38px; margin: 22px 0 0; background: #fff; border: 1px solid var(--line); border-left: 2px solid var(--blue); border-radius: 3px; color: #455051; font-size: 15.5px; line-height: 1.6; }
+.guide-tips li { margin: 8px 0; padding-left: 4px; }
+.guide-tips li::marker { color: var(--blue); }
+@media (max-width: 620px) { .guide-inline-figure figcaption { font-size: 12px; } .guide-tips { padding-inline: 30px 16px; font-size: 15px; } }

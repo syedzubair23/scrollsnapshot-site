@@ -1,6 +1,8 @@
 // Source copy for the static feature guide. Keep claims aligned with the extension's
 // shipped feature catalogue and the domain notes in its private source repository.
-export const articles = [
+import { releaseArticles } from "./content-release.mjs";
+
+const baseArticles = [
   {
     slug: "visible-capture",
     title: "Capture this screen",
@@ -191,7 +193,7 @@ export const articles = [
     summary: "Trim, rotate, flip, or straighten a finished capture.",
     lead: "Crop removes pixels outside a boundary after you have seen the capture. It is useful when the page needed a broad capture but the file you share should show only one part.",
     sections: [
-      { title: "A crop box around the whole capture", paragraphs: ["Crop opens a box around the entire image. Drag an edge or corner to resize it, drag inside to move it, type an exact width and height, or hold a ratio. The arrow keys nudge it. ScrollSnapshot maps the box back to the image's source pixels, even when a tall screenshot is scaled down to fit the screen. Format changes afterward still use the cropped image.", "You can also rotate or flip the capture from the same bar, and zoom in to place an edge precisely."] },
+      { title: "A crop box around the whole capture", paragraphs: ["Crop opens a box around the entire image. Drag an edge or corner to resize it, drag inside to move it, type an exact width and height, or hold a ratio. The arrow keys nudge it. ScrollSnapshot maps the box back to the image's source pixels, even when a tall screenshot is scaled down to fit the screen. Format changes afterward still use the cropped image.", "You can also rotate or flip the capture from the same bar, and zoom in to place an edge precisely."], image: { file: "guide-crop.webp", width: 1600, height: 900, alt: "The ScrollSnapshot crop box over a capture that has been tilted with Straighten, with the crop handles inside the tilted image", caption: "The crop box after straightening by 4 degrees: the box sits inside the tilted image." } },
       { title: "Straighten a tilted capture", paragraphs: ["Straighten turns the image by any angle up to 45 degrees either way, with a live preview under a grid so you can line a horizon or a table edge up with it. The crop box starts inside the tilted image, so you do not keep an empty corner."] },
       { title: "A clean finish", steps: ["Open the finished capture and choose Crop.", "Drag the box to the part you want, or type its size. Straighten first if the image is tilted.", "Apply it, check the edges, then copy or download the result."] },
     ],
@@ -211,7 +213,7 @@ export const articles = [
     imageCaption: "Marks are applied to the image before export.",
     sections: [
       { title: "Three different effects", paragraphs: ["Black out fills the selected area with opaque black. Pixelate replaces it with coarse blocks. Blur softens it, which can look gentler than pixelation on noisy images. All three are applied to the source image, not merely painted over the browser preview.", "Blur and Pixelate leave a trace of the shape underneath. When the content is sensitive and must be completely covered, choose Black out."] },
-      { title: "Rectangle, brush, and eraser", paragraphs: ["Redact's dropdown holds Rectangle, Brush and Eraser, the three effects, and a brush-size slider shared by the brush and the eraser. Paint around an edge a rectangle cannot follow, or erase part of any redaction you have not applied yet. Each stroke supports Undo and Redo."] },
+      { title: "Rectangle, brush, and eraser", paragraphs: ["Redact's dropdown holds Rectangle, Brush and Eraser, the three effects, and a brush-size slider shared by the brush and the eraser. Paint around an edge a rectangle cannot follow, or erase part of any redaction you have not applied yet. Each stroke supports Undo and Redo."], image: { file: "guide-redact.webp", width: 1600, height: 770, alt: "The Redaction style menu open in the editor, showing Rectangle, Brush and Eraser above the Black out, Pixelate and Blur effects", caption: "Redact's menu: how to draw (Rectangle, Brush, Eraser) above which effect to use." }, tips: ["Use the brush for a signature, a curved logo, or text that runs at an angle.", "Switch to the eraser to give back a few pixels you covered by mistake. It only works on a redaction you have not applied yet."] },
       { title: "Check before you send", steps: ["Open the result and choose Edit, then Redact.", "Draw over each sensitive area, zooming in if the edge is close to text you want to keep.", "Apply the edit and inspect the exported image, not only the editing overlay."] },
       { title: "Text beside the image", paragraphs: ["A Region capture may include text read from the page. Once you apply a redaction, ScrollSnapshot withholds that extracted text so it cannot reveal words hidden in the image. Undo edits brings it back."] },
     ],
@@ -235,51 +237,6 @@ export const articles = [
       { title: "Build a readable note", steps: ["Open Edit and choose a tool: Select, Shape, Line, Highlight, Text, or Pen.", "Use one colour and a small number of marks to establish the reading order.", "Apply the marks, then review the final file at the size your recipient will see."] },
     ],
     note: "Redactions are painted before other marks, so a later arrow cannot uncover information you covered.",
-  },
-  {
-    slug: "shapes-and-lines",
-    title: "Draw the outline you need",
-    category: "Edit",
-    depth: "Quick note",
-    summary: "Five shapes, three line styles, and Shift to keep them true.",
-    lead: "A box is not always the right outline. The Shape tool draws a rectangle, rounded rectangle, ellipse, triangle, or diamond, and the Line tool draws an arrow, a double arrow, or a plain line.",
-    sections: [
-      { title: "Shapes, from one menu", paragraphs: ["Choose a shape from the menu beside the Shape tool (shortcut B), then drag it over the capture. The same menu changes a shape you have already selected, so you can swap a rectangle for an ellipse without redrawing it."] },
-      { title: "Lines and line ends", paragraphs: ["The Line tool (A or L) draws an arrow, a double arrow with a head at each end, or a plain line. As with shapes, picking a different style while a line is selected changes that line."] },
-      { title: "Keep them straight", paragraphs: ["Hold Shift while dragging to keep a shape square and to hold a line to 45-degree steps. That is the quick way to get a level underline or a perfectly vertical pointer."] },
-      { title: "A quick route", steps: ["Open Edit and choose the Shape or Line tool.", "Pick the style from the menu beside it.", "Drag over the capture, holding Shift where it should stay square or level."] },
-    ],
-    note: "A shape or line only points at content. It does not hide it. Use Redact when the pixels themselves must be covered.",
-  },
-  {
-    slug: "edit-marks",
-    title: "Change your mind after drawing",
-    category: "Edit",
-    depth: "Focused guide",
-    summary: "Select, resize, rotate, restyle, and recolour any mark.",
-    lead: "Marks stay editable until you apply them. A shape comes up selected with handles to resize it, and the Select tool picks up any mark when you want to adjust it later.",
-    sections: [
-      { title: "Pick a mark up", paragraphs: ["The Select tool (V) picks up any mark on the capture. The drawing tools draw over others, so you can lay a new mark on top of an old one without grabbing it by accident. A new shape comes up selected, with handles to resize it, a grip to rotate it, and a grip on each end of an arrow."] },
-      { title: "Move, nudge, and tidy", paragraphs: ["Drag to move a mark, or use the arrow keys to nudge it. Hold Shift while rotating to snap to 15-degree steps. Double-click text to rewrite it. Delete removes the mark, Ctrl+D duplicates it, and ] and [ move it forward or back in the stack.", "Changing the colour, stroke, or text size while a mark is selected changes that mark, not just the next one you draw."] },
-      { title: "Any colour you like", paragraphs: ["The colour popover opens with twelve named colours as small circles. A sixth swatch opens a full picker: a colour field, a hue strip, a hex box, your recent colours, and an eyedropper (I) that takes a pixel straight off the capture, so an annotation can match the page it explains."] },
-      { title: "A reliable sequence", steps: ["Draw a shape, a line, or a note.", "Press V, then pick the mark up to move, resize, rotate, or restyle it.", "Use Ctrl+D and the arrow keys to repeat a mark at an exact distance, then apply the marks."] },
-    ],
-    note: "Marks preview over the capture until you apply them, so you can keep adjusting as long as you need.",
-  },
-  {
-    slug: "text-highlight-pen",
-    title: "Style the text, highlight, and pen",
-    category: "Edit",
-    depth: "Focused guide",
-    summary: "Fonts, highlight styles, and dashed or smoothed pen strokes.",
-    lead: "The Text, Highlight, and Pen tools each have a panel of options. They set the next mark you draw and restyle a mark you have selected, and saved style presets remember them.",
-    sections: [
-      { title: "Text", paragraphs: ["The Text tool's size button opens a panel with size, font (sans, serif, mono, or hand), weight, and alignment. Italic, underline, background chip, and outline are switches. A background chip keeps small text readable over a busy page; an outline does the same on an image."] },
-      { title: "Highlight", paragraphs: ["Highlight's dropdown sets its strength from 25 to 80 percent and whether it is a block, an underline, or a strikethrough. A Multiply blend keeps dark text dark under a bright highlight, as a real marker would."] },
-      { title: "Pen", paragraphs: ["Pen's dropdown sets a solid, dashed, or dotted line, its strength, round or square ends, and smoothing for a steadier hand-drawn stroke."] },
-      { title: "Make it repeatable", steps: ["Choose a tool and set its options in the panel.", "Draw the mark, or select an existing one to restyle it.", "Save the look as a style preset if you will use it again."] },
-    ],
-    note: "Older text, highlights and strokes look exactly as they did. These options change only what you set from now on.",
   },
   {
     slug: "step-numbers",
@@ -350,40 +307,9 @@ export const articles = [
     sections: [
       { title: "Retention is a choice", paragraphs: ["Settings controls how many captures to keep and whether older ones expire. Turning Capture history off prunes the store to the current result; the next capture replaces it. Batch requires history on so every successful page survives its queue."] },
       { title: "Retrieve or remove", steps: ["Open History from the popup or Settings.", "Search for a title or filter by Visible, Full page, Slices, or Region.", "Open, download, favorite, or delete a capture. Clear history asks before removing everything."] },
-      { title: "Folders keep what matters", paragraphs: ["File captures into folders from the sidebar. Captures in a folder are never cleaned up automatically, and Clear history can leave them alone. The guide to history folders covers selecting, moving, and downloading a whole folder as one ZIP."] },
+      { title: "Folders keep what matters", paragraphs: ["File captures into folders from the sidebar. Captures in a folder are never cleaned up automatically, and Clear history can leave them alone. The guide to history folders covers selecting, moving, and downloading a whole folder as one ZIP."], image: { file: "guide-folder-view.webp", width: 1600, height: 1260, alt: "The History page showing a folder named Client work holding two captures", caption: "A folder in the sidebar, showing only the captures filed in it." } },
     ],
     note: "Captures and their page details stay on this device. Some extension settings may use Chrome Sync between your own signed-in browsers; the images do not go to a ScrollSnapshot server.",
-  },
-  {
-    slug: "history-folders",
-    title: "Keep captures in folders",
-    category: "Output",
-    depth: "Focused guide",
-    summary: "Create folders, file captures into them, and download a folder as a ZIP.",
-    lead: "History can now hold more than a list. Make a folder for a project or a client, move the captures that belong there, and they are kept, even when everything else is cleaned up.",
-    sections: [
-      { title: "Make a folder", paragraphs: ["The History page has a folder sidebar. Create a folder there, and rename or delete it later from the same place. Folders live on your device alongside the captures they hold."] },
-      { title: "Select and move", paragraphs: ["Click a capture's box to select it, shift-click to select a range, or choose Select all. Move the selection into a folder from the menu, or drag it onto a folder in the sidebar."] },
-      { title: "The menu on every capture", paragraphs: ["Every capture and folder has a three-dot menu. For a capture it can open the result, open the original page, copy the link or the image, download it, rename it, move it, or delete it."] },
-      { title: "Kept, and easy to take away", paragraphs: ["Captures in a folder are never cleaned up automatically, so the count and age limits in Settings leave them alone. Clear history can spare them too. Download a folder, or any selection, as one ZIP."] },
-      { title: "A tidy first pass", steps: ["Open History and create a folder for one project.", "Select the captures that belong to it and drag them in.", "Download the folder as a ZIP when you need to hand the set over."] },
-    ],
-    note: "Folders are a way to organise captures on this device. Nothing about them is uploaded.",
-  },
-  {
-    slug: "slice-later",
-    title: "Cut a capture into slices later",
-    category: "Output",
-    depth: "Focused guide",
-    summary: "Slice any finished capture, across or down, and reassemble it when needed.",
-    lead: "You do not have to decide to slice before you capture. Any result can be cut afterwards, into rows or columns, and handed over as the same numbered ZIP that Slices mode makes.",
-    sections: [
-      { title: "Cut where you choose", paragraphs: ["Choose Slice on the result toolbar and click the image to make a cut. Drag a cut to move it, use a ruler to place it, cut every set number of pixels, or cut into a set number of equal parts. You can also keep cuts out of lines of text, so a sentence is not split across two images."] },
-      { title: "Across or down", paragraphs: ["The slice cutter cuts down as well as across through Cut direction. Columns suit a wide capture, such as a spreadsheet or a timeline. Reassemble puts columns back side by side as readily as it stacks rows."] },
-      { title: "A ZIP like any other", paragraphs: ["The result is a slices ZIP, ready to download or reassemble. Reassemble is on the toolbar of every slices capture."] },
-      { title: "A quick route", steps: ["Open a finished capture and choose Slice.", "Choose a direction, then click, drag, or use a ruler to set the cuts.", "Download the ZIP, or reassemble the pieces into one image."] },
-    ],
-    note: "Cutting a capture later works on the pixels you already have. For a page too tall for one image, Slices mode still keeps full resolution from the start.",
   },
   {
     slug: "reassemble-slices",
@@ -398,21 +324,6 @@ export const articles = [
       { title: "A quick route", steps: ["Open the Slices result or a saved ScrollSnapshot ZIP.", "Choose Reassemble into one image.", "Inspect the new result, then crop, edit, or download it."] },
     ],
     note: "An arbitrary ZIP from another screenshot tool is refused; the page coordinates in ScrollSnapshot's manifest are required.",
-  },
-  {
-    slug: "watermark",
-    title: "Put your name on what you save",
-    category: "Output",
-    depth: "Focused guide",
-    summary: "Add your text or logo to a capture, in a corner or tiled across it.",
-    lead: "A watermark marks a capture as yours. Add text, a logo, or both in Settings, and ScrollSnapshot stamps them onto what you save.",
-    sections: [
-      { title: "Set it up once", paragraphs: ["Open Settings, then Watermark. Add your text, a logo, or both. Place it in a corner, along an edge, in the centre, or tiled across the image, and set its size, opacity, text colour, and distance from the edge. A live preview shows the result as you change it.", "It is off until you turn it on, and the logo stays on this device."] },
-      { title: "Where it appears", paragraphs: ["The watermark shows over the capture on the result page, so you see it before you save. It goes on Download, Copy, PDF, and slices."] },
-      { title: "Switch it off for one capture", paragraphs: ["Once you have set a watermark up, a stamp button appears on the result toolbar. Its tooltip says whether the watermark is on or off for this capture, so you can leave it off for one image without touching your settings."] },
-      { title: "Try it", steps: ["Open Settings and choose Watermark.", "Enter text or add a logo, then choose a position and opacity.", "Capture something, check the preview on the result page, and download it."] },
-    ],
-    note: "A watermark marks an image; it does not hide anything. Use Redact when private details must be covered.",
   },
   {
     slug: "colour-picker",
@@ -455,20 +366,6 @@ export const articles = [
     note: "A dominant palette summarizes an image; it does not replace the colour picker for an exact point.",
   },
   {
-    slug: "zoom-rulers-guides",
-    title: "Zoom in and measure",
-    category: "Tools",
-    depth: "Quick note",
-    summary: "Zoom, pan, rulers, a grid, and guides on the result page.",
-    lead: "A long capture is hard to judge at fit size. Zoom in to check an edge, and use rulers, a grid, and guides to line things up. None of the measuring tools is saved into the image.",
-    sections: [
-      { title: "Zoom and pan", paragraphs: ["The result page, the crop box, and the editor all zoom. Use the minus and plus buttons, press Ctrl or Command with the mouse wheel, or press Ctrl or Command with 0 and 1. The readout toggles between fit and actual size. Hold Space and drag to pan."] },
-      { title: "Rulers, grid, and guides", paragraphs: ["Turn on Rulers and grid on the toolbar. Drag a guide out of a ruler to mark a position, and drag it back to remove it. They are there to help you see: they are a view aid, never saved into the image."] },
-      { title: "Check an edge", steps: ["Zoom to actual size where the detail matters.", "Drag a guide from a ruler to the edge you want to compare against.", "Hold Space and drag to pan along it."] },
-    ],
-    note: "Guides and the grid exist only while you are looking at the capture. What you download is the capture, with your marks, and nothing else.",
-  },
-  {
     slug: "settings",
     title: "Settings, explained",
     category: "Settings",
@@ -505,6 +402,7 @@ export const articles = [
       {
         title: "Watermark: sign what you save",
         paragraphs: ["Watermark adds your own text, a logo, or both to what you save. It is off until you turn it on, and the logo stays on this device. The watermark guide covers the position, size, opacity, and the per-capture switch on the result toolbar."],
+        image: { file: "guide-watermark-settings.webp", width: 1000, height: 1250, alt: "The Watermark settings page", caption: "The Watermark tab, with a live preview above its controls." },
       },
       {
         title: "Slices: choose the shape of each piece",
@@ -525,37 +423,9 @@ export const articles = [
     ],
     note: "Capture defaults can affect the next capture. Inspect its result before sharing, especially after changing engine, format, or retention settings.",
   },
-  {
-    slug: "toolbar-position",
-    title: "Put the toolbar where it suits you",
-    category: "Settings",
-    depth: "Quick note",
-    summary: "Left, right, or bottom, and a toolbar that fits any window.",
-    lead: "The result page's toolbars no longer have to sit along the bottom. Stand them against either side, and they still fit when the window is small.",
-    sections: [
-      { title: "Bottom, left, or right", paragraphs: ["Every result-page bar, whether the viewer, the editor, crop, or slicing, can stand upright against the left or right side, or stay along the bottom. Change it from the toolbar's own position button, or in Settings under Output. Zoom is part of each bar rather than a separate pill, and the capture keeps clear of the bar wherever it is."] },
-      { title: "Toolbars that fit the window", paragraphs: ["When a toolbar is longer than the window is wide, or tall at a side, its middle scrolls, sideways along the bottom (the mouse wheel works too), and fades at the edge where there is more. Download, Apply, Cancel, Undo and Redo stay pinned at the ends, so the main actions are always in reach.", "To keep the bars short, Format and size share one button, shown like PNG · 100%. Copy, Crop, Edit and Slice are icons with tooltips, and the editor's colour, stroke and text size are one button each, opening their choices."] },
-      { title: "Change it", steps: ["Open a finished capture.", "Press the toolbar's position button, or open Settings and choose Output.", "Pick left, right, or bottom."] },
-    ],
-    note: "Toolbars slide in from their edge and menus open from their button. If your system is set to reduce motion, ScrollSnapshot turns that off.",
-  },
-  {
-    slug: "whats-new-1-1",
-    title: "What's new in ScrollSnapshot 1.1",
-    category: "Release",
-    depth: "Release notes",
-    summary: "Folders, a watermark, richer editing, and a longer list of fixes.",
-    lead: "Version 1.1 is about what happens after the capture: keeping it, marking it up, and putting your name on it. It also fixes a run of problems with Turbo, the colour picker, and the popup.",
-    relatedSlugs: ["history-folders", "watermark", "edit-marks"],
-    sections: [
-      { title: "Keep what you capture", paragraphs: ["History now has folders. Create them in a sidebar, select captures with a box or a shift-click range, and move them in from a menu or by dragging. Captures in a folder are never cleaned up automatically, a folder or any selection downloads as one ZIP, and every capture has a three-dot menu for the things you do most. Clear history can leave the captures in folders alone."] },
-      { title: "Mark it up properly", paragraphs: ["Shapes and line ends join the editor, and any mark can be picked up afterwards to move, resize, rotate, restyle, duplicate, or delete. Text, Highlight and Pen each have their own options, and the editor takes any colour, including one taken off the capture with an eyedropper. Redact gained Blur, a brush, and an eraser. Crop became a crop box with straighten, and the result page now zooms, with rulers, a grid, and guides."] },
-      { title: "Put your name on it", paragraphs: ["A watermark of your own text, a logo, or both can be added to what you save, in a corner, along an edge, in the centre, or tiled across the image. It can be switched off for a single capture with a stamp button on the toolbar."] },
-      { title: "More ways to export", paragraphs: ["PDF is now in the popup's Format row. Any finished capture can be cut into slices afterwards, across or down, and reassembled. The toolbars can stand on either side of the window and shorten themselves to fit, and Settings has a reset for each page and for everything."] },
-      { title: "Turbo and the popup", paragraphs: ["Turbo's viewport width dropdown is on by default and works for Slices as well as Full page. The popup scrolls only its options, so Format and Turbo stay in view above Capture, and each mode's icon opens a card with its name, shortcut and what it makes."] },
-      { title: "Fixed in this release", paragraphs: ["Turbo no longer catches a sliding navbar part way, repeats a stretch of a long page, or comes out the wrong size in a zoomed tab. Slices no longer repeat a cookie banner or sticky header in every piece. The colour picker reads the pixel under the pointer and can no longer have its screenshot read by the page. Copy can be pressed again after another capture replaces the clipboard, popup tooltips name the shortcut Chrome actually assigned, side toolbars show their tooltips, and the extension icon shows again in the toolbar."] },
-      { title: "Getting the update", steps: ["Chrome updates extensions on its own, usually within a day or two of a release.", "To check now, open chrome://extensions, turn on Developer mode, and choose Update.", "Look for version 1.1.0 on ScrollSnapshot's card."] },
-    ],
-    note: "The changelog lists every change in this release, with a link to the guide for each new feature.",
-  },
 ];
+
+// Release-era guides live in their own file. Listed by area, in the order of `categories`, so the
+// directory and the numbering stay grouped; the sort is stable within an area.
+const order = ["Capture", "Edit", "Output", "Tools", "Settings", "Release"];
+export const articles = [...baseArticles, ...releaseArticles].sort((a, b) => order.indexOf(a.category) - order.indexOf(b.category));

@@ -163,7 +163,9 @@ function indexPage() {
 function sectionHtml(section, index) {
   const paragraphs = (section.paragraphs || []).map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("\n");
   const steps = section.steps?.length ? `<ol class="guide-steps">${section.steps.map((step) => `<li>${escapeHtml(step)}</li>`).join("")}</ol>` : "";
-  return `<section class="guide-prose-section" id="section-${index + 1}"><span class="guide-section-index">${String(index + 1).padStart(2, "0")}</span><div><h2>${escapeHtml(section.title)}</h2>${paragraphs}${steps}</div></section>`;
+  const tips = section.tips?.length ? `<ul class="guide-tips">${section.tips.map((tip) => `<li>${escapeHtml(tip)}</li>`).join("")}</ul>` : "";
+  const figure = section.image ? `<figure class="guide-inline-figure"><a href="../../assets/${section.image.file}" target="_blank" rel="noopener" aria-label="Open full-size image: ${escapeHtml(section.image.alt)}"><img src="../../assets/${section.image.file}" alt="${escapeHtml(section.image.alt)}" width="${section.image.width}" height="${section.image.height}" loading="lazy"></a><figcaption>${escapeHtml(section.image.caption)}</figcaption></figure>` : "";
+  return `<section class="guide-prose-section" id="section-${index + 1}"><span class="guide-section-index">${String(index + 1).padStart(2, "0")}</span><div><h2>${escapeHtml(section.title)}</h2>${paragraphs}${figure}${steps}${tips}</div></section>`;
 }
 
 function articlePage(article, index) {
