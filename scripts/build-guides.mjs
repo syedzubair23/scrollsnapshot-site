@@ -107,6 +107,7 @@ function footer(prefix) {
       <div><a class="brand" href="${prefix}"><img src="${prefix}icon-128.png" alt="" width="30" height="30"><span>ScrollSnapshot</span></a><p>Capture the page. Keep the detail.</p></div>
       <div class="footer-links"><a href="${prefix}">Homepage</a><a href="${prefix}guides/">Guides</a><a href="${prefix}changelog/">Changelog</a><a href="${prefix}privacy/">Privacy policy</a><a href="${prefix}support/">Support</a></div>
       <div class="footer-bottom"><span>© <span id="year">2026</span> ScrollSnapshot</span><span>Made for the page in front of you.</span></div>
+      <p class="footer-credit">Developed by <a href="https://syedzubair.com/" target="_blank" rel="noopener noreferrer">syedzubair.com</a></p>
     </div>
   </footer>`;
 }
