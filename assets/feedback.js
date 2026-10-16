@@ -1,7 +1,7 @@
 // Sends the feedback form to ScrollSnapshot's feedback endpoint, which emails
 // it to the developer. Only what the person typed or ticked is sent, plus the
 // extension version from this page's address. No cookies, no tracking.
-const ENDPOINT = 'https://scrollsnapshot-feedback.your-subdomain.workers.dev/feedback'
+const ENDPOINT = 'https://feedback.fixandfigure.com/feedback'
 const FALLBACK_EMAIL = 'zubairdev27@gmail.com'
 
 const form = document.querySelector('form[data-source]')
