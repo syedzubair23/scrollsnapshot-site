@@ -1,0 +1,149 @@
+  <div class="tldr">
+    <p><strong>In short:</strong> ScrollSnapshot captures screenshots of the page you tell it
+    to, entirely on your own device. Nothing you capture, and no browsing data, is ever sent
+    to us, to any server, or to any third party. There's no account, no sign-in, and no
+    tracking or analytics of any kind.</p>
+  </div>
+
+  <h2>What ScrollSnapshot does</h2>
+  <p>
+    ScrollSnapshot is a Chrome extension that captures the tab you're viewing: the visible
+    area, the whole scrollable page, the page split into numbered image slices, or a region you
+    draw or specify. From Settings, you can also start a batch over the web tabs in your current
+    window or a list of addresses you paste. It can extract the text and colours shown in what
+    you capture, and let you crop, redact or annotate the result before you save it.
+  </p>
+  <p>
+    You have to trigger every one of these actions yourself, by clicking the extension's icon,
+    using a keyboard shortcut, or clicking a button inside its popup, Settings or result page.
+    ScrollSnapshot never captures, reads or acts on a page in the background, or without that
+    action from you.
+  </p>
+
+  <h2>What data ScrollSnapshot accesses, and why</h2>
+  <p>Chrome requires an extension to declare the permissions it uses. Here's what each one is
+  for, and nothing more:</p>
+  <table>
+    <tr><th>Permission</th><th>What it's used for</th></tr>
+    <tr>
+      <td><code>activeTab</code></td>
+      <td>Lets the extension act on the tab you're currently looking at, only after you click
+      its icon or a shortcut. It's the standard, narrowest way Chrome lets an extension read a
+      page on request. Keyboard shortcuts and batches use the host access explained below.</td>
+    </tr>
+    <tr>
+      <td><code>scripting</code></td>
+      <td>Injects the small script that measures the page, scrolls it during a full-page
+      capture, and reads the pixels, text or line positions you asked to capture. It runs only
+      while fulfilling a capture you started, including each page in a batch you started.</td>
+    </tr>
+    <tr>
+      <td><code>storage</code></td>
+      <td>Saves your settings and the current capture result inside your browser. If Capture
+      history is on, it also keeps the number of past captures you choose. See "Where your data
+      is stored" below.</td>
+    </tr>
+    <tr>
+      <td><code>downloads</code></td>
+      <td>Lets you save a finished capture to disk when you click Download.</td>
+    </tr>
+    <tr>
+      <td><code>clipboardWrite</code></td>
+      <td>Lets you copy a finished capture to your clipboard when you click Copy.</td>
+    </tr>
+    <tr>
+      <td><code>debugger</code></td>
+      <td>Used only if you turn on the optional "Turbo" capture engine, which uses Chrome's own
+      DevTools protocol to capture a page more precisely and, if you choose one, apply a
+      responsive viewport width. Chrome shows a banner across your
+      browser windows for as long as this engine is attached, and dismissing that banner cancels
+      the capture in progress. That's a restriction Chrome itself imposes on any extension using
+      this permission, not something ScrollSnapshot adds.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;all_urls&gt;</code> (host access)</td>
+      <td>Needed for keyboard-shortcut captures and a batch of tabs or addresses, where clicking
+      the extension's icon cannot grant one-off access to every target. ScrollSnapshot doesn't
+      read, monitor or transmit a page except while fulfilling a capture you started.</td>
+    </tr>
+  </table>
+
+  <p>
+    For Chrome Web Store disclosure purposes, the extension accesses <strong>website
+    content</strong> (captured pixels, text and layout) and <strong>web browsing
+    activity</strong> (the captured page's address and title). These are used only to create,
+    label and reopen the capture you requested. They stay on your device and are never sent to us.
+  </p>
+
+  <h2>Where your data is stored</h2>
+  <p>
+    Everything ScrollSnapshot produces or remembers is stored locally, inside your own browser
+    profile, using Chrome's built-in storage. It's the same mechanism any website uses to
+    remember your preferences. Specifically:
+  </p>
+  <ul>
+    <li><strong>Captures and their page address, title and capture details</strong> are kept in
+    your browser's IndexedDB. With Capture history on, the limit and optional age cutoff are
+    yours to choose in Settings, and you can delete individual captures or clear everything.
+    With Capture history off, only the current result remains so its result page can open; the
+    next capture replaces it.</li>
+    <li><strong>Settings</strong> (format, engine, quality, and so on) are kept in Chrome's
+    <code>storage</code> API, which may sync across your own signed-in Chrome browsers the same
+    way Chrome syncs bookmarks. That sync is Chrome's, not ScrollSnapshot's, and no
+    ScrollSnapshot server is ever involved.</li>
+  </ul>
+  <p>
+    <strong>ScrollSnapshot has no server.</strong> It makes no network requests of its own, sends
+    nothing it captures anywhere, and has no way to see what you've captured, stored, or deleted.
+    There's nothing for us to collect, because nothing leaves your device.
+  </p>
+  <p>
+    <strong>Pages ScrollSnapshot can open.</strong> If you choose “Leave a review”, Chrome opens
+    ScrollSnapshot's Chrome Web Store page. “Send feedback” in Settings opens a feedback form on this
+    site, and removing the extension opens a short, optional form here too; the address of either
+    carries only the extension's version number. If you choose to send one of these forms, what you
+    typed or ticked, the version number, and an email address only if you gave one are emailed to the
+    developer through a Cloudflare Worker. Nothing is stored there. Your IP address is used briefly
+    to limit how often a form can be sent and is not kept, logged, or emailed. The extension itself
+    sends none of this; the form on this site does, and only when you press Send.
+  </p>
+
+  <h2>Limited Use</h2>
+  <p>
+    ScrollSnapshot's use of information received from Chrome APIs complies with the Chrome Web
+    Store User Data Policy, including its Limited Use requirements. Data is used only to provide
+    the screenshot and local organization features you request. It is not sold or transferred
+    to third parties, used for advertising, used for creditworthiness or lending, or used for
+    any purpose unrelated to ScrollSnapshot's single purpose. No human reads your captures;
+    processing is automated and local to your device.
+  </p>
+
+  <h2>Accounts, analytics and third parties</h2>
+  <p>
+    ScrollSnapshot has no account system, no sign-in, and collects no analytics, telemetry, or
+    usage statistics. It doesn't use any third-party service, SDK, or advertising network of any
+    kind.
+  </p>
+
+  <h2>Children's privacy</h2>
+  <p>
+    ScrollSnapshot is a general-purpose developer and productivity tool. It isn't directed at
+    children. The developer does not receive personal data or captured content from anyone,
+    including children.
+  </p>
+
+  <h2>Changes to this policy</h2>
+  <p>
+    If ScrollSnapshot's data practices ever change, this page will be updated and the "Last
+    updated" date above will change with it. Since the extension has no way to contact you
+    directly, check back here if you want to confirm nothing has changed.
+  </p>
+
+  <h2>Contact &amp; support</h2>
+  <p>
+    Questions, bug reports, or anything else about ScrollSnapshot:
+  </p>
+  <ul>
+    <li>Email: <a href="mailto:zubairdev27@gmail.com">zubairdev27@gmail.com</a></li>
+    <li>See the <a href="../support/">support page</a> for what to include in a bug report.</li>
+  </ul>

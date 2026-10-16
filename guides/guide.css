@@ -225,3 +225,28 @@
 .guide-tips li { margin: 8px 0; padding-left: 4px; }
 .guide-tips li::marker { color: var(--blue); }
 @media (max-width: 620px) { .guide-inline-figure figcaption { font-size: 12px; } .guide-tips { padding-inline: 30px 16px; font-size: 15px; } }
+
+/* Hand-written pages — privacy, support, feedback — in the guides' frame:
+   the same hero, then plain prose aligned under the title. */
+.page-meta { margin-top: 18px; color: #899292; font-size: 14px; letter-spacing: .02em; }
+.page-prose { padding-bottom: clamp(80px, 9vw, 130px); color: #4d5859; font-size: 17px; line-height: 1.72; }
+.page-prose > * { max-width: 760px; }
+.page-prose h2 { margin: 60px 0 0; padding-top: 30px; border-top: 1px solid var(--line); color: var(--ink); font-size: clamp(24px, 2.2vw, 32px); line-height: 1.15; letter-spacing: -.02em; }
+.page-prose > h2:first-child { margin-top: 0; padding-top: 0; border-top: 0; }
+.page-prose p { margin-top: 16px; }
+.page-prose ul, .page-prose ol { margin: 14px 0 0; padding-left: 22px; }
+.page-prose li { margin: 8px 0; }
+.page-prose li::marker { color: var(--blue); }
+.page-prose a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
+.page-prose a:hover { text-decoration-thickness: 2px; }
+.page-prose strong { color: var(--ink); }
+.page-prose code { padding: 1px 6px; background: var(--paper-deep); border-radius: 4px; font-size: .9em; }
+.page-prose .tldr { padding: 25px 29px; background: var(--blue-light); border-left: 2px solid var(--blue); color: #3d4a64; }
+.page-prose .tldr p { margin: 0; }
+.page-prose table { width: 100%; max-width: 960px; margin: 22px 0 0; border-collapse: collapse; font-size: 15px; line-height: 1.6; }
+.page-prose th, .page-prose td { padding: 12px 14px 12px 0; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.page-prose th { color: var(--ink); font-weight: 600; }
+@media (max-width: 620px) {
+  .page-prose { font-size: 16px; }
+  .page-prose table { display: block; overflow-x: auto; }
+}
