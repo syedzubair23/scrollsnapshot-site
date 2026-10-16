@@ -270,8 +270,39 @@ h1, h2, h3 { font-weight: 700; letter-spacing: -.065em; }
   .menu-lines i { width: 19px; height: 1.5px; background: currentColor; transition: transform .2s ease; }
   .menu-toggle[aria-expanded="true"] .menu-lines i:first-child { transform: translateY(3.25px) rotate(45deg); }
   .menu-toggle[aria-expanded="true"] .menu-lines i:last-child { transform: translateY(-3.25px) rotate(-45deg); }
-  .mobile-nav:not([hidden]) { display: grid; gap: 0; padding: 8px var(--pad) 20px; border-top: 1px solid var(--line); }
-  .mobile-nav a { padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 15px; font-weight: 650; }
+  /* The phone menu: a full-height sheet under the header, in the site's own
+     editorial type. The header's backdrop-filter makes it the containing
+     block, so top: 100% is the header's bottom edge. */
+  .site-header:has(.menu-toggle[aria-expanded="true"]) { background: var(--paper); border-color: var(--line); }
+  .mobile-nav:not([hidden]) {
+    display: block; position: fixed; top: 100%; left: 0; right: 0;
+    height: calc(100dvh - 72px); overflow-y: auto; overscroll-behavior: contain;
+    background: var(--paper); border-top: 1px solid var(--line);
+    animation: mobile-nav-in .3s var(--ease);
+  }
+  .mobile-nav-inner { display: flex; flex-direction: column; min-height: 100%; padding: 30px 0 calc(26px + env(safe-area-inset-bottom)); }
+  .mobile-nav-primary { list-style: none; margin: 14px 0 0; padding: 0; }
+  .mobile-nav-primary li { animation: mobile-nav-item .45s var(--ease) both; }
+  .mobile-nav-primary li:nth-child(2) { animation-delay: .04s; }
+  .mobile-nav-primary li:nth-child(3) { animation-delay: .08s; }
+  .mobile-nav-primary li:nth-child(4) { animation-delay: .12s; }
+  .mobile-nav-primary a {
+    display: grid; grid-template-columns: 38px 1fr auto; align-items: center;
+    padding: 17px 0; border-bottom: 1px solid var(--line);
+    color: var(--ink); font-size: clamp(30px, 8.6vw, 40px); font-weight: 750; line-height: 1.05; letter-spacing: -.04em;
+    transition: color .2s ease;
+  }
+  .mobile-nav-index { color: var(--blue); font-size: 11px; font-weight: 750; letter-spacing: .18em; font-variant-numeric: tabular-nums; }
+  .mobile-nav-arrow { color: var(--muted); font-size: 20px; font-weight: 400; letter-spacing: 0; transition: transform .2s var(--ease), color .2s ease; }
+  .mobile-nav-primary a:hover, .mobile-nav-primary a:active { color: var(--blue); }
+  .mobile-nav-primary a:hover .mobile-nav-arrow, .mobile-nav-primary a:active .mobile-nav-arrow { color: var(--blue); transform: translateX(4px); }
+  .mobile-nav-primary a[aria-current="page"] { color: var(--blue); }
+  .mobile-nav-primary a[aria-current="page"] .mobile-nav-arrow { color: var(--blue); }
+  .mobile-nav-secondary { display: flex; gap: 28px; margin: 26px 0 40px; animation: mobile-nav-item .45s var(--ease) .16s both; }
+  .mobile-nav-secondary a { color: #4d5859; font-size: 15px; font-weight: 650; }
+  .mobile-nav-secondary a:hover, .mobile-nav-secondary a[aria-current="page"] { color: var(--ink); text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 2px; text-decoration-color: var(--blue); }
+  .mobile-nav-tagline { margin-top: auto; padding-bottom: 14px; color: var(--muted); font-size: 14px; }
+  .mobile-nav-store { animation: mobile-nav-item .45s var(--ease) .2s both; }
   .hero { padding-top: 70px; }
   .hero h1 { font-size: clamp(61px, 10vw, 93px); }
   .intro-grid, .privacy-grid { grid-template-columns: 1fr; }
@@ -357,4 +388,12 @@ h1, h2, h3 { font-weight: 700; letter-spacing: -.065em; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
   .js .reveal { opacity: 1; transform: none; }
+}
+
+/* Open, the phone menu owns the screen: the page behind does not scroll. */
+body.menu-open { overflow: hidden; }
+@keyframes mobile-nav-in { from { opacity: 0; transform: translateY(-6px); } }
+@keyframes mobile-nav-item { from { opacity: 0; transform: translateY(12px); } }
+@media (prefers-reduced-motion: reduce) {
+  .mobile-nav:not([hidden]), .mobile-nav-primary li, .mobile-nav-secondary, .mobile-nav-store { animation: none; }
 }

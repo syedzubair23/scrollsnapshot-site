@@ -22,10 +22,19 @@ if ("IntersectionObserver" in window && !reducedMotion.matches) {
   revealTargets.forEach((target) => target.classList.add("is-visible"));
 }
 
-function setMenuOpen(open) {
+const menuLabel = menuButton.querySelector("span");
+// Open, the menu owns the screen: the page behind is held still, the button
+// reads Close, and Escape puts focus back on it.
+function setMenuOpen(open, { returnFocus = false } = {}) {
   menuButton.setAttribute("aria-expanded", String(open));
   mobileNav.hidden = !open;
+  document.body.classList.toggle("menu-open", open);
+  if (menuLabel) menuLabel.textContent = open ? "Close" : "Menu";
+  if (!open && returnFocus) menuButton.focus();
 }
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && menuButton.getAttribute("aria-expanded") === "true") setMenuOpen(false, { returnFocus: true });
+});
 menuButton.addEventListener("click", () => setMenuOpen(menuButton.getAttribute("aria-expanded") !== "true"));
 mobileNav.addEventListener("click", (event) => {
   if (event.target.closest("a")) setMenuOpen(false);
