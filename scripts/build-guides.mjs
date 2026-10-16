@@ -1,4 +1,4 @@
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { articles } from "../guides/content.mjs";
@@ -46,12 +46,12 @@ for (const release of releases) {
   }
 }
 
-function head({ title, description, url, prefix, type = "website", image }) {
+function head({ title, description, url, prefix, type = "website", image, extra = "", security = "" }) {
   const socialImage = image ? `${site}assets/${image}` : `${site}assets/modes.png`;
   return `<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8">${security ? `\n  ${security}` : ""}
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f5f5f1">
   <meta name="description" content="${escapeHtml(description)}">
@@ -66,7 +66,8 @@ function head({ title, description, url, prefix, type = "website", image }) {
   <link rel="stylesheet" href="${prefix}site.css">
   <link rel="stylesheet" href="${prefix}guides/guide.css">
   <script src="${prefix}guides/guide.js" defer></script>
-  <title>${escapeHtml(title)} — ScrollSnapshot</title>
+  <title>${escapeHtml(title)} — ScrollSnapshot</title>${extra ? `
+  ${extra}` : ""}
 </head>`;
 }
 
@@ -84,8 +85,8 @@ function header(prefix, current = "guides") {
         <a href="${prefix}#modes">Capture modes</a>
         <a href="${prefix}guides/"${here("guides")}>Guides</a>
         <a href="${prefix}changelog/"${here("changelog")}>Changelog</a>
-        <a href="${prefix}privacy/">Privacy</a>
-        <a href="${prefix}support/">Support</a>
+        <a href="${prefix}privacy/"${here("privacy")}>Privacy</a>
+        <a href="${prefix}support/"${here("support")}>Support</a>
       </nav>
       <a class="header-cta" href="${store}" target="_blank" rel="noopener noreferrer" aria-label="View ScrollSnapshot in the Chrome Web Store, available after launch">Chrome Web Store <span aria-hidden="true">↗</span></a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav"><span>Menu</span><span class="menu-lines" aria-hidden="true"><i></i><i></i></span></button>
@@ -94,8 +95,8 @@ function header(prefix, current = "guides") {
       <a href="${prefix}#modes">Capture modes</a>
       <a href="${prefix}guides/"${here("guides")}>Guides</a>
       <a href="${prefix}changelog/"${here("changelog")}>Changelog</a>
-      <a href="${prefix}privacy/">Privacy</a>
-      <a href="${prefix}support/">Support</a>
+      <a href="${prefix}privacy/"${here("privacy")}>Privacy</a>
+      <a href="${prefix}support/"${here("support")}>Support</a>
       <a href="${store}" target="_blank" rel="noopener noreferrer">Chrome Web Store ↗</a>
     </nav>
   </header>`;
@@ -255,6 +256,90 @@ function changelogPage() {
 </html>`;
 }
 
+
+/**
+ * Hand-written pages that share the site's header and footer. Each page's body
+ * lives in its own content.html; this wraps it in the same head, header and
+ * footer as the guides, so no page can drift from the others again.
+ */
+// First in <head>, so the policy covers everything after it: only the site's
+// own files, and the one endpoint the form posts to.
+const feedbackSecurity = [
+  `<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src https://feedback.fixandfigure.com; base-uri 'none'; form-action 'none'">`,
+  '<meta name="referrer" content="no-referrer">',
+  '<meta name="robots" content="noindex">',
+].join("\n  ");
+const feedbackHead = [
+  '<link rel="stylesheet" href="../assets/feedback.css">',
+  '<script src="../assets/feedback.js" type="module"></script>',
+].join("\n  ");
+
+const plainPages = [
+  {
+    slug: "privacy",
+    current: "privacy",
+    crumb: "Privacy policy",
+    title: "Privacy policy",
+    lead: "ScrollSnapshot captures the page you choose on your own device. Nothing you capture is sent anywhere.",
+    meta: "Last updated: 16 October 2026",
+    description: "ScrollSnapshot's privacy policy: what it accesses, where your captures are stored, and what it never collects.",
+  },
+  {
+    slug: "support",
+    current: "support",
+    crumb: "Support",
+    title: "Support",
+    lead: "Questions, bug reports and help with ScrollSnapshot.",
+    description: "Get help with ScrollSnapshot: how to reach the developer and what to include in a bug report.",
+  },
+  {
+    slug: "feedback",
+    current: "",
+    crumb: "Send feedback",
+    title: "Send feedback",
+    lead: "An idea, something that annoyed you, or something you liked. It goes straight to the developer.",
+    description: "Send feedback about ScrollSnapshot to the developer.",
+    extra: feedbackHead,
+    security: feedbackSecurity,
+    unlisted: true,
+  },
+  {
+    slug: "uninstalled",
+    current: "",
+    crumb: "Removed",
+    title: "ScrollSnapshot has been removed",
+    lead: "Captures kept in its history were stored in this browser only, and were removed with it. Files you downloaded are still in your downloads folder.",
+    description: "ScrollSnapshot has been removed. Tell us why, in a few taps.",
+    extra: feedbackHead,
+    security: feedbackSecurity,
+    unlisted: true,
+  },
+];
+
+function plainPage(page, content) {
+  const prefix = "../";
+  return `${head({ title: page.title, description: page.description, url: `${site}${page.slug}/`, prefix, extra: page.extra, security: page.security })}
+<body>
+  ${header(prefix, page.current)}
+  <main id="main">
+    <article>
+      <header class="guide-article-hero shell">
+        <nav class="guide-breadcrumb" aria-label="Breadcrumb"><a href="${prefix}">Home</a><span>/</span><span aria-current="page">${escapeHtml(page.crumb)}</span></nav>
+        <h1 class="reveal">${escapeHtml(page.title)}</h1>
+        <p class="guide-article-lead reveal">${escapeHtml(page.lead)}</p>${page.meta ? `
+        <p class="page-meta">${escapeHtml(page.meta)}</p>` : ""}
+      </header>
+      <div class="page-prose shell">
+${content.trimEnd()}
+      </div>
+    </article>
+  </main>
+  ${footer(prefix)}
+</body>
+</html>
+`;
+}
+
 await writeFile(join(root, "guides", "index.html"), indexPage(), "utf8");
 await mkdir(join(root, "changelog"), { recursive: true });
 await writeFile(join(root, "changelog", "index.html"), changelogPage(), "utf8");
@@ -263,6 +348,10 @@ for (const [index, article] of articles.entries()) {
   await mkdir(directory, { recursive: true });
   await writeFile(join(directory, "index.html"), articlePage(article, index), "utf8");
 }
+for (const page of plainPages) {
+  const content = await readFile(join(root, page.slug, "content.html"), "utf8");
+  await writeFile(join(root, page.slug, "index.html"), plainPage(page, content), "utf8");
+}
 const urls = [site, `${site}guides/`, ...articles.map((article) => `${site}guides/${article.slug}/`), `${site}changelog/`, `${site}privacy/`, `${site}support/`];
 await writeFile(join(root, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((url) => `  <url><loc>${url}</loc></url>`).join("\n")}\n</urlset>\n`, "utf8");
-console.log(`Built ${articles.length} feature guides, the changelog (${releases.length} releases) and sitemap.xml`);
+console.log(`Built ${articles.length} feature guides, the changelog (${releases.length} releases), ${plainPages.length} pages and sitemap.xml`);

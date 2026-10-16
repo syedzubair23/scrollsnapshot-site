@@ -1,27 +1,86 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ScrollSnapshot Support</title>
-<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png" />
-<style>
-  :root { color-scheme: light dark; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-  body { margin: 0; padding: 48px 20px; line-height: 1.6; }
-  main { max-width: 720px; margin: 0 auto; }
-  h1 { margin-bottom: 8px; }
-  a { color: #2563eb; }
-  @media (prefers-color-scheme: dark) { a { color: #6ea8fe; } }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f5f1">
+  <meta name="description" content="Get help with ScrollSnapshot: how to reach the developer and what to include in a bug report.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Support">
+  <meta property="og:description" content="Get help with ScrollSnapshot: how to reach the developer and what to include in a bug report.">
+  <meta property="og:url" content="https://syedzubair23.github.io/scrollsnapshot-site/support/">
+  <meta property="og:image" content="https://syedzubair23.github.io/scrollsnapshot-site/assets/modes.png">
+  <link rel="canonical" href="https://syedzubair23.github.io/scrollsnapshot-site/support/">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+  <link rel="apple-touch-icon" sizes="128x128" href="../icon-128.png">
+  <link rel="stylesheet" href="../site.css">
+  <link rel="stylesheet" href="../guides/guide.css">
+  <script src="../guides/guide.js" defer></script>
+  <title>Support — ScrollSnapshot</title>
 </head>
 <body>
-<main>
-  <p><a href="../">← ScrollSnapshot homepage</a></p>
-  <h1>ScrollSnapshot Support</h1>
-  <p>For questions, bug reports, or help with ScrollSnapshot, email
-    <a href="mailto:zubairdev27@gmail.com">zubairdev27@gmail.com</a>.</p>
-  <p>For a bug report, please include your Chrome version, the capture mode you used, what you expected, and what happened. Only send a screenshot or page address if you are comfortable sharing it.</p>
-  <p><a href="../privacy/">Read the privacy policy</a></p>
-</main>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <header class="site-header" id="top">
+    <div class="shell header-inner">
+      <a class="brand" href="../" aria-label="ScrollSnapshot homepage">
+        <img src="../icon-128.png" alt="" width="34" height="34">
+        <span>ScrollSnapshot</span>
+      </a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="../#modes">Capture modes</a>
+        <a href="../guides/">Guides</a>
+        <a href="../changelog/">Changelog</a>
+        <a href="../privacy/">Privacy</a>
+        <a href="../support/" aria-current="page">Support</a>
+      </nav>
+      <a class="header-cta" href="https://chromewebstore.google.com/detail/scrollsnapshot/hhahcllpchhmkgmioaekblbnblodbiic" target="_blank" rel="noopener noreferrer" aria-label="View ScrollSnapshot in the Chrome Web Store, available after launch">Chrome Web Store <span aria-hidden="true">↗</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav"><span>Menu</span><span class="menu-lines" aria-hidden="true"><i></i><i></i></span></button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
+      <a href="../#modes">Capture modes</a>
+      <a href="../guides/">Guides</a>
+      <a href="../changelog/">Changelog</a>
+      <a href="../privacy/">Privacy</a>
+      <a href="../support/" aria-current="page">Support</a>
+      <a href="https://chromewebstore.google.com/detail/scrollsnapshot/hhahcllpchhmkgmioaekblbnblodbiic" target="_blank" rel="noopener noreferrer">Chrome Web Store ↗</a>
+    </nav>
+  </header>
+  <main id="main">
+    <article>
+      <header class="guide-article-hero shell">
+        <nav class="guide-breadcrumb" aria-label="Breadcrumb"><a href="../">Home</a><span>/</span><span aria-current="page">Support</span></nav>
+        <h1 class="reveal">Support</h1>
+        <p class="guide-article-lead reveal">Questions, bug reports and help with ScrollSnapshot.</p>
+      </header>
+      <div class="page-prose shell">
+        <h2>Email the developer</h2>
+        <p>For questions, bug reports, or help with ScrollSnapshot, email <a href="mailto:zubairdev27@gmail.com">zubairdev27@gmail.com</a>.</p>
+
+        <h2>Reporting a bug</h2>
+        <p>These help the most:</p>
+        <ul>
+          <li>Your Chrome version (from <code>chrome://version</code>).</li>
+          <li>The capture mode you used, and the engine if you turned Turbo on.</li>
+          <li>What you expected, and what happened instead.</li>
+        </ul>
+        <p>Only send a screenshot or a page address if you are comfortable sharing it.</p>
+
+        <h2>Ideas and feedback</h2>
+        <p>Something you'd like it to do, or something that got in your way? <a href="../feedback/">Send feedback</a>. It takes a minute, and an email address is optional.</p>
+
+        <h2>Learn a feature</h2>
+        <p>The <a href="../guides/">feature guides</a> explain every capture mode and tool, step by step.</p>
+      </div>
+    </article>
+  </main>
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div><a class="brand" href="../"><img src="../icon-128.png" alt="" width="30" height="30"><span>ScrollSnapshot</span></a><p>Capture the page. Keep the detail.</p></div>
+      <div class="footer-links"><a href="../">Homepage</a><a href="../guides/">Guides</a><a href="../changelog/">Changelog</a><a href="../privacy/">Privacy policy</a><a href="../support/">Support</a></div>
+      <div class="footer-bottom"><span>© <span id="year">2026</span> ScrollSnapshot</span><span>Made for the page in front of you.</span></div>
+      <p class="footer-credit">Developed by <a href="https://syedzubair.com/" target="_blank" rel="noopener noreferrer">syedzubair.com</a></p>
+    </div>
+  </footer>
 </body>
 </html>

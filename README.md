@@ -22,5 +22,14 @@ regenerate the guide pages, directory, changelog page, and sitemap before commit
 changes. The homepage's "Explore all N guides" link is written by hand: update N when the count
 changes.
 
+The privacy, support, feedback and uninstalled pages share the guides' header and footer. Edit
+each page's body in its `content.html` (for example `privacy/content.html`), and its title,
+lead and date in `plainPages` in `scripts/build-guides.mjs`; the build writes its `index.html`.
+Never edit those `index.html` files by hand, or the next build will overwrite them.
+
+The feedback and uninstalled forms post to `https://feedback.fixandfigure.com/feedback`, a
+Cloudflare Worker kept in the private extension repository. Their Content Security Policy only
+allows that address; change both together.
+
 Guide screenshots are public assets. Use example addresses, strip image metadata, and keep raw
 captures or browser profiles out of this repository.
