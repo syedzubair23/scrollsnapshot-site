@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex" />
+<meta name="referrer" content="no-referrer" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src https://scrollsnapshot-feedback.your-subdomain.workers.dev; base-uri 'none'; form-action 'none'" />
+<title>ScrollSnapshot Removed</title>
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png" />
+<link rel="stylesheet" href="../assets/feedback.css" />
+</head>
+<body>
+<main>
+  <h1>ScrollSnapshot has been removed</h1>
+  <p class="lede">Captures kept in its history were stored in this browser only, and were removed with it. Files you downloaded are still in your downloads folder.</p>
+
+  <form data-source="uninstall" novalidate>
+    <fieldset>
+      <legend>What made you remove it? <span class="hint">Pick any that fit.</span></legend>
+      <div class="chips">
+        <label class="chip"><input type="checkbox" name="reason" value="did-not-capture" /><span>It didn't capture the page right</span></label>
+        <label class="chip"><input type="checkbox" name="reason" value="too-slow" /><span>Too slow</span></label>
+        <label class="chip"><input type="checkbox" name="reason" value="missing-feature" /><span>Missing a feature</span></label>
+        <label class="chip"><input type="checkbox" name="reason" value="too-complicated" /><span>Too complicated</span></label>
+        <label class="chip"><input type="checkbox" name="reason" value="turbo-banner" /><span>The Turbo banner</span></label>
+        <label class="chip"><input type="checkbox" name="reason" value="found-another" /><span>Found another tool</span></label>
+        <label class="chip"><input type="checkbox" name="reason" value="needed-once" /><span>Only needed it once</span></label>
+        <label class="chip"><input type="checkbox" name="reason" value="other" /><span>Something else</span></label>
+      </div>
+    </fieldset>
+
+    <div>
+      <label class="field" for="message">Anything else? <span class="hint">Optional. Please leave out personal details and private page addresses.</span></label>
+      <textarea id="message" name="message" maxlength="2000"></textarea>
+    </div>
+
+    <div>
+      <label class="field" for="email">Your email <span class="hint">Optional, only if you'd like a reply.</span></label>
+      <input id="email" name="email" type="email" maxlength="254" autocomplete="email" />
+    </div>
+
+    <div class="trap" aria-hidden="true">
+      <label for="website">Leave this empty</label>
+      <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+    </div>
+
+    <button type="submit">Send</button>
+    <p class="status" role="status" aria-live="polite"></p>
+  </form>
+
+  <p class="links">
+    Ran into a problem? <a href="../support/">Get help</a>.
+    Removed it by mistake? <a href="https://chromewebstore.google.com/detail/scrollsnapshot/hhahcllpchhmkgmioaekblbnblodbiic">Install it again</a>.
+    <a href="../privacy/">Privacy policy</a>
+  </p>
+</main>
+<script src="../assets/feedback.js" type="module"></script>
+</body>
+</html>

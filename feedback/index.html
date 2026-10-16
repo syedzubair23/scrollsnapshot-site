@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex" />
+<meta name="referrer" content="no-referrer" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src https://scrollsnapshot-feedback.your-subdomain.workers.dev; base-uri 'none'; form-action 'none'" />
+<title>ScrollSnapshot Feedback</title>
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png" />
+<link rel="stylesheet" href="../assets/feedback.css" />
+</head>
+<body>
+<main>
+  <p><a href="../">← ScrollSnapshot homepage</a></p>
+  <h1>Send feedback</h1>
+  <p class="lede">An idea, something that annoyed you, or something you liked. It goes straight to the developer.</p>
+
+  <form data-source="settings" novalidate>
+    <div>
+      <label class="field" for="message">Your feedback <span class="hint">Please leave out personal details and private page addresses.</span></label>
+      <textarea id="message" name="message" maxlength="2000" required></textarea>
+    </div>
+
+    <div>
+      <label class="field" for="email">Your email <span class="hint">Optional, only if you'd like a reply.</span></label>
+      <input id="email" name="email" type="email" maxlength="254" autocomplete="email" />
+    </div>
+
+    <div class="trap" aria-hidden="true">
+      <label for="website">Leave this empty</label>
+      <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+    </div>
+
+    <button type="submit">Send</button>
+    <p class="status" role="status" aria-live="polite"></p>
+  </form>
+
+  <p class="links">Found a bug? <a href="../support/">The support page</a> says what helps most. <a href="../privacy/">Privacy policy</a></p>
+</main>
+<script src="../assets/feedback.js" type="module"></script>
+</body>
+</html>
