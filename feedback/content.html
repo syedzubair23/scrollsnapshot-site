@@ -1,6 +1,39 @@
 <form data-source="settings" novalidate>
+    <fieldset>
+      <legend>What's it about?</legend>
+      <div class="chips">
+        <label class="chip"><input type="radio" name="topic" value="bug" /><span>Something's broken</span></label>
+        <label class="chip"><input type="radio" name="topic" value="idea" /><span>An idea</span></label>
+        <label class="chip"><input type="radio" name="topic" value="question" /><span>A question</span></label>
+        <label class="chip"><input type="radio" name="topic" value="praise" /><span>Something I liked</span></label>
+      </div>
+    </fieldset>
+
+    <div class="field-row">
+      <div>
+        <label class="field" for="version">Version <span class="hint">Filled in when you come from Settings.</span></label>
+        <select id="version" name="version">
+          <option value="">Not sure</option>
+          {{versions}}
+        </select>
+      </div>
+      <div>
+        <label class="field" for="mode">Which part? <span class="hint">Optional.</span></label>
+        <select id="mode" name="mode">
+          <option value="">Not about one part</option>
+          <option value="visible">This screen</option>
+          <option value="full-page">Full page</option>
+          <option value="slices">Slices</option>
+          <option value="region">Region</option>
+          <option value="batch">Batch capture</option>
+          <option value="editor">Editing a capture</option>
+          <option value="other">Something else</option>
+        </select>
+      </div>
+    </div>
+
     <div>
-      <label class="field" for="message">Your feedback <span class="hint">Please leave out personal details and private page addresses.</span></label>
+      <label class="field" for="message">Your feedback <span class="hint">For a bug, say what you expected and what happened. Please leave out personal details and private page addresses.</span></label>
       <textarea id="message" name="message" maxlength="2000" required></textarea>
     </div>
 
@@ -18,4 +51,4 @@
     <p class="status" role="status" aria-live="polite"></p>
   </form>
 
-  <p class="links">Found a bug? <a href="../support/">The support page</a> says what helps most. <a href="../privacy/">Privacy policy</a></p>
+  <p class="links">Need help right away? <a href="../support/">The support page</a> has the developer's email. <a href="../privacy/">Privacy policy</a></p>
