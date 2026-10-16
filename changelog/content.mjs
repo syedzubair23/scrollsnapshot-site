@@ -3,6 +3,29 @@
 // `guide` is the slug of a feature guide (guides/content.mjs) that explains it in depth.
 export const releases = [
   {
+    version: "1.2.0",
+    date: "2026-10-16",
+    title: "A truer palette, and back to the page",
+    summary: "Version 1.2 makes the palette show the colours a page is actually designed with, takes you back to the page when you close a capture, and adds ways to send feedback.",
+    groups: [
+      {
+        name: "Added",
+        items: [
+          { title: "Send feedback and get help", text: "Settings has Leave a review, Send feedback and Get help at the bottom of its menu. Send feedback opens a short form on this site; the extension itself still sends nothing." },
+          { title: "A review prompt that waits its turn", text: "After a few days of use, ScrollSnapshot may ask once, at most twice ever, whether you'd leave a review. It asks only after you copy or download a capture, in a small card in a corner, never while a tool or notice is open, and Don't ask again means it." },
+        ],
+      },
+      {
+        name: "Changed",
+        items: [
+          { title: "Closing a capture takes you back", text: "The result tab opens right beside the page you captured, and closing it, or pressing Done, brings that page back to the front." },
+          { title: "The palette is one icon", guide: "colour-palette", text: "The palette no longer sits over the capture as a card. Click its icon for every colour with its hex and share; click one to copy it, or Copy all for the whole palette, one hex per line." },
+          { title: "A palette with the colours that matter", guide: "colour-palette", text: "Small design colours, like a button, a badge or the text, are kept instead of shades of the background. A blend that is not on the page is never listed, and up to eight colours are shown." },
+        ],
+      },
+    ],
+  },
+  {
     version: "1.1.0",
     date: "2026-10-15",
     title: "Folders, a watermark, and a fuller editor",
