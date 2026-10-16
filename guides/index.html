@@ -38,12 +38,20 @@
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav"><span>Menu</span><span class="menu-lines" aria-hidden="true"><i></i><i></i></span></button>
     </div>
     <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
-      <a href="../#modes">Capture modes</a>
-      <a href="../guides/" aria-current="page">Guides</a>
-      <a href="../changelog/">Changelog</a>
-      <a href="../privacy/">Privacy</a>
-      <a href="../support/">Support</a>
-      <a href="https://chromewebstore.google.com/detail/scrollsnapshot/hhahcllpchhmkgmioaekblbnblodbiic" target="_blank" rel="noopener noreferrer">Chrome Web Store ↗</a>
+      <div class="mobile-nav-inner shell">
+        <div class="section-label"><span>MENU</span><span class="label-line"></span></div>
+        <ul class="mobile-nav-primary">
+          <li><a href="../#modes"><span class="mobile-nav-index">01</span><span class="mobile-nav-text">Capture modes</span><span class="mobile-nav-arrow" aria-hidden="true">→</span></a></li>
+          <li><a href="../guides/" aria-current="page"><span class="mobile-nav-index">02</span><span class="mobile-nav-text">Guides</span><span class="mobile-nav-arrow" aria-hidden="true">→</span></a></li>
+          <li><a href="../changelog/"><span class="mobile-nav-index">03</span><span class="mobile-nav-text">Changelog</span><span class="mobile-nav-arrow" aria-hidden="true">→</span></a></li>
+        </ul>
+        <div class="mobile-nav-secondary">
+          <a href="../privacy/">Privacy</a>
+          <a href="../support/">Support</a>
+        </div>
+        <p class="mobile-nav-tagline">Capture the page. Keep the detail.</p>
+        <a class="store-button mobile-nav-store" href="https://chromewebstore.google.com/detail/scrollsnapshot/hhahcllpchhmkgmioaekblbnblodbiic" target="_blank" rel="noopener noreferrer">Chrome Web Store <span aria-hidden="true">↗</span></a>
+      </div>
     </nav>
   </header>
   <main id="main">

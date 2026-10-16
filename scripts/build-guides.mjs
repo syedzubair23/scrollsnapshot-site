@@ -71,6 +71,30 @@ function head({ title, description, url, prefix, type = "website", image, extra 
 </head>`;
 }
 
+/**
+ * The phone menu: the site's big type and blue index numbers, the current page
+ * in blue, Privacy and Support as a quieter row, and the store as the one
+ * button. The homepage's hand-written copy in index.html mirrors this.
+ */
+function mobileNav(primary, prefix, current) {
+  const here = (name) => (name && name === current ? ' aria-current="page"' : "");
+  const items = primary.map(([label, href, name], index) => `<li><a href="${href}"${here(name)}><span class="mobile-nav-index">${String(index + 1).padStart(2, "0")}</span><span class="mobile-nav-text">${label}</span><span class="mobile-nav-arrow" aria-hidden="true">→</span></a></li>`).join("\n          ");
+  return `<nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
+      <div class="mobile-nav-inner shell">
+        <div class="section-label"><span>MENU</span><span class="label-line"></span></div>
+        <ul class="mobile-nav-primary">
+          ${items}
+        </ul>
+        <div class="mobile-nav-secondary">
+          <a href="${prefix}privacy/"${here("privacy")}>Privacy</a>
+          <a href="${prefix}support/"${here("support")}>Support</a>
+        </div>
+        <p class="mobile-nav-tagline">Capture the page. Keep the detail.</p>
+        <a class="store-button mobile-nav-store" href="${store}" target="_blank" rel="noopener noreferrer">Chrome Web Store <span aria-hidden="true">↗</span></a>
+      </div>
+    </nav>`;
+}
+
 function header(prefix, current = "guides") {
   const here = (name) => (name === current ? ' aria-current="page"' : "");
   return `<a class="skip-link" href="#main">Skip to content</a>
@@ -91,14 +115,11 @@ function header(prefix, current = "guides") {
       <a class="header-cta" href="${store}" target="_blank" rel="noopener noreferrer" aria-label="View ScrollSnapshot in the Chrome Web Store, available after launch">Chrome Web Store <span aria-hidden="true">↗</span></a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav"><span>Menu</span><span class="menu-lines" aria-hidden="true"><i></i><i></i></span></button>
     </div>
-    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
-      <a href="${prefix}#modes">Capture modes</a>
-      <a href="${prefix}guides/"${here("guides")}>Guides</a>
-      <a href="${prefix}changelog/"${here("changelog")}>Changelog</a>
-      <a href="${prefix}privacy/"${here("privacy")}>Privacy</a>
-      <a href="${prefix}support/"${here("support")}>Support</a>
-      <a href="${store}" target="_blank" rel="noopener noreferrer">Chrome Web Store ↗</a>
-    </nav>
+    ${mobileNav([
+      ["Capture modes", `${prefix}#modes`, ""],
+      ["Guides", `${prefix}guides/`, "guides"],
+      ["Changelog", `${prefix}changelog/`, "changelog"],
+    ], prefix, current)}
   </header>`;
 }
 
