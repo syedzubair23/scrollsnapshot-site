@@ -366,16 +366,16 @@ const baseArticles = [
   },
   {
     slug: "colour-palette",
-    title: "See the colours that dominate",
+    title: "See the colours a page is made of",
     category: "Tools",
     depth: "Quick note",
-    summary: "A ranked palette drawn from the finished capture.",
-    lead: "The colour palette is a quick read of the finished image: a small set of dominant colours, each with its share of the visible pixels and a hex value you can copy.",
+    summary: "The design colours of a finished capture, one click from the clipboard.",
+    lead: "The palette lists the colours a capture is made of: the background, and the small colours that carry the design, like a button, a badge or the text. Each has its hex value and its share of the image.",
     sections: [
-      { title: "What the shares mean", paragraphs: ["ScrollSnapshot samples large images, groups nearby values, and ranks the resulting colours by share. A nearly solid screenshot may show one colour instead of padding the list with invented swatches. Transparent pixels are left out of the count."] },
-      { title: "Use it as a starting point", steps: ["Finish a capture and open its result page.", "Read the palette beneath the image.", "Click a swatch to copy its hex, then check a specific pixel with the picker if precision matters."] },
+      { title: "Open it from the icon", steps: ["Finish a capture and open its result page.", "Click the palette icon at the top right, under Done.", "Click a colour to copy its hex, or Copy all for the whole palette, one hex per line.", "Press Escape or click anywhere else to close it."] },
+      { title: "Why the small colours show up", paragraphs: ["Ranking colours by how many pixels they cover fills a palette with shades of the background, so ScrollSnapshot also weighs how different each colour is from those already listed. A blue button on a white page makes the list even though it covers a sliver of it, while a fourth shade of grey does not.", "Shades the eye cannot tell apart count as one colour, and each colour is shown as a value that is really on the page, never a blend of its neighbours. Specks too small to be part of the design, and transparent pixels, are left out."] },
     ],
-    note: "A dominant palette summarizes an image; it does not replace the colour picker for an exact point.",
+    note: "The palette summarises a capture. For the exact colour of one pixel, use the colour picker.",
   },
   {
     slug: "settings",

@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f5f5f1">
-  <meta name="description" content="A ranked palette drawn from the finished capture.">
+  <meta name="description" content="The design colours of a finished capture, one click from the clipboard.">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="See the colours that dominate">
-  <meta property="og:description" content="A ranked palette drawn from the finished capture.">
+  <meta property="og:title" content="See the colours a page is made of">
+  <meta property="og:description" content="The design colours of a finished capture, one click from the clipboard.">
   <meta property="og:url" content="https://syedzubair23.github.io/scrollsnapshot-site/guides/colour-palette/">
   <meta property="og:image" content="https://syedzubair23.github.io/scrollsnapshot-site/assets/modes.png">
   <link rel="canonical" href="https://syedzubair23.github.io/scrollsnapshot-site/guides/colour-palette/">
@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="../../site.css">
   <link rel="stylesheet" href="../../guides/guide.css">
   <script src="../../guides/guide.js" defer></script>
-  <title>See the colours that dominate — ScrollSnapshot</title>
+  <title>See the colours a page is made of — ScrollSnapshot</title>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -57,18 +57,19 @@
   <main id="main">
     <article>
       <header class="guide-article-hero shell">
-        <nav class="guide-breadcrumb" aria-label="Breadcrumb"><a href="../../">Home</a><span>/</span><a href="../">Guides</a><span>/</span><span aria-current="page">See the colours that dominate</span></nav>
+        <nav class="guide-breadcrumb" aria-label="Breadcrumb"><a href="../../">Home</a><span>/</span><a href="../">Guides</a><span>/</span><span aria-current="page">See the colours a page is made of</span></nav>
         <div class="guide-eyebrow reveal"><span>30 / 34</span><span class="kicker-rule"></span><span>TOOLS · QUICK NOTE</span></div>
-        <h1 class="reveal">See the colours that dominate</h1>
-        <p class="guide-article-lead reveal">The colour palette is a quick read of the finished image: a small set of dominant colours, each with its share of the visible pixels and a hex value you can copy.</p>
+        <h1 class="reveal">See the colours a page is made of</h1>
+        <p class="guide-article-lead reveal">The palette lists the colours a capture is made of: the background, and the small colours that carry the design, like a button, a badge or the text. Each has its hex value and its share of the image.</p>
       </header>
       <div class="shell"></div>
       <div class="guide-article-grid shell">
-        <aside class="guide-article-aside" aria-label="On this page"><span>IN THIS GUIDE</span><a href="#section-1">What the shares mean</a><a href="#section-2">Use it as a starting point</a><a class="guide-aside-all" href="../">All guides ↗</a></aside>
+        <aside class="guide-article-aside" aria-label="On this page"><span>IN THIS GUIDE</span><a href="#section-1">Open it from the icon</a><a href="#section-2">Why the small colours show up</a><a class="guide-aside-all" href="../">All guides ↗</a></aside>
         <div class="guide-article-body">
-          <section class="guide-prose-section" id="section-1"><span class="guide-section-index">01</span><div><h2>What the shares mean</h2><p>ScrollSnapshot samples large images, groups nearby values, and ranks the resulting colours by share. A nearly solid screenshot may show one colour instead of padding the list with invented swatches. Transparent pixels are left out of the count.</p></div></section>
-<section class="guide-prose-section" id="section-2"><span class="guide-section-index">02</span><div><h2>Use it as a starting point</h2><ol class="guide-steps"><li>Finish a capture and open its result page.</li><li>Read the palette beneath the image.</li><li>Click a swatch to copy its hex, then check a specific pixel with the picker if precision matters.</li></ol></div></section>
-          <aside class="guide-note"><span>KEEP IN MIND</span><p>A dominant palette summarizes an image; it does not replace the colour picker for an exact point.</p></aside>
+          <section class="guide-prose-section" id="section-1"><span class="guide-section-index">01</span><div><h2>Open it from the icon</h2><ol class="guide-steps"><li>Finish a capture and open its result page.</li><li>Click the palette icon at the top right, under Done.</li><li>Click a colour to copy its hex, or Copy all for the whole palette, one hex per line.</li><li>Press Escape or click anywhere else to close it.</li></ol></div></section>
+<section class="guide-prose-section" id="section-2"><span class="guide-section-index">02</span><div><h2>Why the small colours show up</h2><p>Ranking colours by how many pixels they cover fills a palette with shades of the background, so ScrollSnapshot also weighs how different each colour is from those already listed. A blue button on a white page makes the list even though it covers a sliver of it, while a fourth shade of grey does not.</p>
+<p>Shades the eye cannot tell apart count as one colour, and each colour is shown as a value that is really on the page, never a blend of its neighbours. Specks too small to be part of the design, and transparent pixels, are left out.</p></div></section>
+          <aside class="guide-note"><span>KEEP IN MIND</span><p>The palette summarises a capture. For the exact colour of one pixel, use the colour picker.</p></aside>
         </div>
       </div>
     </article>
