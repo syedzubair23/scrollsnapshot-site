@@ -34,3 +34,10 @@
 /* Out of sight and out of the tab order; only a bot fills it in. */
 .trap { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
 .links { margin-top: 40px; color: var(--muted); }
+.page-prose select {
+  width: 100%; min-height: 46px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 6px;
+  background: var(--white); color: var(--ink); font: inherit; font-size: 16px;
+}
+.page-prose select:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+@media (max-width: 620px) { .field-row { grid-template-columns: 1fr; } }

@@ -349,7 +349,11 @@ for (const [index, article] of articles.entries()) {
   await writeFile(join(directory, "index.html"), articlePage(article, index), "utf8");
 }
 for (const page of plainPages) {
-  const content = await readFile(join(root, page.slug, "content.html"), "utf8");
+  // The feedback form's version list comes from the changelog, so a new
+  // release appears in it without anyone remembering to add it.
+  const versionOptions = releases.map((release) => `<option value="${release.version}">${release.version}</option>`).join("\n          ");
+  const content = (await readFile(join(root, page.slug, "content.html"), "utf8")).replaceAll("{{versions}}", versionOptions);
+  if (content.includes("{{")) throw new Error(`Unfilled placeholder in ${page.slug}/content.html`);
   await writeFile(join(root, page.slug, "index.html"), plainPage(page, content), "utf8");
 }
 const urls = [site, `${site}guides/`, ...articles.map((article) => `${site}guides/${article.slug}/`), `${site}changelog/`, `${site}privacy/`, `${site}support/`];
