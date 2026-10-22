@@ -60,14 +60,16 @@
         <nav class="guide-breadcrumb" aria-label="Breadcrumb"><a href="../">Home</a><span>/</span><span aria-current="page">Privacy policy</span></nav>
         <h1 class="reveal">Privacy policy</h1>
         <p class="guide-article-lead reveal">ScrollSnapshot captures the page you choose on your own device. Nothing you capture is sent anywhere.</p>
-        <p class="page-meta">Last updated: 16 October 2026</p>
+        <p class="page-meta">Last updated: 22 October 2026</p>
       </header>
       <div class="page-prose shell">
   <div class="tldr">
     <p><strong>In short:</strong> ScrollSnapshot captures screenshots of the page you tell it
     to, entirely on your own device. Nothing you capture, and no browsing data, is ever sent
     to us, to any server, or to any third party. There's no account, no sign-in, and no
-    tracking or analytics of any kind.</p>
+    tracking or analytics of any kind. If you turn on the optional agent connection, what a
+    coding agent asks for goes only to the agent server on your own computer; your agent may
+    then send it to its AI provider, as it does with anything else you show it.</p>
   </div>
 
   <h2>What ScrollSnapshot does</h2>
@@ -76,13 +78,16 @@
     area, the whole scrollable page, the page split into numbered image slices, or a region you
     draw or specify. From Settings, you can also start a batch over the web tabs in your current
     window or a list of addresses you paste. It can extract the text and colours shown in what
-    you capture, and let you crop, redact or annotate the result before you save it.
+    you capture, save a whole page as Markdown, and let you crop, redact or annotate the result
+    before you save it.
   </p>
   <p>
     You have to trigger every one of these actions yourself, by clicking the extension's icon,
-    using a keyboard shortcut, or clicking a button inside its popup, Settings or result page.
-    ScrollSnapshot never captures, reads or acts on a page in the background, or without that
-    action from you.
+    using a keyboard shortcut, or clicking a button inside its popup, Settings, result page, or
+    the optional Markdown bar over text you select. ScrollSnapshot never captures, reads or acts
+    on a page in the background, or without that action from you. The one exception is a coding
+    agent you connect yourself: once you turn the agent connection on and pair it, that agent can
+    ask ScrollSnapshot to read or capture pages, within the limits described below.
   </p>
 
   <h2>What data ScrollSnapshot accesses, and why</h2>
@@ -100,13 +105,17 @@
       <td><code>scripting</code></td>
       <td>Injects the small script that measures the page, scrolls it during a full-page
       capture, and reads the pixels, text or line positions you asked to capture. It runs only
-      while fulfilling a capture you started, including each page in a batch you started.</td>
+      while fulfilling a capture you started, including each page in a batch you started. If you
+      turn on the Markdown bar for selected text (off by default), a separate small script is
+      added to the pages you visit so the bar can appear; it reads only the text you select, and
+      only when you press one of its buttons.</td>
     </tr>
     <tr>
       <td><code>storage</code></td>
       <td>Saves your settings and the current capture result inside your browser. If Capture
-      history is on, it also keeps the number of past captures you choose. See "Where your data
-      is stored" below.</td>
+      history is on, it also keeps the number of past captures you choose. If you use the agent
+      connection, it keeps its pairing secret and the screenshots you chose to send your agent.
+      See "Where your data is stored" below.</td>
     </tr>
     <tr>
       <td><code>downloads</code></td>
@@ -124,6 +133,12 @@
       browser windows for as long as this engine is attached, and dismissing that banner cancels
       the capture in progress. That's a restriction Chrome itself imposes on any extension using
       this permission, not something ScrollSnapshot adds.</td>
+    </tr>
+    <tr>
+      <td><code>alarms</code></td>
+      <td>Used only while the optional agent connection is on: every 30 seconds it wakes the
+      extension, so the agent server on your own computer can reach it. The alarm is removed
+      when you turn the connection off.</td>
     </tr>
     <tr>
       <td><code>&lt;all_urls&gt;</code> (host access)</td>
@@ -152,16 +167,43 @@
     yours to choose in Settings, and you can delete individual captures or clear everything.
     With Capture history off, only the current result remains so its result page can open; the
     next capture replaces it.</li>
+    <li><strong>The agent connection's pairing secret</strong>, and screenshots you send your
+    agent (the newest 20), are kept only on this device. The secret is never synced.</li>
     <li><strong>Settings</strong> (format, engine, quality, and so on) are kept in Chrome's
     <code>storage</code> API, which may sync across your own signed-in Chrome browsers the same
     way Chrome syncs bookmarks. That sync is Chrome's, not ScrollSnapshot's, and no
     ScrollSnapshot server is ever involved.</li>
   </ul>
   <p>
-    <strong>ScrollSnapshot has no server.</strong> It makes no network requests of its own, sends
-    nothing it captures anywhere, and has no way to see what you've captured, stored, or deleted.
-    There's nothing for us to collect, because nothing leaves your device.
+    <strong>ScrollSnapshot has no server.</strong> It sends nothing it captures to us or to any
+    service, and has no way to see what you've captured, stored, or deleted. There's nothing for
+    us to collect, because nothing leaves your device. Its only connection of its own is the
+    optional agent connection, which talks to a server on your own computer and nowhere else.
   </p>
+
+  <h2>The optional agent connection</h2>
+  <p>
+    Settings → Agent connection lets a coding agent you use, such as Claude Code, Codex or
+    Cursor, work with ScrollSnapshot through a small open-source server, <code>scrollsnapshot-mcp</code>,
+    that runs on your computer. It is off until you turn it on.
+  </p>
+  <ul>
+    <li><strong>Where data goes.</strong> The extension connects only to <code>127.0.0.1</code>,
+    your own computer, and only after both sides prove they hold the pairing secret you pasted.
+    It hands the agent only what the agent asks for: page text and outlines, captures, your
+    capture history's details, screenshots you choose to send it, and any note or drawing you
+    add when it asks you to choose an area. The server saves captures it receives in a folder in
+    your home directory, readable only by your user account, and deletes them after 7 days.</li>
+    <li><strong>What your agent does with it.</strong> Your agent may send what it receives to its
+    AI provider, as it does with your code and everything else you show it. That is between you
+    and your agent's provider; ScrollSnapshot sends nothing to them itself.</li>
+    <li><strong>Which tabs.</strong> By default an agent can use only the tab in front of you.
+    You can allow any tab.</li>
+    <li><strong>Opening and reloading pages.</strong> Only if you also turn on “Let agents open
+    and reload tabs”, an agent can reload a tab it may use, and — if you allow any tab — open a
+    web page in a new tab. It can never click, type, or run anything on a page.</li>
+    <li>The toolbar icon shows <strong>AI</strong> whenever an agent is connected.</li>
+  </ul>
   <p>
     <strong>Pages ScrollSnapshot can open.</strong> If you choose “Leave a review”, Chrome opens
     ScrollSnapshot's Chrome Web Store page. “Send feedback” in Settings opens a feedback form on this
