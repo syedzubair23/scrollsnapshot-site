@@ -65,6 +65,7 @@ export const articles13 = [
         paragraphs: ["An emoji is a mark like any other: pick it up to move, resize or rotate it. With an emoji selected, choosing another one in the panel swaps it in place. An emoji keeps its own colours, so the colour button does not apply to it."],
       },
     ],
+    note: "Emoji are drawn with your system's emoji font, so the same one can look a little different on Windows, macOS and Linux. Once you apply it, it is part of the image and looks the same everywhere.",
   },
   {
     slug: "page-as-markdown",
@@ -157,6 +158,7 @@ export const articles13 = [
         paragraphs: ["What you send waits in a small inbox on this device, the newest 20, until an agent picks it up. Anything you redacted is described only by where it is; what it hid never travels."],
       },
     ],
+    note: "Send to agent appears only while the agent connection is on in Settings. What you send goes to the agent server on your own computer, and from there wherever your agent sends what you show it.",
   },
   {
     slug: "whats-new-1-3",
@@ -195,6 +197,11 @@ export const articles13 = [
         tips: ["A region capture no longer includes a pinned navbar from elsewhere on the page.", "Text and Markdown read every element, including text still faded out until scrolled to.", "Code, tables and maths come through properly on documentation, wiki and blog pages."],
         paragraphs: ["Markdown was checked against tutorial, reference, docs, wiki, README, issue, blog and news pages, and holds up on all of them."],
       },
+      {
+        title: "Getting the update",
+        steps: ["Chrome updates extensions on its own, usually within a day or two of a release.", "To check now, open chrome://extensions, turn on Developer mode, and choose Update.", "Look for version 1.3.0 on ScrollSnapshot's card."],
+      },
     ],
+    note: "The changelog lists every change in this release, with a link to the guide for each new feature. The agent connection and the Markdown bar stay off until you turn them on.",
   },
 ];

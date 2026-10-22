@@ -17,8 +17,10 @@ for (const article of articles) {
   if (!/^[a-z0-9-]+$/.test(article.slug) || slugs.has(article.slug)) {
     throw new Error(`Invalid or duplicate guide slug: ${article.slug}`);
   }
-  if (!categories.includes(article.category) || !article.sections?.length) {
-    throw new Error(`Incomplete guide: ${article.slug}`);
+  // Every guide ends on a Keep in mind note and opens on a picture; a missing
+  // one would otherwise print "undefined" or leave the page bare.
+  if (!categories.includes(article.category) || !article.sections?.length || !article.note || !article.image) {
+    throw new Error(`Incomplete guide (category, sections, note and image are required): ${article.slug}`);
   }
   slugs.add(article.slug);
 }
@@ -47,7 +49,7 @@ for (const release of releases) {
 }
 
 function head({ title, description, url, prefix, type = "website", image, extra = "", security = "" }) {
-  const socialImage = image ? `${site}assets/${image}` : `${site}assets/modes.png`;
+  const socialImage = image ? `${site}assets/${image}` : `${site}assets/site-popup.png`;
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -138,7 +140,8 @@ function articleUrl(article) { return `./${article.slug}/`; }
 function number(index) { return String(index + 1).padStart(2, "0"); }
 
 function indexPage() {
-  const featuredSlugs = ["full-page", "region", "numbered-slices"];
+  // In directory order, so the cards' numbers count up.
+  const featuredSlugs = ["full-page", "numbered-slices", "region"];
   const featured = featuredSlugs.map((slug) => articles.find((article) => article.slug === slug));
   const cards = featured.map((article, index) => `<a class="guide-feature-card reveal" href="${articleUrl(article)}">
     <span class="guide-card-top"><span>${number(articles.indexOf(article))} / ${escapeHtml(article.category.toUpperCase())}</span><span aria-hidden="true">↗</span></span>

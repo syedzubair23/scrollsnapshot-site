@@ -37,6 +37,7 @@ export const releases = [
     date: "2026-10-16",
     title: "A truer palette, and back to the page",
     summary: "Version 1.2 makes the palette show the colours a page is actually designed with, takes you back to the page when you close a capture, and adds ways to send feedback.",
+    highlights: "whats-new-1-2",
     groups: [
       {
         name: "Added",
