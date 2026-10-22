@@ -3,6 +3,36 @@
 // `guide` is the slug of a feature guide (guides/content.mjs) that explains it in depth.
 export const releases = [
   {
+    version: "1.3.0",
+    date: "2026-10-22",
+    title: "Draw before you capture, Markdown everywhere, and your coding agent",
+    summary: "Version 1.3 lets you mark up an area before you capture it, adds emoji, turns any page or selection into Markdown, and connects ScrollSnapshot to the coding agent you already use.",
+    highlights: "whats-new-1-3",
+    groups: [
+      {
+        name: "Added",
+        items: [
+          { title: "Draw on a region before capturing it", guide: "draw-before-capture", text: "Once an area is chosen, a toolbar stands beside it: pen, arrow, box, highlight, text, steps and emoji, with colour, options, undo and clear. Pick a mark up to move, restyle or delete it. What you draw is part of the capture; the toolbar never is. Capture & edit opens the result straight in the full editor." },
+          { title: "Emoji", guide: "emoji", text: "An Emoji tool in the editor and the region toolbar: pick a common one from the panel, or paste or type any other. Move, resize and turn it like any mark." },
+          { title: "A note for a region", guide: "region", text: "Type a short note in the region bar before capturing, and it leads the capture's text." },
+          { title: "Text for every capture, plain or Markdown", guide: "text-reader", text: "Full page and visible captures carry their page's text like a region does, each slice in a ZIP gets its own .txt and .md, and the text panel previews the Markdown and saves .md and .txt files." },
+          { title: "Save a whole page as Markdown", guide: "page-as-markdown", text: "The Markdown button in the popup's header saves any page as a .md file, or opens it as a document with its outline, without taking a screenshot." },
+          { title: "Markdown from a text selection", guide: "page-as-markdown", text: "Turn on the Markdown bar in Settings → Output, and selecting text on any page offers to copy it as Markdown or plain text, or save it. Off by default." },
+          { title: "Agent connection", guide: "agent-connection", text: "Claude Code, Codex, Cursor and other MCP clients can read pages as text or Markdown and capture exactly what they need in your own Chrome, in tiles sized to save tokens. Off until you turn it on and pair it; limited to the tab in front of you unless you allow any tab. It can reload a tab, or with any tab open a page, if you allow it — never click, type or run anything." },
+          { title: "Send to agent", guide: "send-to-agent", text: "Mark up a capture, press Send to agent and say what it should know: the agent gets the image, your note, and your marks as words and coordinates. An agent can also wait for you to send something, or ask you to draw on an area." },
+        ],
+      },
+      {
+        name: "Fixed",
+        items: [
+          { title: "No stray navbar in a region", guide: "region", text: "A region capture no longer includes a pinned navbar from elsewhere on the page." },
+          { title: "The article, not the menus", guide: "text-reader", text: "Text and Markdown leave the navbar, banner and footer out by default; Keep navbar and footer in text, in the popup, puts them back." },
+          { title: "Markdown that holds up on real sites", guide: "page-as-markdown", text: "Code, tables, details, task lists and maths come through properly on documentation, wiki, README, blog and news pages, and text that was missing from inside ordinary page elements is read." },
+        ],
+      },
+    ],
+  },
+  {
     version: "1.2.0",
     date: "2026-10-16",
     title: "A truer palette, and back to the page",

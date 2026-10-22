@@ -1,6 +1,7 @@
 // Source copy for the static feature guide. Keep claims aligned with the extension's
 // shipped feature catalogue and the domain notes in its private source repository.
 import { releaseArticles } from "./content-release.mjs";
+import { articles13 } from "./content-1-3.mjs";
 
 const baseArticles = [
   {
@@ -47,7 +48,7 @@ const baseArticles = [
     imageCaption: "Choose how a long page is divided before capture.",
     sections: [
       { title: "Choose the cut", paragraphs: ["You can take one piece per screen height, specify a pixel height, or ask for an exact number of parts. Optional overlap repeats a little content at each boundary, useful when a line of text would otherwise sit on a seam."] },
-      { title: "What is in the archive", paragraphs: ["The images are numbered in page order and padded so they sort correctly in a file manager. A manifest records their page coordinates. The archive remains useful even after it leaves the extension because the positions are explicit."] },
+      { title: "What is in the archive", paragraphs: ["The images are numbered in page order and padded so they sort correctly in a file manager. A manifest records their page coordinates. Each image has a .txt and a .md beside it with the words of that slice, and the whole page's text comes alongside. The archive remains useful even after it leaves the extension because the positions are explicit."] },
       { title: "Work with the result", steps: ["Choose Slices, set the height or count, and add overlap if the page has dense text.", "Capture and inspect the slice previews in the result page.", "Download the ZIP, or use Reassemble to make a separate single-image capture for editing."] },
     ],
     note: "Reassembling an extremely tall archive into one image can still require downscaling. The original ZIP keeps the full-resolution pieces.",
@@ -67,8 +68,10 @@ const baseArticles = [
     sections: [
       { title: "The selection is still yours after the drag", paragraphs: ["A drawn rectangle can be moved and resized before confirmation. Enter confirms; Escape cancels without keeping a capture. The overlay measures against the visible viewport, while typed coordinates are measured from the document's top-left corner."] },
       { title: "Choose the shape", paragraphs: ["A rectangle keeps its full box. A freeform lasso makes the area outside the path transparent, so the result uses a format that can preserve transparency. A region taller than one screen can be stitched like a full-page capture."] },
-      { title: "A reliable sequence", steps: ["Choose Region and select Draw or Coordinates.", "Set the boundary, then adjust it if needed.", "Confirm the selection and inspect the captured pixels before exporting."] },
+      { title: "Mark it up, and add a note", paragraphs: ["Once the area is drawn, a toolbar stands beside it for drawing on the page before you capture: pen, arrow, box, highlight, text, steps and emoji. What you draw is painted into the capture; the toolbar never is. Note, in the bar under the area, adds a short note that leads the capture's text.", "Capture & edit, or Shift+Enter, captures and opens the result straight in the full editor. The guide to marking up before you capture covers the toolbar in full."] },
+      { title: "A reliable sequence", steps: ["Choose Region and select Draw or Coordinates.", "Set the boundary, then adjust it if needed.", "Draw on it or add a note if the capture needs explaining.", "Confirm the selection and inspect the captured pixels before exporting."] },
     ],
+    relatedSlugs: ["draw-before-capture", "capture-by-selector", "text-reader"],
     note: "If the target is a stable page element, Capture by selector can be more repeatable than typed pixel coordinates.",
   },
   {
@@ -239,8 +242,8 @@ const baseArticles = [
     imageCaption: "The editor: the capture in the middle, the tool row along the bottom.",
     sections: [
       { title: "Open the editor", paragraphs: ["Capture something, then choose Edit on the result page. The editor opens over the same capture. Nothing you draw changes the file until you press Apply, so you can experiment freely and leave with Cancel."] },
-      { title: "The tool row", paragraphs: ["Along the bottom, from left to right: Select, Redact, Shape, Line, Highlight, Text, Pen, and Step numbers (turn it on in Settings, under Features, if it is hidden). After the tools come the colour and stroke buttons, then zoom, Undo and Redo, and finally Cancel and Apply.", "Shape, Line, and Redact each have a small menu beside them for their styles. Text, Highlight, and Pen open a panel of options from the button beside the colour."], image: { file: "guide-edit-marks.webp", width: 1600, height: 770, alt: "The editor's tool row along the bottom, with a rounded shape selected on the capture", caption: "The tool row, with a shape selected on the capture." } },
-      { title: "Which tool for what", steps: ["Shape: outline a control, a button, or a region. Five shapes, from one menu.", "Line: point at something with an arrow, show a link between two things with a double arrow, or underline with a plain line.", "Highlight: emphasise a line of text, as a block, an underline, or a strikethrough.", "Text: put a short label where a reader will see it first. Four fonts, three sizes, and a background chip or outline for legibility.", "Pen: sketch freehand, with solid, dashed, or dotted strokes and smoothing.", "Step numbers: number a sequence of actions in one image. The numbers follow the markers, so deleting one renumbers the rest.", "Redact: cover private details with Black out, Pixelate, or Blur. This one hides content; the others only point at it."] },
+      { title: "The tool row", paragraphs: ["Along the bottom, from left to right: Select, Redact, Shape, Line, Highlight, Text, Pen, Emoji, and Step numbers (turn it on in Settings, under Features, if it is hidden). After the tools come the colour and stroke buttons, then zoom, Undo and Redo, and finally Cancel and Apply.", "Shape, Line, and Redact each have a small menu beside them for their styles. Text, Highlight, and Pen open a panel of options from the button beside the colour."], image: { file: "guide-edit-marks.webp", width: 1600, height: 770, alt: "The editor's tool row along the bottom, with a rounded shape selected on the capture", caption: "The tool row, with a shape selected on the capture." } },
+      { title: "Which tool for what", steps: ["Shape: outline a control, a button, or a region. Five shapes, from one menu.", "Line: point at something with an arrow, show a link between two things with a double arrow, or underline with a plain line.", "Highlight: emphasise a line of text, as a block, an underline, or a strikethrough.", "Text: put a short label where a reader will see it first. Four fonts, three sizes, and a background chip or outline for legibility.", "Pen: sketch freehand, with solid, dashed, or dotted strokes and smoothing.", "Step numbers: number a sequence of actions in one image. The numbers follow the markers, so deleting one renumbers the rest.", "Emoji: place a check mark, a warning or any other emoji with a click.", "Redact: cover private details with Black out, Pixelate, or Blur. This one hides content; the others only point at it."] },
       { title: "Marks stay aligned with the image", paragraphs: ["ScrollSnapshot stores mark positions in the image's own pixels. A tall screenshot may be displayed small on screen, but a box or arrow is mapped back to the full image before export, so zooming the view never moves a mark relative to what it points at."] },
       { title: "Marks stay editable", paragraphs: ["A mark is not fixed the moment you draw it. Pick it up with the Select tool (V) to move, resize, rotate, restyle, duplicate, or delete it before you apply anything. The guide to editing marks covers the handles, the keyboard shortcuts, and the colour picker with its eyedropper."] },
       { title: "Colour and stroke", paragraphs: ["The colour button opens twelve named colours and a full picker with an eyedropper (I) that takes a colour straight from the capture. The stroke button sets how thick lines and outlines are. With nothing selected they set the next mark; with a mark selected they change that mark. Style presets save a favourite combination so you can recall it with one click."] },
@@ -353,14 +356,21 @@ const baseArticles = [
   },
   {
     slug: "text-reader",
-    title: "Read the words under a region",
+    title: "Read the words in a capture",
     category: "Tools",
     depth: "Focused guide",
-    summary: "Copy page text without guessing at it with OCR.",
-    lead: "A screenshot is pixels, but a web page also has text nodes. For a region capture, ScrollSnapshot reads the page text under the selected area and offers it beside the image.",
+    summary: "The page's real text with every capture, as plain text or Markdown.",
+    lead: "A screenshot is pixels, but a web page also has text. Every capture now carries the text of what it shows, read from the page itself, so you can copy a quote, a table or a code block without retyping it or guessing at it with OCR.",
+    image: "guide-text-panel.webp",
+    imageWidth: 1600,
+    imageHeight: 1000,
+    imageAlt: "A capture's result page with the text panel open, showing its Markdown as formatted text with copy and save buttons",
+    imageCaption: "The text panel: Plain, Markdown, and a formatted preview.",
+    relatedSlugs: ["page-as-markdown", "region", "numbered-slices"],
     sections: [
-      { title: "The browser has the source", paragraphs: ["The reader preserves document order and line structure. It can read the actual characters, including non-Latin scripts, without making an OCR guess. Hidden page elements are excluded because they were not visible in the capture."] },
-      { title: "Use both outputs", steps: ["Capture a region that includes the words you need.", "Inspect the image and the text panel in the result page.", "Copy the text separately when an editable quote is more useful than pixels."] },
+      { title: "Open it from the icon", paragraphs: ["On the result page, the text icon under Done opens the page text: the words under a region, or the whole page for a full page or visible capture. Choose Plain or Markdown, see the Markdown as formatted text in Preview, copy it in one click, or save it as a .md or .txt file. A note typed in the region picker comes first."] },
+      { title: "The browser has the source", paragraphs: ["The reader preserves document order and structure, and reads the actual characters, including non-Latin scripts. Markdown keeps headings, emphasis, links, lists, code blocks, images, quotes and tables. The navbar, the banner and the footer are left out so you get the article; Keep navbar and footer in text, in the popup, puts them back."] },
+      { title: "Slices carry theirs too", paragraphs: ["A Slices ZIP has a .txt and a .md next to each picture, holding the words of that slice, and the whole page's text alongside."] },
     ],
     note: "Words baked into an image or a cross-origin frame are not page text the extension can read. A redaction withholds extracted text so it cannot expose what the image covers.",
   },
@@ -382,7 +392,7 @@ const baseArticles = [
     title: "Settings, explained",
     category: "Settings",
     depth: "Deep guide",
-    summary: "A complete tour of Capture, Batch, Features, Output, Watermark, Slices, and Shortcuts.",
+    summary: "A complete tour of Capture, Batch, Features, Output, Watermark, Slices, Agent connection, and Shortcuts.",
     lead: "Settings is where you choose how ScrollSnapshot behaves between captures. Start with the defaults you use every day, then adjust a single capture from the popup when a page calls for something different.",
     image: "settings.webp",
     imageWidth: 1880,
@@ -417,6 +427,15 @@ const baseArticles = [
         image: { file: "guide-watermark-settings.webp", width: 1000, height: 1250, alt: "The Watermark settings page", caption: "The Watermark tab, with a live preview above its controls." },
       },
       {
+        title: "Output: a Markdown bar for selected text",
+        paragraphs: ["Show a Markdown bar when you select text, under Output, puts a small bar over any text you select on a page: copy it as Markdown or plain text, or save it as a .md file. It is off by default."],
+      },
+      {
+        title: "Agent connection: let a coding agent in",
+        paragraphs: ["Agent connection pairs ScrollSnapshot with a coding agent on your computer, such as Claude Code, Codex or Cursor. It shows the setup line for your agent and operating system, the pairing field, which tabs an agent may use, and whether it may open and reload tabs. The guide to the agent connection walks through it."],
+        image: { file: "guide-agent-settings.webp", width: 1600, height: 1000, alt: "Settings, Agent connection", caption: "The Agent connection page in Settings." },
+      },
+      {
         title: "Slices: choose the shape of each piece",
         paragraphs: ["Slice by Screenful follows the visible viewport, Height uses a pixel height you enter, and Count divides the page into the number of pieces you choose. Overlap between slices adds 0–200 pixels of shared content at each boundary so adjacent images are easier to follow. These controls set the default for Slices captures."],
       },
@@ -440,4 +459,4 @@ const baseArticles = [
 // Release-era guides live in their own file. Listed by area, in the order of `categories`, so the
 // directory and the numbering stay grouped; the sort is stable within an area.
 const order = ["Capture", "Edit", "Output", "Tools", "Settings", "Release"];
-export const articles = [...baseArticles, ...releaseArticles].sort((a, b) => order.indexOf(a.category) - order.indexOf(b.category));
+export const articles = [...baseArticles, ...releaseArticles, ...articles13].sort((a, b) => order.indexOf(a.category) - order.indexOf(b.category));

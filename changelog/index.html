@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f5f5f1">
-  <meta name="description" content="What changed in every ScrollSnapshot release. Version 1.2.0: a truer palette, and back to the page.">
+  <meta name="description" content="What changed in every ScrollSnapshot release. Version 1.3.0: draw before you capture, markdown everywhere, and your coding agent.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Changelog">
-  <meta property="og:description" content="What changed in every ScrollSnapshot release. Version 1.2.0: a truer palette, and back to the page.">
+  <meta property="og:description" content="What changed in every ScrollSnapshot release. Version 1.3.0: draw before you capture, markdown everywhere, and your coding agent.">
   <meta property="og:url" content="https://syedzubair23.github.io/scrollsnapshot-site/changelog/">
   <meta property="og:image" content="https://syedzubair23.github.io/scrollsnapshot-site/assets/modes.png">
   <link rel="canonical" href="https://syedzubair23.github.io/scrollsnapshot-site/changelog/">
@@ -56,16 +56,32 @@
   </header>
   <main id="main">
     <section class="guide-index-hero shell">
-      <div class="guide-eyebrow reveal"><span>CHANGELOG</span><span class="kicker-rule"></span><span>3 RELEASES</span></div>
+      <div class="guide-eyebrow reveal"><span>CHANGELOG</span><span class="kicker-rule"></span><span>4 RELEASES</span></div>
       <h1 class="reveal">What changed,<br><em>release by release.</em></h1>
-      <div class="guide-index-intro reveal"><p>New features, changes to how things work, and fixes, newest first. Each new feature links to a guide that explains it. Chrome updates the extension for you; version 1.2.0 is the latest.</p><span>SCROLL FOR THE LATEST ↓</span></div>
+      <div class="guide-index-intro reveal"><p>New features, changes to how things work, and fixes, newest first. Each new feature links to a guide that explains it. Chrome updates the extension for you; version 1.3.0 is the latest.</p><span>SCROLL FOR THE LATEST ↓</span></div>
     </section>
     <div class="guide-article-grid release-grid shell">
-      <aside class="guide-article-aside" aria-label="Releases"><span>RELEASES</span><a href="#v1-2-0">1.2.0<small>October 16, 2026</small></a><a href="#v1-1-0">1.1.0<small>October 15, 2026</small></a><a href="#v1-0-0">1.0.0<small>September 19, 2026</small></a><a class="guide-aside-all" href="../guides/">All guides ↗</a></aside>
+      <aside class="guide-article-aside" aria-label="Releases"><span>RELEASES</span><a href="#v1-3-0">1.3.0<small>October 22, 2026</small></a><a href="#v1-2-0">1.2.0<small>October 16, 2026</small></a><a href="#v1-1-0">1.1.0<small>October 15, 2026</small></a><a href="#v1-0-0">1.0.0<small>September 19, 2026</small></a><a class="guide-aside-all" href="../guides/">All guides ↗</a></aside>
       <div class="guide-article-body release-list">
-        <section class="release" id="v1-2-0" aria-labelledby="v1-2-0-title">
+        <section class="release" id="v1-3-0" aria-labelledby="v1-3-0-title">
       <header class="release-head">
-        <div class="release-meta"><span class="release-version">1.2.0</span><span class="release-badge">Latest</span><time datetime="2026-10-16">October 16, 2026</time></div>
+        <div class="release-meta"><span class="release-version">1.3.0</span><span class="release-badge">Latest</span><time datetime="2026-10-22">October 22, 2026</time></div>
+        <h2 id="v1-3-0-title">Draw before you capture, Markdown everywhere, and your coding agent</h2>
+        <p>Version 1.3 lets you mark up an area before you capture it, adds emoji, turns any page or selection into Markdown, and connects ScrollSnapshot to the coding agent you already use.</p>
+        <a class="release-highlights" href="../guides/whats-new-1-3/">Read the highlights <span aria-hidden="true">↗</span></a>
+      </header>
+      <details class="release-group" data-group="added" open>
+        <summary><span>Added</span><small>8</small></summary>
+        <ul class="release-items"><li><strong>Draw on a region before capturing it</strong><p>Once an area is chosen, a toolbar stands beside it: pen, arrow, box, highlight, text, steps and emoji, with colour, options, undo and clear. Pick a mark up to move, restyle or delete it. What you draw is part of the capture; the toolbar never is. Capture &amp; edit opens the result straight in the full editor.</p><a class="release-guide" href="../guides/draw-before-capture/">Read the guide <span aria-hidden="true">↗</span></a></li><li><strong>Emoji</strong><p>An Emoji tool in the editor and the region toolbar: pick a common one from the panel, or paste or type any other. Move, resize and turn it like any mark.</p><a class="release-guide" href="../guides/emoji/">Read the guide <span aria-hidden="true">↗</span></a></li><li><strong>A note for a region</strong><p>Type a short note in the region bar before capturing, and it leads the capture&#39;s text.</p><a class="release-guide" href="../guides/region/">Read the guide <span aria-hidden="true">↗</span></a></li><li><strong>Text for every capture, plain or Markdown</strong><p>Full page and visible captures carry their page&#39;s text like a region does, each slice in a ZIP gets its own .txt and .md, and the text panel previews the Markdown and saves .md and .txt files.</p><a class="release-guide" href="../guides/text-reader/">Read the guide <span aria-hidden="true">↗</span></a></li><li><strong>Save a whole page as Markdown</strong><p>The Markdown button in the popup&#39;s header saves any page as a .md file, or opens it as a document with its outline, without taking a screenshot.</p><a class="release-guide" href="../guides/page-as-markdown/">Read the guide <span aria-hidden="true">↗</span></a></li><li><strong>Markdown from a text selection</strong><p>Turn on the Markdown bar in Settings → Output, and selecting text on any page offers to copy it as Markdown or plain text, or save it. Off by default.</p><a class="release-guide" href="../guides/page-as-markdown/">Read the guide <span aria-hidden="true">↗</span></a></li><li><strong>Agent connection</strong><p>Claude Code, Codex, Cursor and other MCP clients can read pages as text or Markdown and capture exactly what they need in your own Chrome, in tiles sized to save tokens. Off until you turn it on and pair it; limited to the tab in front of you unless you allow any tab. It can reload a tab, or with any tab open a page, if you allow it — never click, type or run anything.</p><a class="release-guide" href="../guides/agent-connection/">Read the guide <span aria-hidden="true">↗</span></a></li><li><strong>Send to agent</strong><p>Mark up a capture, press Send to agent and say what it should know: the agent gets the image, your note, and your marks as words and coordinates. An agent can also wait for you to send something, or ask you to draw on an area.</p><a class="release-guide" href="../guides/send-to-agent/">Read the guide <span aria-hidden="true">↗</span></a></li></ul>
+      </details>
+      <details class="release-group" data-group="fixed" open>
+        <summary><span>Fixed</span><small>3</small></summary>
+        <ul class="release-items"><li><strong>No stray navbar in a region</strong><p>A region capture no longer includes a pinned navbar from elsewhere on the page.</p><a class="release-guide" href="../guides/region/">Read the guide <span aria-hidden="true">↗</span></a></li><li><strong>The article, not the menus</strong><p>Text and Markdown leave the navbar, banner and footer out by default; Keep navbar and footer in text, in the popup, puts them back.</p><a class="release-guide" href="../guides/text-reader/">Read the guide <span aria-hidden="true">↗</span></a></li><li><strong>Markdown that holds up on real sites</strong><p>Code, tables, details, task lists and maths come through properly on documentation, wiki, README, blog and news pages, and text that was missing from inside ordinary page elements is read.</p><a class="release-guide" href="../guides/page-as-markdown/">Read the guide <span aria-hidden="true">↗</span></a></li></ul>
+      </details>
+    </section>
+    <section class="release" id="v1-2-0" aria-labelledby="v1-2-0-title">
+      <header class="release-head">
+        <div class="release-meta"><span class="release-version">1.2.0</span><time datetime="2026-10-16">October 16, 2026</time></div>
         <h2 id="v1-2-0-title">A truer palette, and back to the page</h2>
         <p>Version 1.2 makes the palette show the colours a page is actually designed with, takes you back to the page when you close a capture, and adds ways to send feedback.</p>
         

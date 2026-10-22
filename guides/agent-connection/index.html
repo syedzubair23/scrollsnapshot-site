@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f5f1">
+  <meta name="description" content="Connect Claude Code, Codex, Cursor or any MCP client to the browser you are signed in to.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Let your coding agent see the page">
+  <meta property="og:description" content="Connect Claude Code, Codex, Cursor or any MCP client to the browser you are signed in to.">
+  <meta property="og:url" content="https://syedzubair23.github.io/scrollsnapshot-site/guides/agent-connection/">
+  <meta property="og:image" content="https://syedzubair23.github.io/scrollsnapshot-site/assets/guide-agent-settings.webp">
+  <link rel="canonical" href="https://syedzubair23.github.io/scrollsnapshot-site/guides/agent-connection/">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32.png">
+  <link rel="apple-touch-icon" sizes="128x128" href="../../icon-128.png">
+  <link rel="stylesheet" href="../../site.css">
+  <link rel="stylesheet" href="../../guides/guide.css">
+  <script src="../../guides/guide.js" defer></script>
+  <title>Let your coding agent see the page — ScrollSnapshot</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <header class="site-header" id="top">
+    <div class="shell header-inner">
+      <a class="brand" href="../../" aria-label="ScrollSnapshot homepage">
+        <img src="../../icon-128.png" alt="" width="34" height="34">
+        <span>ScrollSnapshot</span>
+      </a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="../../#modes">Capture modes</a>
+        <a href="../../guides/" aria-current="page">Guides</a>
+        <a href="../../changelog/">Changelog</a>
+        <a href="../../privacy/">Privacy</a>
+        <a href="../../support/">Support</a>
+      </nav>
+      <a class="header-cta" href="https://chromewebstore.google.com/detail/scrollsnapshot/hhahcllpchhmkgmioaekblbnblodbiic" target="_blank" rel="noopener noreferrer" aria-label="View ScrollSnapshot in the Chrome Web Store, available after launch">Chrome Web Store <span aria-hidden="true">↗</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav"><span>Menu</span><span class="menu-lines" aria-hidden="true"><i></i><i></i></span></button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
+      <div class="mobile-nav-inner shell">
+        <div class="section-label"><span>MENU</span><span class="label-line"></span></div>
+        <ul class="mobile-nav-primary">
+          <li><a href="../../#modes"><span class="mobile-nav-index">01</span><span class="mobile-nav-text">Capture modes</span><span class="mobile-nav-arrow" aria-hidden="true">→</span></a></li>
+          <li><a href="../../guides/" aria-current="page"><span class="mobile-nav-index">02</span><span class="mobile-nav-text">Guides</span><span class="mobile-nav-arrow" aria-hidden="true">→</span></a></li>
+          <li><a href="../../changelog/"><span class="mobile-nav-index">03</span><span class="mobile-nav-text">Changelog</span><span class="mobile-nav-arrow" aria-hidden="true">→</span></a></li>
+        </ul>
+        <div class="mobile-nav-secondary">
+          <a href="../../privacy/">Privacy</a>
+          <a href="../../support/">Support</a>
+        </div>
+        <p class="mobile-nav-tagline">Capture the page. Keep the detail.</p>
+        <a class="store-button mobile-nav-store" href="https://chromewebstore.google.com/detail/scrollsnapshot/hhahcllpchhmkgmioaekblbnblodbiic" target="_blank" rel="noopener noreferrer">Chrome Web Store <span aria-hidden="true">↗</span></a>
+      </div>
+    </nav>
+  </header>
+  <main id="main">
+    <article>
+      <header class="guide-article-hero shell">
+        <nav class="guide-breadcrumb" aria-label="Breadcrumb"><a href="../../">Home</a><span>/</span><a href="../">Guides</a><span>/</span><span aria-current="page">Let your coding agent see the page</span></nav>
+        <div class="guide-eyebrow reveal"><span>35 / 40</span><span class="kicker-rule"></span><span>TOOLS · DEEP GUIDE</span></div>
+        <h1 class="reveal">Let your coding agent see the page</h1>
+        <p class="guide-article-lead reveal">A coding agent works from your code; it cannot see the page that code produces, especially one behind your login. The agent connection lets it read a page as text, take exactly the screenshot it needs, and look at what you mark up, through ScrollSnapshot in your own Chrome.</p>
+      </header>
+      <div class="shell"><figure class="guide-article-visual"><a href="../../assets/guide-agent-settings.webp" target="_blank" rel="noopener" aria-label="Open full-size image: ScrollSnapshot Settings on the Agent connection page, with the setup line for Claude Code, the pairing field and the tab options"><img src="../../assets/guide-agent-settings.webp" alt="ScrollSnapshot Settings on the Agent connection page, with the setup line for Claude Code, the pairing field and the tab options" width="1600" height="1000" loading="lazy"></a><figcaption><span>FIG. 35 / Settings → Agent connection: the setup line, pairing, and what an agent may do.</span><a href="../../assets/guide-agent-settings.webp" target="_blank" rel="noopener">OPEN FULL SIZE ↗</a></figcaption></figure></div>
+      <div class="guide-article-grid shell">
+        <aside class="guide-article-aside" aria-label="On this page"><span>IN THIS GUIDE</span><a href="#section-1">Set it up once</a><a href="#section-2">What an agent can do</a><a href="#section-3">Which tabs, and what it may change</a><a href="#section-4">Where your data goes</a><a class="guide-aside-all" href="../">All guides ↗</a></aside>
+        <div class="guide-article-body">
+          <section class="guide-prose-section" id="section-1"><span class="guide-section-index">01</span><div><h2>Set it up once</h2><ol class="guide-steps"><li>Open ScrollSnapshot → Settings → Agent connection and turn on Allow an agent to connect.</li><li>Choose your agent. Copy the line shown for it and your operating system, and run it in a terminal (or paste the settings snippet into your client). It needs Node.js 22 or newer; nothing else to download.</li><li>Run npx -y scrollsnapshot-mcp pair, copy the secret it prints, paste it into Settings and press Pair.</li><li>Start your agent. Within 30 seconds the toolbar icon shows AI: it is connected.</li></ol><ul class="guide-tips"><li>If it does not connect, run npx -y scrollsnapshot-mcp doctor. It checks each link and prints the line that fixes what is wrong.</li></ul></div></section>
+<section class="guide-prose-section" id="section-2"><span class="guide-section-index">02</span><div><h2>What an agent can do</h2><p>Read a page: its outline of headings, landmarks, forms and tables, each with a selector, and its text, plain or as Markdown. Capture it: the screen, the whole page, one element by selector, or an area, returned in tiles sized to keep the agent&#39;s token use down, with the full-resolution file saved on disk. Read your capture history, and pick up screenshots you send it.</p>
+<p>It can also ask you to choose an area. The region picker opens on your screen, and the note and drawings you add reach the agent as words and coordinates, not only pixels.</p></div></section>
+<section class="guide-prose-section" id="section-3"><span class="guide-section-index">03</span><div><h2>Which tabs, and what it may change</h2><p>By default an agent can use only the tab in front of you. Choose Any tab to let it list and capture every open tab.</p>
+<p>Turn on Let agents open and reload tabs and the agent can reload a tab to see a change it just made. With Any tab, it can also open a web page in a new tab, such as your local dev server. It can never click, type or run anything on a page.</p></div></section>
+<section class="guide-prose-section" id="section-4"><span class="guide-section-index">04</span><div><h2>Where your data goes</h2><p>ScrollSnapshot hands what an agent asks for only to the agent server on your own computer, after both sides prove they hold the pairing secret. Your agent may then send it to its AI provider, as it does with your code and everything else you show it. The server keeps the captures it receives in a private folder in your home directory and deletes them after seven days.</p></div></section>
+          <aside class="guide-note"><span>KEEP IN MIND</span><p>The agent connection is off until you turn it on, and the pairing secret never leaves this device. The privacy policy covers it in detail.</p></aside>
+        </div>
+      </div>
+    </article>
+    <nav class="guide-prev-next shell" aria-label="Adjacent guides"><a href="../page-as-markdown/"><span>← PREVIOUS GUIDE</span><strong>Save a page as Markdown</strong></a><a href="../send-to-agent/"><span>NEXT GUIDE →</span><strong>Show your agent what is wrong</strong></a></nav>
+    <section class="guide-related shell" aria-labelledby="related-heading"><div class="section-label"><span>KEEP READING</span><span class="label-line"></span></div><h2 id="related-heading">Nearby ideas.</h2><div class="guide-related-grid"><a href="../send-to-agent/"><span>TOOLS ↗</span><strong>Show your agent what is wrong</strong><small>Mark up a capture, add a note, and send it — or answer when the agent asks.</small></a><a href="../page-as-markdown/"><span>TOOLS ↗</span><strong>Save a page as Markdown</strong><small>A whole page, or a selection, as clean Markdown — no screenshot needed.</small></a><a href="../settings/"><span>SETTINGS ↗</span><strong>Settings, explained</strong><small>A complete tour of Capture, Batch, Features, Output, Watermark, Slices, Agent connection, and Shortcuts.</small></a></div></section>
+  </main>
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div><a class="brand" href="../../"><img src="../../icon-128.png" alt="" width="30" height="30"><span>ScrollSnapshot</span></a><p>Capture the page. Keep the detail.</p></div>
+      <div class="footer-links"><a href="../../">Homepage</a><a href="../../guides/">Guides</a><a href="../../changelog/">Changelog</a><a href="../../privacy/">Privacy policy</a><a href="../../support/">Support</a></div>
+      <div class="footer-bottom"><span>© <span id="year">2026</span> ScrollSnapshot</span><span>Made for the page in front of you.</span></div>
+      <p class="footer-credit">Developed by <a href="https://syedzubair.com/" target="_blank" rel="noopener noreferrer">syedzubair.com</a></p>
+    </div>
+  </footer>
+</body>
+</html>

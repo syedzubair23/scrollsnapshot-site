@@ -302,7 +302,7 @@ const plainPages = [
     crumb: "Privacy policy",
     title: "Privacy policy",
     lead: "ScrollSnapshot captures the page you choose on your own device. Nothing you capture is sent anywhere.",
-    meta: "Last updated: 16 October 2026",
+    meta: "Last updated: 22 October 2026",
     description: "ScrollSnapshot's privacy policy: what it accesses, where your captures are stored, and what it never collects.",
   },
   {

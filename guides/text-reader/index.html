@@ -4,19 +4,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f5f5f1">
-  <meta name="description" content="Copy page text without guessing at it with OCR.">
+  <meta name="description" content="The page&#39;s real text with every capture, as plain text or Markdown.">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Read the words under a region">
-  <meta property="og:description" content="Copy page text without guessing at it with OCR.">
+  <meta property="og:title" content="Read the words in a capture">
+  <meta property="og:description" content="The page&#39;s real text with every capture, as plain text or Markdown.">
   <meta property="og:url" content="https://syedzubair23.github.io/scrollsnapshot-site/guides/text-reader/">
-  <meta property="og:image" content="https://syedzubair23.github.io/scrollsnapshot-site/assets/modes.png">
+  <meta property="og:image" content="https://syedzubair23.github.io/scrollsnapshot-site/assets/guide-text-panel.webp">
   <link rel="canonical" href="https://syedzubair23.github.io/scrollsnapshot-site/guides/text-reader/">
   <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32.png">
   <link rel="apple-touch-icon" sizes="128x128" href="../../icon-128.png">
   <link rel="stylesheet" href="../../site.css">
   <link rel="stylesheet" href="../../guides/guide.css">
   <script src="../../guides/guide.js" defer></script>
-  <title>Read the words under a region — ScrollSnapshot</title>
+  <title>Read the words in a capture — ScrollSnapshot</title>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -57,23 +57,24 @@
   <main id="main">
     <article>
       <header class="guide-article-hero shell">
-        <nav class="guide-breadcrumb" aria-label="Breadcrumb"><a href="../../">Home</a><span>/</span><a href="../">Guides</a><span>/</span><span aria-current="page">Read the words under a region</span></nav>
-        <div class="guide-eyebrow reveal"><span>29 / 34</span><span class="kicker-rule"></span><span>TOOLS · FOCUSED GUIDE</span></div>
-        <h1 class="reveal">Read the words under a region</h1>
-        <p class="guide-article-lead reveal">A screenshot is pixels, but a web page also has text nodes. For a region capture, ScrollSnapshot reads the page text under the selected area and offers it beside the image.</p>
+        <nav class="guide-breadcrumb" aria-label="Breadcrumb"><a href="../../">Home</a><span>/</span><a href="../">Guides</a><span>/</span><span aria-current="page">Read the words in a capture</span></nav>
+        <div class="guide-eyebrow reveal"><span>31 / 40</span><span class="kicker-rule"></span><span>TOOLS · FOCUSED GUIDE</span></div>
+        <h1 class="reveal">Read the words in a capture</h1>
+        <p class="guide-article-lead reveal">A screenshot is pixels, but a web page also has text. Every capture now carries the text of what it shows, read from the page itself, so you can copy a quote, a table or a code block without retyping it or guessing at it with OCR.</p>
       </header>
-      <div class="shell"></div>
+      <div class="shell"><figure class="guide-article-visual"><a href="../../assets/guide-text-panel.webp" target="_blank" rel="noopener" aria-label="Open full-size image: A capture&#39;s result page with the text panel open, showing its Markdown as formatted text with copy and save buttons"><img src="../../assets/guide-text-panel.webp" alt="A capture&#39;s result page with the text panel open, showing its Markdown as formatted text with copy and save buttons" width="1600" height="1000" loading="lazy"></a><figcaption><span>FIG. 31 / The text panel: Plain, Markdown, and a formatted preview.</span><a href="../../assets/guide-text-panel.webp" target="_blank" rel="noopener">OPEN FULL SIZE ↗</a></figcaption></figure></div>
       <div class="guide-article-grid shell">
-        <aside class="guide-article-aside" aria-label="On this page"><span>IN THIS GUIDE</span><a href="#section-1">The browser has the source</a><a href="#section-2">Use both outputs</a><a class="guide-aside-all" href="../">All guides ↗</a></aside>
+        <aside class="guide-article-aside" aria-label="On this page"><span>IN THIS GUIDE</span><a href="#section-1">Open it from the icon</a><a href="#section-2">The browser has the source</a><a href="#section-3">Slices carry theirs too</a><a class="guide-aside-all" href="../">All guides ↗</a></aside>
         <div class="guide-article-body">
-          <section class="guide-prose-section" id="section-1"><span class="guide-section-index">01</span><div><h2>The browser has the source</h2><p>The reader preserves document order and line structure. It can read the actual characters, including non-Latin scripts, without making an OCR guess. Hidden page elements are excluded because they were not visible in the capture.</p></div></section>
-<section class="guide-prose-section" id="section-2"><span class="guide-section-index">02</span><div><h2>Use both outputs</h2><ol class="guide-steps"><li>Capture a region that includes the words you need.</li><li>Inspect the image and the text panel in the result page.</li><li>Copy the text separately when an editable quote is more useful than pixels.</li></ol></div></section>
+          <section class="guide-prose-section" id="section-1"><span class="guide-section-index">01</span><div><h2>Open it from the icon</h2><p>On the result page, the text icon under Done opens the page text: the words under a region, or the whole page for a full page or visible capture. Choose Plain or Markdown, see the Markdown as formatted text in Preview, copy it in one click, or save it as a .md or .txt file. A note typed in the region picker comes first.</p></div></section>
+<section class="guide-prose-section" id="section-2"><span class="guide-section-index">02</span><div><h2>The browser has the source</h2><p>The reader preserves document order and structure, and reads the actual characters, including non-Latin scripts. Markdown keeps headings, emphasis, links, lists, code blocks, images, quotes and tables. The navbar, the banner and the footer are left out so you get the article; Keep navbar and footer in text, in the popup, puts them back.</p></div></section>
+<section class="guide-prose-section" id="section-3"><span class="guide-section-index">03</span><div><h2>Slices carry theirs too</h2><p>A Slices ZIP has a .txt and a .md next to each picture, holding the words of that slice, and the whole page&#39;s text alongside.</p></div></section>
           <aside class="guide-note"><span>KEEP IN MIND</span><p>Words baked into an image or a cross-origin frame are not page text the extension can read. A redaction withholds extracted text so it cannot expose what the image covers.</p></aside>
         </div>
       </div>
     </article>
     <nav class="guide-prev-next shell" aria-label="Adjacent guides"><a href="../colour-picker/"><span>← PREVIOUS GUIDE</span><strong>Take the colour from the page</strong></a><a href="../colour-palette/"><span>NEXT GUIDE →</span><strong>See the colours a page is made of</strong></a></nav>
-    <section class="guide-related shell" aria-labelledby="related-heading"><div class="section-label"><span>KEEP READING</span><span class="label-line"></span></div><h2 id="related-heading">Nearby ideas.</h2><div class="guide-related-grid"><a href="../colour-picker/"><span>TOOLS ↗</span><strong>Take the colour from the page</strong><small>A pixel loupe that copies the hex value you choose.</small></a><a href="../colour-palette/"><span>TOOLS ↗</span><strong>See the colours a page is made of</strong><small>The design colours of a finished capture, one click from the clipboard.</small></a><a href="../zoom-rulers-guides/"><span>TOOLS ↗</span><strong>Zoom in and measure</strong><small>Zoom, pan, rulers, a grid, and guides on the result page.</small></a></div></section>
+    <section class="guide-related shell" aria-labelledby="related-heading"><div class="section-label"><span>KEEP READING</span><span class="label-line"></span></div><h2 id="related-heading">Nearby ideas.</h2><div class="guide-related-grid"><a href="../page-as-markdown/"><span>TOOLS ↗</span><strong>Save a page as Markdown</strong><small>A whole page, or a selection, as clean Markdown — no screenshot needed.</small></a><a href="../region/"><span>CAPTURE ↗</span><strong>Capture only what you mean</strong><small>Draw, move, resize, or type a precise region.</small></a><a href="../numbered-slices/"><span>CAPTURE ↗</span><strong>Keep a long page at full resolution</strong><small>A numbered ZIP for pages that outgrow one image.</small></a></div></section>
   </main>
   <footer class="site-footer">
     <div class="shell footer-grid">

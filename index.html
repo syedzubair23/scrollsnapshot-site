@@ -90,7 +90,9 @@
           <p class="finder-caption">JUMP TO A FEATURE</p>
           <button type="button" data-target="#full-page" data-search="full page entire website scroll stitch screenshot">Full page <b aria-hidden="true">↗</b></button>
           <button type="button" data-target="#region" data-search="region element selector xpath crop exact coordinates">Region &amp; element <b aria-hidden="true">↗</b></button>
-          <button type="button" data-target="#editor" data-search="edit annotate redact blur arrow text crop">Edit &amp; export <b aria-hidden="true">↗</b></button>
+          <button type="button" data-target="#editor" data-search="edit annotate redact blur arrow text crop emoji">Edit &amp; export <b aria-hidden="true">↗</b></button>
+          <button type="button" data-target="#markdown" data-search="markdown text copy page article notes selection md">Markdown &amp; text <b aria-hidden="true">↗</b></button>
+          <button type="button" data-target="#agent" data-search="agent ai claude code codex cursor mcp coding assistant">Coding agents <b aria-hidden="true">↗</b></button>
           <button type="button" data-target="#slices" data-search="slices zip long page overlap numbered images">Numbered slices <b aria-hidden="true">↗</b></button>
           <button type="button" data-target="#batch" data-search="batch tabs urls multiple pages 50">Batch capture <b aria-hidden="true">↗</b></button>
           <button type="button" data-target="#privacy" data-search="privacy local history no account on device">Local history <b aria-hidden="true">↗</b></button>
@@ -149,7 +151,7 @@
       <div class="feature-copy reveal">
         <div class="feature-index"><span>02</span><span>SELECT</span></div>
         <h2 id="region-heading">Exactly the part<br><em>you meant.</em></h2>
-        <p>Draw a region, adjust it afterward, type exact coordinates, or point to an element on the page. The selection stays editable until you capture.</p>
+        <p>Draw a region, adjust it afterward, type exact coordinates, or point to an element on the page. Mark it up right there, before you capture: arrows, boxes, steps, emoji. The toolbar never ends up in the shot.</p>
         <span class="feature-note">REGION / ELEMENT / COORDINATES</span>
       </div>
       <div class="feature-image dark-image reveal">
@@ -161,11 +163,35 @@
       <div class="feature-copy reveal">
         <div class="feature-index"><span>03</span><span>FINISH</span></div>
         <h2 id="editor-heading">Make it useful<br><em>before it leaves.</em></h2>
-        <p>Crop, redact, annotate, label steps, and add text or pen marks. Then export as PNG, JPEG, WebP, or PDF. Your workflow stays in one place.</p>
+        <p>Crop, redact, annotate, label steps, and add text, pen marks or emoji. Then export as PNG, JPEG, WebP, or PDF. Your workflow stays in one place.</p>
         <span class="feature-note">EDIT / COPY / DOWNLOAD</span>
       </div>
       <div class="feature-image dark-image reveal">
         <img src="assets/editor.png" alt="ScrollSnapshot's editor showing a redaction box, arrow, and drawing controls" width="1600" height="770" loading="lazy" decoding="async">
+      </div>
+    </section>
+
+    <section class="feature-section feature-reverse shell" id="markdown" aria-labelledby="markdown-heading">
+      <div class="feature-copy reveal">
+        <div class="feature-index"><span>04</span><span>READ</span></div>
+        <h2 id="markdown-heading">The words, too.<br><em>As Markdown.</em></h2>
+        <p>Every capture carries the page's real text, plain or as Markdown with its headings, tables and code. Save a whole page as Markdown without a screenshot, or copy just the part you selected. All of it on your device.</p>
+        <span class="feature-note">TEXT / MARKDOWN / NO OCR</span>
+      </div>
+      <div class="feature-image dark-image reveal">
+        <img src="assets/guide-markdown-reader.webp" alt="A web page opened as Markdown in ScrollSnapshot's reader tab, with its outline beside it" width="1600" height="1000" loading="lazy" decoding="async">
+      </div>
+    </section>
+
+    <section class="feature-section shell" id="agent" aria-labelledby="agent-heading">
+      <div class="feature-copy reveal">
+        <div class="feature-index"><span>05</span><span>HAND OFF</span></div>
+        <h2 id="agent-heading">Show your<br><em>coding agent.</em></h2>
+        <p>Let Claude Code, Codex or Cursor read the page and take exactly the screenshot it needs, in the browser you are signed in to. Mark up what is wrong and send it with a note. Off until you turn it on.</p>
+        <span class="feature-note">MCP / CLAUDE CODE / CODEX / CURSOR</span>
+      </div>
+      <div class="feature-image dark-image reveal">
+        <img src="assets/guide-agent-settings.webp" alt="ScrollSnapshot Settings on the Agent connection page, with the setup line and pairing field" width="1600" height="1000" loading="lazy" decoding="async">
       </div>
     </section>
 
@@ -218,7 +244,7 @@
       <div class="section-label reveal"><span>04 / THE FIELD GUIDE</span><span class="label-line"></span></div>
       <div class="landing-guides-intro reveal">
         <h2 id="landing-guides-heading">Know what the<br>control is for.</h2>
-        <div><p>Short notes for the small decisions. Deeper guides for the modes with tradeoffs. Every shipped feature has its own page.</p><a class="text-link" href="guides/">Explore all 34 guides <span aria-hidden="true">↗</span></a></div>
+        <div><p>Short notes for the small decisions. Deeper guides for the modes with tradeoffs. Every shipped feature has its own page.</p><a class="text-link" href="guides/">Explore all 40 guides <span aria-hidden="true">↗</span></a></div>
       </div>
       <div class="landing-guides-grid">
         <a class="landing-guide reveal" href="guides/full-page/"><span>01 / CAPTURE</span><strong>One page, top to bottom</strong><small>What a full-page image keeps, and when Slices is the better call.</small><b aria-hidden="true">↗</b></a>
@@ -232,7 +258,7 @@
         <div class="privacy-copy reveal">
           <div class="section-label"><span>05 / PRIVATE BY DEFAULT</span><span class="label-line"></span></div>
           <h2 id="privacy-heading">The screenshot<br>stays yours.</h2>
-          <p>Captures are processed and kept on your device. There is no ScrollSnapshot account, server, or analytics. Turn history off and only the current result remains until the next capture.</p>
+          <p>Captures are processed and kept on your device. There is no ScrollSnapshot account, server, or analytics. Turn history off and only the current result remains until the next capture. Connect a coding agent and it hears only from your own computer.</p>
           <a class="text-link text-link-light" href="privacy/">Read the privacy policy <span aria-hidden="true">↗</span></a>
         </div>
         <figure class="privacy-image reveal">
