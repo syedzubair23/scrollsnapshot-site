@@ -10,10 +10,10 @@ export const releaseArticles = [
     depth: "Focused guide",
     summary: "Five shapes, three line styles, and Shift to keep them true.",
     lead: "A rectangle is not always the right outline. The Shape tool draws a rectangle, rounded rectangle, ellipse, triangle, or diamond, and the Line tool draws an arrow, a double arrow, or a plain line. Both live in the editor's tool row, each with a small menu beside it.",
-    image: "editor.png",
+    image: "site-editor.webp",
     imageWidth: 1600,
-    imageHeight: 770,
-    imageAlt: "The ScrollSnapshot editor with a rounded shape around two rows of a table and an arrow pointing at a third",
+    imageHeight: 1000,
+    imageAlt: "The ScrollSnapshot editor with a box around a headline and an arrow pointing at it",
     imageCaption: "A shape and an arrow drawn in the editor. The tool row sits along the bottom.",
     sections: [
       {
@@ -354,5 +354,43 @@ export const releaseArticles = [
       },
     ],
     note: "The changelog lists every change in this release, with a link to the guide for each new feature.",
+  },
+  {
+    slug: "whats-new-1-2",
+    title: "What's new in ScrollSnapshot 1.2",
+    category: "Release",
+    depth: "Release notes",
+    summary: "A palette of the colours a page is designed with, back to the page when you close a capture, and ways to send feedback.",
+    lead: "Version 1.2 is a smaller release. The palette now shows the colours a page is actually designed with, closing a capture takes you back to the page you captured, and Settings has a way to tell us what works and what does not.",
+    image: "guide-palette.webp",
+    imageWidth: 1600,
+    imageHeight: 1000,
+    imageAlt: "The palette open on a result page, listing eight colours with their hex values and shares, and Copy all",
+    imageCaption: "The 1.2 palette: one icon, every colour with its hex and share.",
+    relatedSlugs: ["colour-palette", "colour-picker", "settings"],
+    sections: [
+      {
+        title: "A truer palette",
+        paragraphs: ["The palette no longer sits over the capture as a card. It is one icon at the top right of the result page, under Done. Click it for every colour with its hex value and its share of the image; click a colour to copy it, or Copy all for the whole palette, one hex per line.", "It also lists different colours. Small design colours, like a button, a badge or the text, are kept instead of a fourth shade of the background. A blend that is not on the page is never listed, and up to eight colours are shown. The guide to the colour palette explains how it chooses."],
+      },
+      {
+        title: "Back to the page",
+        paragraphs: ["The result tab now opens right beside the page you captured. Close it, or press Done, and that page comes back to the front."],
+      },
+      {
+        title: "Tell us what you think",
+        paragraphs: ["The bottom of the Settings menu has Send feedback and Get help, and, once you have used ScrollSnapshot for a while, Leave a review. Send feedback opens a short form on this site. The extension itself still sends nothing."],
+        image: shot("site-settings.webp", 1600, 1000, "ScrollSnapshot Settings with Send feedback and Get help at the bottom of the menu", "Send feedback and Get help, at the bottom of the Settings menu."),
+      },
+      {
+        title: "A review prompt that waits its turn",
+        paragraphs: ["After a few days of use, ScrollSnapshot may ask, once and at most twice ever, whether you would leave a review. It asks only after you copy or download a capture, in a small card in a corner, never while a tool or notice is open. Don't ask again means it."],
+      },
+      {
+        title: "Getting the update",
+        steps: ["Chrome updates extensions on its own, usually within a day or two of a release.", "To check now, open chrome://extensions, turn on Developer mode, and choose Update.", "Look for version 1.2.0 on ScrollSnapshot's card."],
+      },
+    ],
+    note: "The changelog lists every change in this release. Nothing about where captures are kept changed in 1.2: they still stay on your device.",
   },
 ];
