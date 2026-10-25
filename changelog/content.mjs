@@ -3,6 +3,27 @@
 // `guide` is the slug of a feature guide (guides/content.mjs) that explains it in depth.
 export const releases = [
   {
+    version: "1.4.0",
+    date: "2026-10-25",
+    title: "Six languages, and a clearer name",
+    summary: "Version 1.4 speaks German, Spanish, French, Japanese and Brazilian Portuguese as well as English, following the language Chrome is set to.",
+    highlights: "whats-new-1-4",
+    groups: [
+      {
+        name: "Added",
+        items: [
+          { title: "Six languages", guide: "language", text: "German, Spanish, French, Japanese and Brazilian Portuguese join English, everywhere: the popup, Settings, the result page and editor, History, the Markdown reader, the on-page pickers and drawing toolbar, error messages and shortcut names. Dates and numbers follow the same language. Any other language shows English." },
+        ],
+      },
+      {
+        name: "Changed",
+        items: [
+          { title: "A name that says what it does", guide: "whats-new-1-4", text: "In the Chrome Web Store and on chrome://extensions the extension is now ScrollSnapshot – Full Page Screenshot & Screen Capture, with the same words in each language. Where there is little room, Chrome still shows ScrollSnapshot." },
+        ],
+      },
+    ],
+  },
+  {
     version: "1.3.0",
     date: "2026-10-22",
     title: "Draw before you capture, Markdown everywhere, and your coding agent",
