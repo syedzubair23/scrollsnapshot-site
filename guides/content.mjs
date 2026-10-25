@@ -2,6 +2,7 @@
 // shipped feature catalogue and the domain notes in its private source repository.
 import { releaseArticles } from "./content-release.mjs";
 import { articles13 } from "./content-1-3.mjs";
+import { articles14 } from "./content-1-4.mjs";
 
 const baseArticles = [
   {
@@ -534,4 +535,4 @@ const baseArticles = [
 // Release-era guides live in their own file. Listed by area, in the order of `categories`, so the
 // directory and the numbering stay grouped; the sort is stable within an area.
 const order = ["Capture", "Edit", "Output", "Tools", "Settings", "Release"];
-export const articles = [...baseArticles, ...releaseArticles, ...articles13].sort((a, b) => order.indexOf(a.category) - order.indexOf(b.category));
+export const articles = [...baseArticles, ...releaseArticles, ...articles13, ...articles14].sort((a, b) => order.indexOf(a.category) - order.indexOf(b.category));
