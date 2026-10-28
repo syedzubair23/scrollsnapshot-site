@@ -152,6 +152,11 @@ export const releaseArticles = [
         paragraphs: ["The three-dot menu on a capture can open it, open the original page, copy the link or the image, download it, rename it, move it, or delete it. Folders have the same kind of menu for the actions that make sense on a folder."],
       },
       {
+        title: "Video frames file themselves",
+        paragraphs: ["A frame from a video goes into a folder named for its platform without you doing anything: YouTube, Twitch, TikTok, Douyin, Instagram or Vimeo, and Other videos for any other site. The folder appears the first time it is needed, and the same name is used on disk: the download lands in ScrollSnapshot/<Platform>/ in your downloads folder. A burst's card says how many frames it holds, and downloading it, or its folder as a ZIP, includes every frame, numbered.", "Turn this off with File video frames into a folder per platform under Settings → Output. Frames then stay unfiled and download into your downloads folder like any other capture."],
+        image: shot("guide-video-folders.webp", 1600, 1000, "The History page with the Other videos folder open, showing a five-frame burst of a sunset video", "A video frame files itself into its platform's folder."),
+      },
+      {
         title: "Kept, and easy to take away",
         paragraphs: ["The count and age limits in Settings, Keep captures and Delete after, never remove a capture that is in a folder. Clear history asks first and can leave the captures in folders alone. Download ZIP on a selection, or on a folder, packs the captures into a single archive you can hand to someone else."],
       },
