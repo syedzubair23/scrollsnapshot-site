@@ -3,6 +3,7 @@
 import { releaseArticles } from "./content-release.mjs";
 import { articles13 } from "./content-1-3.mjs";
 import { articles14 } from "./content-1-4.mjs";
+import { articles15 } from "./content-1-5.mjs";
 
 const baseArticles = [
   {
@@ -382,7 +383,7 @@ const baseArticles = [
     imageCaption: "Captures stay on the device where they were made.",
     sections: [
       { title: "Retention is a choice", paragraphs: ["Settings controls how many captures to keep and whether older ones expire. Turning Capture history off prunes the store to the current result; the next capture replaces it. Batch requires history on so every successful page survives its queue."] },
-      { title: "Retrieve or remove", steps: ["Open History from the popup or Settings.", "Search for a title or filter by Visible, Full page, Slices, or Region.", "Open, download, favorite, or delete a capture. Clear history asks before removing everything."] },
+      { title: "Retrieve or remove", steps: ["Open History from the popup or Settings.", "Search for a title or filter by Visible, Full page, Slices, Region, or Video.", "Open, download, favorite, or delete a capture. Clear history asks before removing everything."] },
       { title: "Folders keep what matters", paragraphs: ["File captures into folders from the sidebar. Captures in a folder are never cleaned up automatically, and Clear history can leave them alone. The guide to history folders covers selecting, moving, and downloading a whole folder as one ZIP."], image: { file: "guide-folder-view.webp", width: 1600, height: 1260, alt: "The History page showing a folder named Client work holding two captures", caption: "A folder in the sidebar, showing only the captures filed in it." } },
     ],
     note: "Captures and their page details stay on this device. Some extension settings may use Chrome Sync between your own signed-in browsers; the images do not go to a ScrollSnapshot server.",
@@ -535,4 +536,4 @@ const baseArticles = [
 // Release-era guides live in their own file. Listed by area, in the order of `categories`, so the
 // directory and the numbering stay grouped; the sort is stable within an area.
 const order = ["Capture", "Edit", "Output", "Tools", "Settings", "Release"];
-export const articles = [...baseArticles, ...releaseArticles, ...articles13, ...articles14].sort((a, b) => order.indexOf(a.category) - order.indexOf(b.category));
+export const articles = [...baseArticles, ...releaseArticles, ...articles13, ...articles14, ...articles15].sort((a, b) => order.indexOf(a.category) - order.indexOf(b.category));
