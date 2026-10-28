@@ -60,7 +60,7 @@
         <nav class="guide-breadcrumb" aria-label="Breadcrumb"><a href="../">Home</a><span>/</span><span aria-current="page">Privacy policy</span></nav>
         <h1 class="reveal">Privacy policy</h1>
         <p class="guide-article-lead reveal">ScrollSnapshot captures the page you choose on your own device. Nothing you capture is sent anywhere.</p>
-        <p class="page-meta">Last updated: 22 October 2026</p>
+        <p class="page-meta">Last updated: 28 October 2026</p>
       </header>
       <div class="page-prose shell">
   <div class="tldr">
@@ -76,7 +76,7 @@
   <p>
     ScrollSnapshot is a Chrome extension that captures the tab you're viewing: the visible
     area, the whole scrollable page, the page split into numbered image slices, or a region you
-    draw or specify. From Settings, you can also start a batch over the web tabs in your current
+    draw or specify. It can also save the frame a video on the page is showing. From Settings, you can also start a batch over the web tabs in your current
     window or a list of addresses you paste. It can extract the text and colours shown in what
     you capture, save a whole page as Markdown, and let you crop, redact or annotate the result
     before you save it.
@@ -84,7 +84,8 @@
   <p>
     You have to trigger every one of these actions yourself, by clicking the extension's icon,
     using a keyboard shortcut, or clicking a button inside its popup, Settings, result page, or
-    the optional Markdown bar over text you select. ScrollSnapshot never captures, reads or acts
+    the optional Markdown bar over text you select, or the optional capture button over a video.
+    ScrollSnapshot never captures, reads or acts
     on a page in the background, or without that action from you. The one exception is a coding
     agent you connect yourself: once you turn the agent connection on and pair it, that agent can
     ask ScrollSnapshot to read or capture pages, within the limits described below.
@@ -108,7 +109,10 @@
       while fulfilling a capture you started, including each page in a batch you started. If you
       turn on the Markdown bar for selected text (off by default), a separate small script is
       added to the pages you visit so the bar can appear; it reads only the text you select, and
-      only when you press one of its buttons.</td>
+      only when you press one of its buttons. If you turn on the capture button for videos (off
+      by default), another small script is added to the pages you visit so the button can appear
+      over a video; it reads no page content, acts only when you press it, and is removed when you
+      turn the button off.</td>
     </tr>
     <tr>
       <td><code>storage</code></td>
@@ -166,10 +170,11 @@
     your browser's IndexedDB. With Capture history on, the limit and optional age cutoff are
     yours to choose in Settings, and you can delete individual captures or clear everything.
     With Capture history off, only the current result remains so its result page can open; the
-    next capture replaces it.</li>
+    next capture replaces it. Video frames are captures like any other, kept the same way.</li>
     <li><strong>The agent connection's pairing secret</strong>, and screenshots you send your
     agent (the newest 20), are kept only on this device. The secret is never synced.</li>
-    <li><strong>Settings</strong> (format, engine, quality, and so on) are kept in Chrome's
+    <li><strong>Settings</strong> (format, engine, quality, the sites where you hid the video
+    button or chose your own burst and subtitle settings, and so on) are kept in Chrome's
     <code>storage</code> API, which may sync across your own signed-in Chrome browsers the same
     way Chrome syncs bookmarks. That sync is Chrome's, not ScrollSnapshot's, and no
     ScrollSnapshot server is ever involved.</li>
