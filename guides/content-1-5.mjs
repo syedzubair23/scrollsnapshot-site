@@ -35,7 +35,7 @@ export const articles15 = [
       },
       {
         title: "Subtitles",
-        paragraphs: ["Turn on Include subtitles, beside Burst in the popup or under Settings → Capture, to put the video's captions into the frame. Standard captions are drawn at the video's full resolution. Where a site draws its own subtitles, the frame is taken from the screen so they appear exactly as the site shows them; burst isn't available that way."],
+        paragraphs: ["Turn on Include subtitles, beside Burst in the popup or under Settings → Capture, to put the video's captions into the frame. Standard captions are drawn at the video's full resolution. Where a site draws its own subtitles, the frame is taken from the screen so they appear exactly as the site shows them, and you get one frame even with Burst on."],
       },
       {
         title: "Where frames go",
@@ -68,10 +68,10 @@ export const articles15 = [
       },
       {
         title: "On the result page",
-        steps: ["Pick a frame in the strip above the image, or step through them with the arrow keys or the arrows at the sides.", "Crop or edit the frame you picked. Each frame keeps its own edits.", "Save all downloads the five, each as it currently is, as numbered files."],
+        steps: ["Pick a frame in the strip above the image, or step through them with the arrow keys or the arrows at the sides.", "Crop or edit the frame you picked. Each frame keeps its own edits.", "Download, or Save all, saves all five frames, each as it currently is, as numbered files."],
       },
     ],
-    note: "Burst needs the video's own pixels, so it isn't available when a frame has to be taken from the screen.",
+    note: "With Include subtitles also on, a site that draws its own subtitles (YouTube, for one) gives one frame, not five: the frame is taken from the screen so the subtitles show exactly as the site draws them. Turn subtitles off for a burst there.",
   },
   {
     slug: "video-button",
