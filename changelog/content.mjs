@@ -3,6 +3,30 @@
 // `guide` is the slug of a feature guide (guides/content.mjs) that explains it in depth.
 export const releases = [
   {
+    version: "1.5.0",
+    date: "2026-10-28",
+    title: "Video frames",
+    summary: "Version 1.5 saves the frame a video is showing at the video's own resolution, with a burst of five, subtitles, folders per platform and an optional capture button over videos.",
+    groups: [
+      {
+        name: "Added",
+        items: [
+          { title: "Video frames", text: "Choose Video in the popup, or press Alt+Shift+S, to save the frame a video is showing at its own resolution: a 4K video gives a 4K PNG. A copy-protected video is refused with a message, never saved as a black image. Where a site won't hand over a video's pixels, the frame is taken from the screen and the result says so." },
+          { title: "Burst of five frames", text: "With Burst on, one capture takes two frames before the moment, the moment and two after, ⅛ to 1 second apart. The video goes back exactly as it was. Pick a frame on the result page to crop or edit it, or Save all." },
+          { title: "Subtitles in frames", text: "Turn on Include subtitles to put the video's captions into the frame. Where a site draws its own subtitles, the frame is taken from the screen so they show as the site draws them; burst isn't available that way." },
+          { title: "Frames by platform", guide: "history-folders", text: "Frames download into ScrollSnapshot/<Platform>/ and file into a History folder per platform: YouTube, Twitch, TikTok, Douyin, Instagram, Vimeo, or Other videos. History has a Video filter." },
+          { title: "A capture button on videos, if you want it", text: "Off until you turn it on: ScrollSnapshot offers it once after your first video frame. Hover a video and a small camera appears; its menu has Capture & edit, Download frame, Burst and subtitles for that site, and Hide on this site." },
+        ],
+      },
+      {
+        name: "Changed",
+        items: [
+          { title: "Alt+Shift+S captures a video frame on new installs", text: "Slices no longer has a default shortcut. Existing installs keep Alt+Shift+S on Slices until they change it at chrome://extensions/shortcuts." },
+        ],
+      },
+    ],
+  },
+  {
     version: "1.4.0",
     date: "2026-10-25",
     title: "Six languages, and a clearer name",
