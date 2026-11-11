@@ -31,7 +31,7 @@ export const articles15 = [
       },
       {
         title: "When a site holds the pixels back",
-        paragraphs: ["A copy-protected video, such as one from a streaming service, is refused with a message. ScrollSnapshot never saves a black image instead.", "Some sites play video in a way that won't hand its pixels over. For a video on the page itself, ScrollSnapshot takes the frame from the screen instead, at the size it is shown, and the result says so. The player's buttons and overlays are left out of that picture and come back untouched. A video embedded from another site is refused, with a note to open it on its own page."],
+        paragraphs: ["A copy-protected video, such as one from a streaming service, is refused with a message. ScrollSnapshot never saves a black image instead.", "A video under a live blur cover is taken from the screen, at the size it is shown and without a burst, so the cover is in the frame. A fullscreen video under a cover is refused, since covers cannot draw over fullscreen.", "Some sites play video in a way that won't hand its pixels over. For a video on the page itself, ScrollSnapshot takes the frame from the screen instead, at the size it is shown, and the result says so. The player's buttons and overlays are left out of that picture and come back untouched. A video embedded from another site is refused, with a note to open it on its own page."],
       },
       {
         title: "Subtitles",

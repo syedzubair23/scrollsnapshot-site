@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f5f1">
+  <meta name="description" content="Hide an email, a card number or a whole panel on the page itself, before you capture or share your screen.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Live blur: cover private details on the page">
+  <meta property="og:description" content="Hide an email, a card number or a whole panel on the page itself, before you capture or share your screen.">
+  <meta property="og:url" content="https://syedzubair23.github.io/scrollsnapshot-site/guides/live-blur/">
+  <meta property="og:image" content="https://syedzubair23.github.io/scrollsnapshot-site/assets/guide-live-blur.webp">
+  <link rel="canonical" href="https://syedzubair23.github.io/scrollsnapshot-site/guides/live-blur/">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32.png">
+  <link rel="apple-touch-icon" sizes="128x128" href="../../icon-128.png">
+  <link rel="stylesheet" href="../../site.css">
+  <link rel="stylesheet" href="../../guides/guide.css">
+  <script src="../../guides/guide.js" defer></script>
+  <title>Live blur: cover private details on the page — ScrollSnapshot</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <header class="site-header" id="top">
+    <div class="shell header-inner">
+      <a class="brand" href="../../" aria-label="ScrollSnapshot homepage">
+        <img src="../../icon-128.png" alt="" width="34" height="34">
+        <span>ScrollSnapshot</span>
+      </a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="../../#modes">Capture modes</a>
+        <a href="../../guides/" aria-current="page">Guides</a>
+        <a href="../../changelog/">Changelog</a>
+        <a href="../../privacy/">Privacy</a>
+        <a href="../../support/">Support</a>
+      </nav>
+      <a class="header-cta" href="https://chromewebstore.google.com/detail/scrollsnapshot/hhahcllpchhmkgmioaekblbnblodbiic" target="_blank" rel="noopener noreferrer" aria-label="View ScrollSnapshot in the Chrome Web Store, available after launch">Chrome Web Store <span aria-hidden="true">↗</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav"><span>Menu</span><span class="menu-lines" aria-hidden="true"><i></i><i></i></span></button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
+      <div class="mobile-nav-inner shell">
+        <div class="section-label"><span>MENU</span><span class="label-line"></span></div>
+        <ul class="mobile-nav-primary">
+          <li><a href="../../#modes"><span class="mobile-nav-index">01</span><span class="mobile-nav-text">Capture modes</span><span class="mobile-nav-arrow" aria-hidden="true">→</span></a></li>
+          <li><a href="../../guides/" aria-current="page"><span class="mobile-nav-index">02</span><span class="mobile-nav-text">Guides</span><span class="mobile-nav-arrow" aria-hidden="true">→</span></a></li>
+          <li><a href="../../changelog/"><span class="mobile-nav-index">03</span><span class="mobile-nav-text">Changelog</span><span class="mobile-nav-arrow" aria-hidden="true">→</span></a></li>
+        </ul>
+        <div class="mobile-nav-secondary">
+          <a href="../../privacy/">Privacy</a>
+          <a href="../../support/">Support</a>
+        </div>
+        <p class="mobile-nav-tagline">Capture the page. Keep the detail.</p>
+        <a class="store-button mobile-nav-store" href="https://chromewebstore.google.com/detail/scrollsnapshot/hhahcllpchhmkgmioaekblbnblodbiic" target="_blank" rel="noopener noreferrer">Chrome Web Store <span aria-hidden="true">↗</span></a>
+      </div>
+    </nav>
+  </header>
+  <main id="main">
+    <article>
+      <header class="guide-article-hero shell">
+        <nav class="guide-breadcrumb" aria-label="Breadcrumb"><a href="../../">Home</a><span>/</span><a href="../">Guides</a><span>/</span><span aria-current="page">Live blur: cover private details on the page</span></nav>
+        <div class="guide-eyebrow reveal"><span>27 / 54</span><span class="kicker-rule"></span><span>PRIVACY · DEEP GUIDE</span></div>
+        <h1 class="reveal">Live blur: cover private details on the page</h1>
+        <p class="guide-article-lead reveal">Live blur draws covers over parts of the page while you work, so a screenshot, a recording or a screen share shows the cover instead of what is under it. The page itself is not changed.</p>
+      </header>
+      <div class="shell"><figure class="guide-article-visual"><a href="../../assets/guide-live-blur.webp" target="_blank" rel="noopener" aria-label="Open full-size image: An account settings page with the email address, card number and access key covered by solid black bars, and the live blur toolbar along the bottom of the window"><img src="../../assets/guide-live-blur.webp" alt="An account settings page with the email address, card number and access key covered by solid black bars, and the live blur toolbar along the bottom of the window" width="1600" height="1000" loading="lazy"></a><figcaption><span>FIG. 27 / Two element covers and one area cover, with the toolbar at the bottom of the window.</span><a href="../../assets/guide-live-blur.webp" target="_blank" rel="noopener">OPEN FULL SIZE ↗</a></figcaption></figure></div>
+      <div class="guide-article-grid shell">
+        <aside class="guide-article-aside" aria-label="On this page"><span>IN THIS GUIDE</span><a href="#section-1">Open the toolbar</a><a href="#section-2">Three ways to cover</a><a href="#section-3">Find sensitive data</a><a href="#section-4">Styles</a><a href="#section-5">Blur whole page</a><a href="#section-6">The toolbar itself</a><a href="#section-7">What captures and text do</a><a class="guide-aside-all" href="../">All guides ↗</a></aside>
+        <div class="guide-article-body">
+          <section class="guide-prose-section" id="section-1"><span class="guide-section-index">01</span><div><h2>Open the toolbar</h2><p>You can also give the toolbar a keyboard shortcut of your own: Open the live blur toolbar has no default key, so set one at chrome://extensions/shortcuts.</p><ol class="guide-steps"><li>Open ScrollSnapshot and press the blur button, beside the colour picker in the row of modes.</li><li>A small toolbar opens at the bottom of the page.</li><li>Choose a tool, then cover what you want hidden. Press Esc to put the tool down.</li></ol></div></section>
+<section class="guide-prose-section" id="section-2"><span class="guide-section-index">02</span><div><h2>Three ways to cover</h2><ol class="guide-steps"><li>Element covers one thing you point at: a line of text, a field, an image or a whole panel. Press ↑ while pointing to take the larger box around it, and ↓ to go back.</li><li>Area covers a rectangle you drag. Hold the pointer near the edge of the window, or of a panel you started in, and the page scrolls, so an area can be taller than the screen.</li><li>Words covers the words you drag across, and nothing else on the line.</li></ol></div></section>
+<section class="guide-prose-section" id="section-3"><span class="guide-section-index">03</span><div><h2>Find sensitive data</h2><p>The magnifier on the toolbar covers every email address, phone number, card number, bank account number, API key, private key and database address it finds on the page, plus any words or patterns you add in Settings. The guide to finding sensitive data covers it in full.</p></div></section>
+<section class="guide-prose-section" id="section-4"><span class="guide-section-index">04</span><div><h2>Styles</h2><p>Black out, the default, is a solid cover and the only style to use for private details. Blur softens what is under it, and can leave large text readable; the toolbar says so when you choose it. Hide makes the part invisible against the page. Choose the default style, and Blur&#39;s strength, under Settings → Live blur.</p></div></section>
+<section class="guide-prose-section" id="section-5"><span class="guide-section-index">05</span><div><h2>Blur whole page</h2><p>One button covers the whole page, frames and all, in the style you chose, until you press it again or clear the blurs. It is not saved, so a reload shows the page again. While it is on, the other tools are off.</p></div></section>
+<section class="guide-prose-section" id="section-6"><span class="guide-section-index">06</span><div><h2>The toolbar itself</h2><p>The toolbar is one row. Drag its grip to any of eight spots around the window, or move it with the arrow keys; shrink it to a small pill that shows how many blurs there are. While you work with a tool it steps aside, and it is never part of a capture.</p></div></section>
+<section class="guide-prose-section" id="section-7"><span class="guide-section-index">07</span><div><h2>What captures and text do</h2><p>Every capture mode shows the covers, including over headers that stay pinned while you scroll. While a page has any cover, ScrollSnapshot gives out none of its text: not to the text reader, Page as Markdown, the selection bar or a connected agent. Clear the blurs to read it.</p>
+<p>Two captures are refused rather than risk showing something: Turbo at a chosen width, when the page has area or word covers that would land in the wrong place, and a fullscreen video under a cover, because covers cannot draw over fullscreen.</p></div></section>
+          <aside class="guide-note"><span>KEEP IN MIND</span><p>Live blur is a cover, not a guarantee. Dialogs, popovers and fullscreen content draw above every cover, and detection can miss things. Check a capture before you share it.</p></aside>
+        </div>
+      </div>
+    </article>
+    <nav class="guide-prev-next shell" aria-label="Adjacent guides"><a href="../emoji/"><span>← PREVIOUS GUIDE</span><strong>Put an emoji on it</strong></a><a href="../find-sensitive-data/"><span>NEXT GUIDE →</span><strong>Find sensitive data</strong></a></nav>
+    <section class="guide-related shell" aria-labelledby="related-heading"><div class="section-label"><span>KEEP READING</span><span class="label-line"></span></div><h2 id="related-heading">Nearby ideas.</h2><div class="guide-related-grid"><a href="../find-sensitive-data/"><span>PRIVACY ↗</span><strong>Find sensitive data</strong><small>Cover every email, phone number, card and key on a page in one press, plus words of your own.</small></a><a href="../keep-blurs/"><span>PRIVACY ↗</span><strong>Keep blurs on a page or a site</strong><small>Save element and area covers so they come back every time the page opens.</small></a><a href="../demo-mode/"><span>PRIVACY ↗</span><strong>Demo mode</strong><small>Cover sensitive data on every page you open, until you turn it off. Pause it on one site or one tab.</small></a></div></section>
+  </main>
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div><a class="brand" href="../../"><img src="../../icon-128.png" alt="" width="30" height="30"><span>ScrollSnapshot</span></a><p>Capture the page. Keep the detail.</p></div>
+      <div class="footer-links"><a href="../../">Homepage</a><a href="../../guides/">Guides</a><a href="../../changelog/">Changelog</a><a href="../../privacy/">Privacy policy</a><a href="../../support/">Support</a></div>
+      <div class="footer-bottom"><span>© <span id="year">2026</span> ScrollSnapshot</span><span>Made for the page in front of you.</span></div>
+      <p class="footer-credit">Developed by <a href="https://syedzubair.com/" target="_blank" rel="noopener noreferrer">syedzubair.com</a></p>
+    </div>
+  </footer>
+</body>
+</html>

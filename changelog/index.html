@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f5f5f1">
-  <meta name="description" content="What changed in every ScrollSnapshot release. Version 1.5.0: video frames.">
+  <meta name="description" content="What changed in every ScrollSnapshot release. Version 1.6.0: live blur and a cleaner page.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Changelog">
-  <meta property="og:description" content="What changed in every ScrollSnapshot release. Version 1.5.0: video frames.">
+  <meta property="og:description" content="What changed in every ScrollSnapshot release. Version 1.6.0: live blur and a cleaner page.">
   <meta property="og:url" content="https://syedzubair23.github.io/scrollsnapshot-site/changelog/">
   <meta property="og:image" content="https://syedzubair23.github.io/scrollsnapshot-site/assets/site-popup.png">
   <link rel="canonical" href="https://syedzubair23.github.io/scrollsnapshot-site/changelog/">
@@ -56,16 +56,36 @@
   </header>
   <main id="main">
     <section class="guide-index-hero shell">
-      <div class="guide-eyebrow reveal"><span>CHANGELOG</span><span class="kicker-rule"></span><span>6 RELEASES</span></div>
+      <div class="guide-eyebrow reveal"><span>CHANGELOG</span><span class="kicker-rule"></span><span>7 RELEASES</span></div>
       <h1 class="reveal">What changed,<br><em>release by release.</em></h1>
-      <div class="guide-index-intro reveal"><p>New features, changes to how things work, and fixes, newest first. Each new feature links to a guide that explains it. Chrome updates the extension for you; version 1.5.0 is the latest.</p><span>SCROLL FOR THE LATEST ↓</span></div>
+      <div class="guide-index-intro reveal"><p>New features, changes to how things work, and fixes, newest first. Each new feature links to a guide that explains it. Chrome updates the extension for you; version 1.6.0 is the latest.</p><span>SCROLL FOR THE LATEST ↓</span></div>
     </section>
     <div class="guide-article-grid release-grid shell">
-      <aside class="guide-article-aside" aria-label="Releases"><span>RELEASES</span><a href="#v1-5-0">1.5.0<small>October 28, 2026</small></a><a href="#v1-4-0">1.4.0<small>October 25, 2026</small></a><a href="#v1-3-0">1.3.0<small>October 22, 2026</small></a><a href="#v1-2-0">1.2.0<small>October 16, 2026</small></a><a href="#v1-1-0">1.1.0<small>October 15, 2026</small></a><a href="#v1-0-0">1.0.0<small>September 19, 2026</small></a><a class="guide-aside-all" href="../guides/">All guides ↗</a></aside>
+      <aside class="guide-article-aside" aria-label="Releases"><span>RELEASES</span><a href="#v1-6-0">1.6.0<small>November 11, 2026</small></a><a href="#v1-5-0">1.5.0<small>October 28, 2026</small></a><a href="#v1-4-0">1.4.0<small>October 25, 2026</small></a><a href="#v1-3-0">1.3.0<small>October 22, 2026</small></a><a href="#v1-2-0">1.2.0<small>October 16, 2026</small></a><a href="#v1-1-0">1.1.0<small>October 15, 2026</small></a><a href="#v1-0-0">1.0.0<small>September 19, 2026</small></a><a class="guide-aside-all" href="../guides/">All guides ↗</a></aside>
       <div class="guide-article-body release-list">
-        <section class="release" id="v1-5-0" aria-labelledby="v1-5-0-title">
+        <section class="release" id="v1-6-0" aria-labelledby="v1-6-0-title">
       <header class="release-head">
-        <div class="release-meta"><span class="release-version">1.5.0</span><span class="release-badge">Latest</span><time datetime="2026-10-28">October 28, 2026</time></div>
+        <div class="release-meta"><span class="release-version">1.6.0</span><span class="release-badge">Latest</span><time datetime="2026-11-11">November 11, 2026</time></div>
+        <h2 id="v1-6-0-title">Live blur and a cleaner page</h2>
+        <p>Version 1.6 covers private details on the page itself before you capture or share your screen, and leaves ads, cookie banners and chat bubbles out of your captures.</p>
+        <a class="release-highlights" href="../guides/whats-new-1-6/">Read the highlights <span aria-hidden="true">↗</span></a>
+      </header>
+      <details class="release-group" data-group="added" open>
+        <summary><span>Added</span><small>8</small></summary>
+        <ul class="release-items"><li><strong>Live blur</strong><p>Cover private text and parts of a page while you work, so screenshots and screen shares show the cover instead: an element, an area, some words, or the whole page. Black out is the default style. While a page has covers, its text is withheld from the text reader, Page as Markdown and agents.</p><a class="release-guide" href="../guides/live-blur/">Read the guide <span aria-hidden="true">↗</span></a></li><li><strong>Find sensitive data</strong><p>One press covers email addresses, phone numbers, cards, bank account numbers, API keys, private keys and connection strings, plus words and patterns you add in Settings.</p><a class="release-guide" href="../guides/find-sensitive-data/">Read the guide <span aria-hidden="true">↗</span></a></li><li><strong>Keep blurs for a page or a site</strong><p>Element and area covers can be kept, and come back when the page reloads. A kept cover that cannot be found is counted and shown, never silent.</p><a class="release-guide" href="../guides/keep-blurs/">Read the guide <span aria-hidden="true">↗</span></a></li><li><strong>Demo mode</strong><p>Covers sensitive data on every page, new ones before they are painted, until you turn it off or close the browser. Pause it on one site or one tab. An amber dot on the toolbar icon shows while it is on.</p><a class="release-guide" href="../guides/demo-mode/">Read the guide <span aria-hidden="true">↗</span></a></li><li><strong>View, copy or remove one cover, and peek</strong><p>Each cover has View (hold to look under it), Copy (the hidden text to your clipboard) and Remove. Hold Ctrl+Alt to peek under every cover. Hide tab title keeps the tab strip from showing the page&#39;s title.</p><a class="release-guide" href="../guides/cover-controls/">Read the guide <span aria-hidden="true">↗</span></a></li><li><strong>Clean up page</strong><p>A popup switch that leaves ads, cookie and consent banners and chat bubbles out of every capture, image and text, and puts them back the moment it ends. It blocks nothing while you browse.</p><a class="release-guide" href="../guides/clean-up-page/">Read the guide <span aria-hidden="true">↗</span></a></li><li><strong>Agents can cover and clean up</strong><p>A connected coding agent can cover private details before it captures and ask for a cleaned-up capture. It can only remove the covers it added, never yours.</p><a class="release-guide" href="../guides/agent-connection/">Read the guide <span aria-hidden="true">↗</span></a></li><li><strong>Two new commands</strong><p>Open the live blur toolbar, and turn demo mode on or off. They have no default keys; set them at chrome://extensions/shortcuts.</p><a class="release-guide" href="../guides/settings/">Read the guide <span aria-hidden="true">↗</span></a></li></ul>
+      </details>
+      <details class="release-group" data-group="changed" open>
+        <summary><span>Changed</span><small>2</small></summary>
+        <ul class="release-items"><li><strong>Send to agent says where your screenshot is going</strong><p>With no agent connected it says the screenshot is kept until your agent checks for it. With none set up it says so, links to Settings, and does not send.</p><a class="release-guide" href="../guides/send-to-agent/">Read the guide <span aria-hidden="true">↗</span></a></li><li><strong>Some captures are refused to stay honest</strong><p>Turbo at a chosen width is refused when a page has area or word covers, and a fullscreen video under a cover is refused, since a cover can&#39;t follow either.</p><a class="release-guide" href="../guides/live-blur/">Read the guide <span aria-hidden="true">↗</span></a></li></ul>
+      </details>
+      <details class="release-group" data-group="fixed" open>
+        <summary><span>Fixed</span><small>1</small></summary>
+        <ul class="release-items"><li><strong>The Sent card stays put</strong><p>After sending to an agent, the Sent card stays against the toolbar instead of floating above it.</p><a class="release-guide" href="../guides/send-to-agent/">Read the guide <span aria-hidden="true">↗</span></a></li></ul>
+      </details>
+    </section>
+    <section class="release" id="v1-5-0" aria-labelledby="v1-5-0-title">
+      <header class="release-head">
+        <div class="release-meta"><span class="release-version">1.5.0</span><time datetime="2026-10-28">October 28, 2026</time></div>
         <h2 id="v1-5-0-title">Video frames</h2>
         <p>Version 1.5 saves the frame a video is showing at the video&#39;s own resolution, with a burst of five, subtitles, folders per platform and an optional capture button over videos.</p>
         <a class="release-highlights" href="../guides/whats-new-1-5/">Read the highlights <span aria-hidden="true">↗</span></a>

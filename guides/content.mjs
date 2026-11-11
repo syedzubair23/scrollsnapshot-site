@@ -4,6 +4,7 @@ import { releaseArticles } from "./content-release.mjs";
 import { articles13 } from "./content-1-3.mjs";
 import { articles14 } from "./content-1-4.mjs";
 import { articles15 } from "./content-1-5.mjs";
+import { articles16 } from "./content-1-6.mjs";
 
 const baseArticles = [
   {
@@ -157,7 +158,7 @@ const baseArticles = [
       { title: "Where to find it", paragraphs: ["Turn Turbo on in the popup and a Viewport width dropdown appears beneath it, with Full width, mobile and tablet presets, and a Custom choice. It is available for Full page and Slices. Standard mode cannot offer it: that engine photographs the real browser window, so only Turbo's DevTools emulation can lay the page out at another width."], steps: ["Enable Chosen viewport width on the Features page if it is hidden.", "Choose Full page or Slices, turn Turbo on, then select a preset or type a custom width.", "Capture and check the result for a warning if Turbo could not apply the width."] },
       { title: "Zoomed tabs come out the right size", paragraphs: ["Turbo allows for the tab's browser zoom. A tab at 125% or 150% no longer produces a magnified, shorter capture, and a chosen width comes out as asked: 375 pixels is 375 pixels, not 300."] },
     ],
-    note: "This applies only to Turbo captures of Full page and Slices. This screen, Region, and the standard engine use the actual window width.",
+    note: "This applies only to Turbo captures of Full page and Slices. This screen, Region, and the standard engine use the actual window width. A page with live blur area or word covers is refused at a chosen width, since the covers would land in the wrong place.",
   },
   {
     slug: "start-from-scroll",
@@ -209,7 +210,7 @@ const baseArticles = [
     imageCaption: "The picker outlines the element under the pointer; click it to leave it out.",
     sections: [
       { title: "What changes", paragraphs: ["The chosen element is temporarily removed from the page layout, so content beneath it can close the gap. ScrollSnapshot restores it when the capture finishes, fails, or is cancelled. Text extraction also follows the page without the omitted element."] },
-      { title: "Use it before selecting a region", steps: ["Enable Leave out elements on the Features page if needed.", "Start the capture and click the obstructing element in the picker.", "Complete the capture and inspect the content that was revealed."] },
+      { title: "Use it before selecting a region", steps: ["Turn on Pick elements to leave out in the popup.", "Press Capture. A picker opens on the page: click each element to leave out, and press ↑ to take the larger box around it.", "Press Enter to capture. The page gets every element back when the capture ends."] }, { title: "Let Clean up page take the usual ones", paragraphs: ["Ads, cookie banners and chat bubbles are what most people pick. Clean up page, the switch just above, leaves those out on its own; with both on, the picker opens on the page already cleaned up, for whatever it missed."] },
     ],
     note: "Use this for an obstruction, not for editing private pixels. Redact a finished capture when information must be covered in the saved file.",
   },
@@ -444,7 +445,7 @@ const baseArticles = [
       { title: "The browser has the source", paragraphs: ["The reader preserves document order and structure, and reads the actual characters, including non-Latin scripts. Markdown keeps headings, emphasis, links, lists, code blocks, images, quotes and tables. The navbar, the banner and the footer are left out so you get the article; Keep navbar and footer in text, in the popup, puts them back."] },
       { title: "Slices carry theirs too", paragraphs: ["A Slices ZIP has a .txt and a .md next to each picture, holding the words of that slice, and the whole page's text alongside."] },
     ],
-    note: "Words baked into an image or a cross-origin frame are not page text the extension can read. A redaction withholds extracted text so it cannot expose what the image covers.",
+    note: "Words baked into an image or a cross-origin frame are not page text the extension can read. A redaction withholds extracted text so it cannot expose what the image covers, and while a page has live blur covers, none of its text is given out.",
   },
   {
     slug: "colour-palette",
@@ -513,12 +514,17 @@ const baseArticles = [
         image: { file: "guide-agent-settings.webp", width: 1600, height: 1000, alt: "Settings, Agent connection", caption: "The Agent connection page in Settings." },
       },
       {
+        title: "Live blur: style, detection and saved sites",
+        paragraphs: ["Live blur sets the style a new cover is drawn in, Blur's strength, which kinds of sensitive data Find looks for, and your own words and patterns, kept on this device only. It lists the sites where you kept blurs and the sites where demo mode is paused, each with Remove, and has Hide tab title by default and Demo mode. The guide to live blur walks through it."],
+        image: { file: "guide-blur-settings.webp", width: 1600, height: 1000, alt: "Settings, Live blur", caption: "The Live blur page in Settings." },
+      },
+      {
         title: "Slices: choose the shape of each piece",
         paragraphs: ["Slice by Screenful follows the visible viewport, Height uses a pixel height you enter, and Count divides the page into the number of pieces you choose. Overlap between slices adds 0–200 pixels of shared content at each boundary so adjacent images are easier to follow. These controls set the default for Slices captures."],
       },
       {
         title: "Shortcuts: see and change keys",
-        paragraphs: ["The Shortcuts tab shows the current key for each extension command, or “unset” where none is assigned. Choose Change shortcuts to open Chrome's extension shortcut page, where browser-managed bindings can be edited."],
+        paragraphs: ["The Shortcuts tab shows the current key for each extension command, or “unset” where none is assigned. Choose Change shortcuts to open Chrome's extension shortcut page, where browser-managed bindings can be edited. Open the live blur toolbar and Turn demo mode on or off start unset; give them a key there if you use them often."],
       },
       {
         title: "Reset a page, or everything",
@@ -535,5 +541,5 @@ const baseArticles = [
 
 // Release-era guides live in their own file. Listed by area, in the order of `categories`, so the
 // directory and the numbering stay grouped; the sort is stable within an area.
-const order = ["Capture", "Edit", "Output", "Tools", "Settings", "Release"];
-export const articles = [...baseArticles, ...releaseArticles, ...articles13, ...articles14, ...articles15].sort((a, b) => order.indexOf(a.category) - order.indexOf(b.category));
+const order = ["Capture", "Edit", "Privacy", "Output", "Tools", "Settings", "Release"];
+export const articles = [...baseArticles, ...releaseArticles, ...articles13, ...articles14, ...articles15, ...articles16].sort((a, b) => order.indexOf(a.category) - order.indexOf(b.category));
