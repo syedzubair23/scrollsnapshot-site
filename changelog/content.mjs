@@ -4,7 +4,7 @@
 export const releases = [
   {
     version: "1.6.0",
-    date: "2026-11-11",
+    date: "2026-11-12",
     title: "Live blur and a cleaner page",
     summary: "Version 1.6 covers private details on the page itself before you capture or share your screen, and leaves ads, cookie banners and chat bubbles out of your captures.",
     highlights: "whats-new-1-6",
