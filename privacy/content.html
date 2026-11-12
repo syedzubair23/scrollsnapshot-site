@@ -14,7 +14,9 @@
     draw or specify. It can also save the frame a video on the page is showing. From Settings, you can also start a batch over the web tabs in your current
     window or a list of addresses you paste. It can extract the text and colours shown in what
     you capture, save a whole page as Markdown, and let you crop, redact or annotate the result
-    before you save it.
+    before you save it. Its live blur tool covers private details on the page itself, before you
+    capture or share your screen, and Clean up page leaves ads, cookie banners and chat bubbles
+    out of a capture.
   </p>
   <p>
     You have to trigger every one of these actions yourself, by clicking the extension's icon,
@@ -23,7 +25,10 @@
     ScrollSnapshot never captures, reads or acts
     on a page in the background, or without that action from you. The one exception is a coding
     agent you connect yourself: once you turn the agent connection on and pair it, that agent can
-    ask ScrollSnapshot to read or capture pages, within the limits described below.
+    ask ScrollSnapshot to read or capture pages, within the limits described below. Live blur,
+    if you use it, also runs on the sites where you kept a blur and, while you have demo mode on,
+    on every page, so it can cover what you asked it to; it reads a page only to find what to
+    cover, and sends nothing anywhere.
   </p>
 
   <h2>What data ScrollSnapshot accesses, and why</h2>
@@ -47,13 +52,17 @@
       only when you press one of its buttons. If you turn on the capture button for videos (off
       by default), another small script is added to the pages you visit so the button can appear
       over a video; it reads no page content, acts only when you press it, and is removed when you
-      turn the button off.</td>
+      turn the button off. If you use live blur, its script is added to the sites where you kept a
+      blur, and to every page while demo mode is on (except sites where you paused it); it reads
+      the page's text, on your device, only to find what to cover, and transmits nothing.</td>
     </tr>
     <tr>
       <td><code>storage</code></td>
       <td>Saves your settings and the current capture result inside your browser. If Capture
       history is on, it also keeps the number of past captures you choose. If you use the agent
       connection, it keeps its pairing secret and the screenshots you chose to send your agent.
+      If you keep a live blur, it keeps the blur's rule, the sites you kept blurs on, the sites
+      where you paused demo mode, and the words and patterns you entered.
       See "Where your data is stored" below.</td>
     </tr>
     <tr>
@@ -108,6 +117,10 @@
     next capture replaces it. Video frames are captures like any other, kept the same way.</li>
     <li><strong>The agent connection's pairing secret</strong>, and screenshots you send your
     agent (the newest 20), are kept only on this device. The secret is never synced.</li>
+    <li><strong>Live blur's kept blurs</strong>, the list of sites you kept them on, the sites
+    where you paused demo mode, and your words and patterns are kept only on this device and are
+    never synced. Whether demo mode is on lasts only until you close the browser. Your blur style,
+    strength and detection choices are ordinary settings, and sync like the rest.</li>
     <li><strong>Settings</strong> (format, engine, quality, the sites where you hid the video
     button or chose your own burst and subtitle settings, and so on) are kept in Chrome's
     <code>storage</code> API, which may sync across your own signed-in Chrome browsers the same
@@ -119,6 +132,16 @@
     service, and has no way to see what you've captured, stored, or deleted. There's nothing for
     us to collect, because nothing leaves your device. Its only connection of its own is the
     optional agent connection, which talks to a server on your own computer and nowhere else.
+  </p>
+
+  <h2>Live blur</h2>
+  <p>
+    Live blur draws covers over parts of the page you are looking at, so a screenshot or a screen
+    share shows the cover instead. Finding sensitive data, such as email addresses or card
+    numbers, happens entirely in your browser; the text it reads never leaves your device and is
+    not stored. While a page has covers, ScrollSnapshot withholds that page's text from its own
+    text tools and from a connected agent. Detection can miss things, so check a capture before
+    you share it.
   </p>
 
   <h2>The optional agent connection</h2>

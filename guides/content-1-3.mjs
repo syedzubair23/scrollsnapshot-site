@@ -94,7 +94,7 @@ export const articles13 = [
         paragraphs: ["Headings, emphasis, links, lists, quotes, images, tables and code blocks, with their language where the page says it. Code is kept as code wherever a site puts it, prompts and all, without the line numbers or copy buttons. Menus, sidebars, footers and promo boxes are left out unless you ask to keep the navbar and footer, and tables used only for layout read as their content."],
       },
     ],
-    note: "All of this happens in your browser. Text inside an image, or in a frame from another site, is not page text and cannot be read.",
+    note: "All of this happens in your browser. Text inside an image, or in a frame from another site, is not page text and cannot be read. While a page has live blur covers, or demo mode is covering it, its text is withheld; clear the blurs to read it.",
   },
   {
     slug: "agent-connection",
@@ -112,12 +112,16 @@ export const articles13 = [
     sections: [
       {
         title: "Set it up once",
-        steps: ["Open ScrollSnapshot → Settings → Agent connection and turn on Allow an agent to connect.", "Choose your agent. Copy the line shown for it and your operating system, and run it in a terminal (or paste the settings snippet into your client). It needs Node.js 22 or newer; nothing else to download.", "Run npx -y scrollsnapshot-mcp pair, copy the secret it prints, paste it into Settings and press Pair.", "Start your agent. Within 30 seconds the toolbar icon shows AI: it is connected."],
+        steps: ["Install ScrollSnapshot from the Chrome Web Store if you haven't already: https://chromewebstore.google.com/detail/scrollsnapshot/hhahcllpchhmkgmioaekblbnblodbiic", "Open ScrollSnapshot → Settings → Agent connection and turn on Allow an agent to connect.", "Choose your agent. Copy the line shown for it and your operating system, and run it in a terminal (or paste the settings snippet into your client). It needs Node.js 22 or newer; nothing else to download.", "Run npx -y scrollsnapshot-mcp pair, copy the secret it prints, paste it into Settings and press Pair.", "Start your agent. Within 30 seconds the toolbar icon shows AI: it is connected."],
         tips: ["If it does not connect, run npx -y scrollsnapshot-mcp doctor. It checks each link and prints the line that fixes what is wrong."],
       },
       {
         title: "What an agent can do",
         paragraphs: ["Read a page: its outline of headings, landmarks, forms and tables, each with a selector, and its text, plain or as Markdown. Capture it: the screen, the whole page, one element by selector, or an area, returned in tiles sized to keep the agent's token use down, with the full-resolution file saved on disk. Read your capture history, and pick up screenshots you send it.", "It can also ask you to choose an area. The region picker opens on your screen, and the note and drawings you add reach the agent as words and coordinates, not only pixels."],
+      },
+      {
+        title: "Covers and a cleaned-up page",
+        paragraphs: ["An agent can cover private details with live blur before it captures: everything a selector matches, an area, or whatever Find sensitive data finds. Its covers work like yours, and while they are up the page's text is withheld from it too. It can take off only the covers it added, never yours, and they are not kept.", "It can also ask for a capture with Clean up page on or off. Without asking, it gets whatever you chose in the popup. Both need ScrollSnapshot 1.6 or newer."],
       },
       {
         title: "Which tabs, and what it may change",
@@ -155,7 +159,8 @@ export const articles13 = [
       },
       {
         title: "Whether or not an agent is listening",
-        paragraphs: ["What you send waits in a small inbox on this device, the newest 20, until an agent picks it up. Anything you redacted is described only by where it is; what it hid never travels."],
+        paragraphs: ["What you send waits in a small inbox on this device, the newest 20, until an agent picks it up. Anything you redacted is described only by where it is; what it hid never travels.", "The panel tells you which it will be. With no agent connected right now, it says the screenshot is kept until your agent checks for it, and Send still works. With no agent set up at all, it says so, offers Set up agent connection, and Send stays off, since nothing would ever pick the screenshot up. If your agent's pairing secret no longer matches, it says that too."],
+        image: { file: "guide-send-warning.webp", width: 1600, height: 1000, alt: "The Send to agent panel on the result page with an amber warning that no agent is set up to receive this yet, a Set up agent connection button, and the Send button turned off", caption: "No agent set up: the panel says so and will not send." },
       },
     ],
     note: "Send to agent appears only while the agent connection is on in Settings. What you send goes to the agent server on your own computer, and from there wherever your agent sends what you show it.",

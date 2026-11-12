@@ -7,7 +7,7 @@ import { releases } from "../changelog/content.mjs";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const site = "https://syedzubair23.github.io/scrollsnapshot-site/";
 const store = "https://chromewebstore.google.com/detail/scrollsnapshot/hhahcllpchhmkgmioaekblbnblodbiic";
-const categories = ["Capture", "Edit", "Output", "Tools", "Settings", "Release"];
+const categories = ["Capture", "Edit", "Privacy", "Output", "Tools", "Settings", "Release"];
 const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (character) => ({
   "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
 })[character]);
@@ -305,7 +305,7 @@ const plainPages = [
     crumb: "Privacy policy",
     title: "Privacy policy",
     lead: "ScrollSnapshot captures the page you choose on your own device. Nothing you capture is sent anywhere.",
-    meta: "Last updated: 28 October 2026",
+    meta: "Last updated: 11 November 2026",
     description: "ScrollSnapshot's privacy policy: what it accesses, where your captures are stored, and what it never collects.",
   },
   {

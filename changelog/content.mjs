@@ -3,6 +3,41 @@
 // `guide` is the slug of a feature guide (guides/content.mjs) that explains it in depth.
 export const releases = [
   {
+    version: "1.6.0",
+    date: "2026-11-12",
+    title: "Live blur and a cleaner page",
+    summary: "Version 1.6 covers private details on the page itself before you capture or share your screen, and leaves ads, cookie banners and chat bubbles out of your captures.",
+    highlights: "whats-new-1-6",
+    groups: [
+      {
+        name: "Added",
+        items: [
+          { title: "Live blur", guide: "live-blur", text: "Cover private text and parts of a page while you work, so screenshots and screen shares show the cover instead: an element, an area, some words, or the whole page. Black out is the default style. While a page has covers, its text is withheld from the text reader, Page as Markdown and agents." },
+          { title: "Find sensitive data", guide: "find-sensitive-data", text: "One press covers email addresses, phone numbers, cards, bank account numbers, API keys, private keys and connection strings, plus words and patterns you add in Settings." },
+          { title: "Keep blurs for a page or a site", guide: "keep-blurs", text: "Element and area covers can be kept, and come back when the page reloads. A kept cover that cannot be found is counted and shown, never silent." },
+          { title: "Demo mode", guide: "demo-mode", text: "Covers sensitive data on every page, new ones before they are painted, until you turn it off or close the browser. Pause it on one site or one tab. An amber dot on the toolbar icon shows while it is on." },
+          { title: "View, copy or remove one cover, and peek", guide: "cover-controls", text: "Each cover has View (hold to look under it), Copy (the hidden text to your clipboard) and Remove. Hold Ctrl+Alt to peek under every cover. Hide tab title keeps the tab strip from showing the page's title." },
+          { title: "Clean up page", guide: "clean-up-page", text: "A popup switch that leaves ads, cookie and consent banners and chat bubbles out of every capture, image and text, and puts them back the moment it ends. It blocks nothing while you browse." },
+          { title: "Agents can cover and clean up", guide: "agent-connection", text: "A connected coding agent can cover private details before it captures and ask for a cleaned-up capture. It can only remove the covers it added, never yours." },
+          { title: "Two new commands", guide: "settings", text: "Open the live blur toolbar, and turn demo mode on or off. They have no default keys; set them at chrome://extensions/shortcuts." },
+        ],
+      },
+      {
+        name: "Changed",
+        items: [
+          { title: "Send to agent says where your screenshot is going", guide: "send-to-agent", text: "With no agent connected it says the screenshot is kept until your agent checks for it. With none set up it says so, links to Settings, and does not send." },
+          { title: "Some captures are refused to stay honest", guide: "live-blur", text: "Turbo at a chosen width is refused when a page has area or word covers, and a fullscreen video under a cover is refused, since a cover can't follow either." },
+        ],
+      },
+      {
+        name: "Fixed",
+        items: [
+          { title: "The Sent card stays put", guide: "send-to-agent", text: "After sending to an agent, the Sent card stays against the toolbar instead of floating above it." },
+        ],
+      },
+    ],
+  },
+  {
     version: "1.5.0",
     date: "2026-10-28",
     title: "Video frames",
